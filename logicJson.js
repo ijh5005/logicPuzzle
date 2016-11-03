@@ -135,8 +135,8 @@ $(document).ready( function () {
 		    title: "TELEVISION SHOWDOWN",
 		    story: "Tiffany Applebottom is a professional slacker. She spent her entire life watching tv and sitting on the couch. Her life was based on watching romantic comedies, survivals shows, and any other show that the Disarm Network creates. So imagine her surprise when she turned on her television and realized none of her shows came on at the right time. Tiffany wants to write a strongly worded letter to the Disarm Network complaining about the network&#39s sudden changes. In order for her to write the letter she must know the name of the show, what time it used to come on, the shows new time, and what genre the show is. Please help TIffany figure this out quickly before she does something crazy, like get a job.", //&#39 is the symbol an apostrophe
 		    colors: 	{
-		    				light: "#E4D106",
-		    				medium: "black",
+		    				light: "#FFFF00",
+		    				medium: "#E4D106",
 		    				dark: "#B1A200"
 		    			},
 		    storyPaper: "storyPaperYellow.png",
