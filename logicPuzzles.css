@@ -41,7 +41,7 @@ body {
 }
 
 #puzzleGallery{
-	width: 90%;
+	width: 1712px;
 	margin: 0 auto;
 	text-align: center;
 	zoom: 100%;
@@ -88,7 +88,9 @@ body {
 
 #puzzleContainer {
 	display: none;
-	zoom: 400%;
+	zoom: 236%;
+	width: 800px;
+	margin: 0 auto;
 }
 
 #puzzleStory {

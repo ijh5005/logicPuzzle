@@ -590,8 +590,8 @@ $(document).ready( function () {
 			var location = $(this).attr("data");
 			tempHolder = location;
 			$("#puzzleGallery").animate({
-				zoom: "60%"
-			}, {duration: 800, complete: function (){
+				zoom: "40%"
+			}, {duration: 1000, complete: function (){
 				$("#puzzleGallery").css("display", "none");
 				$("#puzzleContainer").delay(50).animate({
 					zoom: "100%"
@@ -705,7 +705,7 @@ $(document).ready( function () {
 				borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption", puzzle5by5[tempHolder].colors.light);
 				borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.dark);
 				textColorTheme("#start, #backButton, #resetButton, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
-			//clue box switch
+//clue box switch
 				var clueMarkup = function (selector, target) {
 				  $(selector).html("");
 				  $(selector).append(target);

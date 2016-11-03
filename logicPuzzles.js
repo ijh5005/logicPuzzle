@@ -70,12 +70,15 @@ $(document).ready( function () {
   	//go back to gallery
   	$("#story #backButton").click( function () {
   		$("body").css("overflow-y", "").css("background-color", "#CCC");
-  		$("#puzzleStory").css("display", "none");
+  		//$("#puzzleStory").css("display", "none");
   		$(".puzzleOption").css("display", "block");
-  		$(".puzzleOption").attr("id","");
-		$("#puzzleContainer").fadeOut().css("zoom", "400%");
+  		//$(".puzzleOption").attr("id","");
+		$("#puzzleContainer").fadeOut().delay(800).css("zoom", "236%");
 		$("#puzzleGallery").css("zoom", "100%").delay(800).fadeIn();
 		$("#storyPage").css("background-image", "none");
+		$(".guessBox").css("background-color", "white");
+		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
+		$("#puzzleStory.puzzle").css("display", "none");
 	});
   	
   	//go to the previous screen
