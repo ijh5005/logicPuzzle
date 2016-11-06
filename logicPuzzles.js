@@ -5,9 +5,9 @@ $(document).ready( function () {
 
   //populate the .guessHomeBox with a 5 by 5 grid of .guessBox's
 	  var populationGuessHome = function () {
-	    var markup = "<div class='guessBox floatLeft'></div";
+	    var markup = "<div class='guessBox floatLeft' correct='false'></div";
 	    for ( i = 0; i < 24; i++) {
-	      markup += "><div class='guessBox floatLeft'></div";
+	      markup += "><div class='guessBox floatLeft' correct='false'></div";
 	    }
 	    markup += ">";
 	    $(".guessHomeBox").html(markup);
@@ -37,25 +37,26 @@ $(document).ready( function () {
   //toggle correct answer indicator
   $(".guessBox").click(function () {
 		var backgroundColor = $(this).css("background-color");
-		var medium = $("#start").css("background-color");
-		var dark = $("#story").css("background-color");
+		var dark = $("#start").css("background-color");
+		var medium = $("#story").css("background-color");
 
 		if (backgroundColor == "rgb(255, 255, 255)" || backgroundColor == "rgb(187, 187, 187)"){
-		  $(this).css("background-color", medium);
+		  $(this).css("background-color", dark).attr("correct", false);
 		}
-		else if (backgroundColor == medium){
-			$(this).css("background-color", dark);
+		else if (backgroundColor == dark){
+			$(this).css("background-color", medium).attr("correct", true);;
 		}
 		else if ( $(this).parent().attr("id") == "topMiddleThird" || $(this).parent().attr("id") == "bottomMiddleSecond" ){
-			$(this).css("background-color", "rgb(187, 187, 187)");
+			$(this).css("background-color", "rgb(187, 187, 187)").attr("correct", false);
 		}
 		else {
-			$(this).css("background-color", "rgb(255, 255, 255)");
+			$(this).css("background-color", "rgb(255, 255, 255)").attr("correct", false);
 		}
 	});
 
   	//start the puzzle (on start click)
 	$("div#start").click( function () {
+		//$("#win").fadeOut("fast");
 		$("div#story").animate({
 			top: "-=900px"
 		}, {duration: 1000,  start: function () {
@@ -99,4 +100,5 @@ $(document).ready( function () {
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
 	});
+
 });

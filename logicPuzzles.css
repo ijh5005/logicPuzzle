@@ -132,7 +132,8 @@ body {
 }
 
 #backButton,
-#resetButton {
+#resetButton,
+#submit {
 	/*color: #A35DA3;*/
 	/*background-color: #410041;*/
 	border-radius: 10px;
@@ -147,6 +148,12 @@ body {
 
 #resetButton {
 	top: 95px;
+}
+
+#submit {
+	top: 816px;
+    left: 1218px;
+	width: 220px;
 }
 
 .puzzleDiv {
@@ -290,9 +297,10 @@ body {
 }
 
 .leftBar {
-  height: 12.25em;
+  height: 12.50em;
   width: 2.25em;
   border: 0.125em solid;
+  text-align: center;
 /*  border-color: #A35DA3;
 */}
 
@@ -337,6 +345,7 @@ body {
   height: 2.25em;
   width: 12.25em;
   border: 0.125em solid;
+  text-align: center;
 /*  border-color: #A35DA3;
 */}
 
@@ -422,9 +431,75 @@ body {
   	padding: 1em;
   	position: relative;
   	top: 0.39em;
+  	overflow-y: scroll;
 }
+
 #currentClue span {
   	word-wrap: break-word;
   	line-height: 1.5;
   	font-family: 'Tillana', cursive;
+}
+
+#win {
+	font-family: 'Sigmar One', cursive;
+	font-size: 138px;
+	position: relative;
+    top: 200px;
+    float: left;
+}
+
+#win div {
+	margin: 0 auto;
+	background-color: #CCC;
+    height: 156px;
+    border-radius: 10px;
+    border: 6px solid #AAA;
+}
+
+#youwon {
+	top: -40px;
+    left: 2px;
+    position: relative;
+}
+
+.red {
+	color: #E54D51;
+	position: relative;
+	z-index: 9;
+}
+.orange {
+	left: 6px;
+	color: #F05C25;
+	position: relative;
+	z-index: 8;
+	top: -226px;
+}
+.yellow {
+	left: 12px;
+	color: #FFDE43;
+	position: relative;
+	z-index: 7;
+	top: -452px;
+}
+.blue {
+	left: 18px;
+	color: #3C44EC;
+	position: relative;
+	z-index: 6;
+	top: -678px;
+}
+.green {
+	left: 24px;
+	color: #008837;
+	position: relative;
+	z-index: 5;
+	top: -904px;
+}
+
+.purple {
+	left: 30px;
+	color: #741F74;
+	position: relative;
+	z-index: 4;
+	top: -1130px;
 }

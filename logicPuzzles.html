@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logic Puzzles</title>
+	<link rel="stylesheet" type="text/css" href="logicPuzzles.css">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400i|Tillana" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Cormorant+Garamond:400,700|Permanent+Marker|Shadows+Into+Light+Two|Six+Caps" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+</head>
+<body>
+
+	<div id="puzzleGallery">
+		
+	</div>
+
+	<div id="puzzleContainer">
+		<div id="story">
+			<div id="storyPage">
+				<div id="pageLiner">
+					<div id="title"></div>
+					<span></span>
+				</div>
+
+			</div>
+			<div id="start"><span>START</span></div>
+			<div id="backButton">BACK</div>
+		</div>
+	</div>
+
+	<div id="puzzleStory" class="puzzle">
+		<div id="backButton">BACK</div>
+		<div id="resetButton">RESET</div>
+		<div id="submit">Submit</div>
+		<div class="puzzleDiv">
+			<div id="puzzleStoryPage">
+				<div id="gameBoard">
+					<div id="puzzleGameBoardInside">
+						<div id="topFirst" class="gridbox floatLeft"></div
+						><div id="topSecond" class="gridbox floatLeft topBarHome"></div
+						><div id="topThird" class="gridbox floatLeft topBarHome"></div
+						><div id="topLast" class="gridbox floatLeft topBarHome"></div
+						><div id="topMiddleFirst" class="gridbox floatLeft leftBarHome"></div
+						><div id="topMiddleSecond" class="gridbox floatLeft guessHomeBox"></div
+						><div id="topMiddleThird" class="gridbox floatLeft guessHomeBox"></div
+						><div id="topMiddleLast" class="gridbox floatLeft guessHomeBox"></div
+						><div id="bottomMiddleFirst" class="gridbox floatLeft leftBarHome"></div
+						><div id="bottomMiddleSecond" class="gridbox floatLeft guessHomeBox"></div
+						><div id="bottomMiddleThird" class="gridbox floatLeft guessHomeBox"></div
+						><div id="bottomMiddleLast" class="gridbox floatLeft"></div
+						><div id="bottomFirst" class="gridbox floatLeft leftBarHome"></div
+						><div id="bottomSecond" class="gridbox floatLeft guessHomeBox"></div
+						><div id="bottomThird" class="gridbox floatLeft"></div
+						><div id="bottomLast" class="gridbox floatLeft">
+							<div id="clue">
+							  <div id="previous"> < </div>
+							  <div id="currentClue"><span></span></div>
+							  <div id="next"><img src="" /> > </div>
+							</div>
+						</div>
+					</div>
+					<div id="win">
+						<div>
+							<span id="youwon">
+								<span class="red">you won!</span>
+								<span class="orange">you won!</span>
+								<span class="yellow">you won!</span>
+								<span class="blue">you won!</span>
+								<span class="green">you won!</span>
+								<span class="purple">you won!</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script type="text/javascript" src="logicPuzzles.js"></script>
+<script type="text/javascript" src="logicJson.js"></script>
+<script
+  src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+</body>
+</html>
