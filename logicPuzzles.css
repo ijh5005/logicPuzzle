@@ -17,7 +17,8 @@ body {
 #backButton,
 .guessBox,
 .puzzleOption,
-#menu { 
+#menu,
+.menuCS { 
 	cursor: pointer;
 	cursor: hand;
 }
@@ -98,6 +99,28 @@ body {
 	background-color: #A35DA3;
 }
 
+#storePage,
+#howToPage,
+#achievementsPage,
+#tutorialPage,
+#settingsPage {
+	display: none;
+    margin: 0 auto;
+}
+
+#storePage .comingSoon,
+#howToPage .comingSoon,
+#achievementsPage .comingSoon,
+#tutorialPage .comingSoon,
+#settingsPage .comingSoon {
+	font-family: 'Permanent Marker', cursive;
+    font-size: 84px;
+    width: 1500px;
+    height: 72px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 #menu {
 	font-family: 'Permanent Marker', cursive;
     font-size: 50px;
@@ -106,6 +129,18 @@ body {
     margin: 0 auto;
     border: 10px solid #AAA;
     border-radius: 10px;
+    text-align: center;
+}
+
+.menuCS {
+	font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    width: 314px;
+    height: 72px;
+    margin: 0 auto;
+    border: 10px solid #AAA;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .topBar,

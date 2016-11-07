@@ -760,6 +760,32 @@ var markup = function (selector, target){
   	$("#homepage").delay(800).fadeIn(1800);
   });
 
+//non working pages
+	$("#store").click( function () {
+		$("#homepage").fadeOut("slow");
+	  	$("#storePage").fadeIn(1800);
+	});
+	$("#directions").click( function () {
+		$("#homepage").fadeOut("slow");
+	  	$("#howToPage").fadeIn(1800);
+	});
+	$("#achievements").click( function () {
+		$("#homepage").fadeOut("slow");
+	  	$("#achievementsPage").fadeIn(1800);
+	});
+	$("#tutorial").click( function () {
+		$("#homepage").fadeOut("slow");
+	  	$("#tutorialPage").fadeIn(1800);
+	});
+	$("#settings").click( function () {
+		$("#homepage").fadeOut("slow");
+	  	$("#settingsPage").fadeIn(1800);
+	});
+	$(".menuCS").click( function () {
+	  	$(this).parent().fadeOut("slow");
+	  	$("#homepage").delay(800).fadeIn(1800);
+	});
+
 //////////////population of puzzle customizations///////////////////
 //set puzzle to the selected gallery puzzle
 	var puzzleInheritance = function (){
