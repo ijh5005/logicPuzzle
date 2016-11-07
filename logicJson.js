@@ -88,12 +88,12 @@ $(document).ready( function () {
 		    title: "GOODBYE OLD FRIEND",
 		    story: "The hardest part about moving to a new city is leaving behind all of your friends in the old city. This is exactly what Taneesha is going through. Next week she will be moving to Natural Springs with her family. So this week five of Taneesha&#39;s friends (her best friends) picked a day and planned a date with Taneesha. Taneesha is having a hard time keeping up with all of the different places, different people, different times, and different activities. So she decided to write it all down in her Iphone. I hope she doesn&#39;t lose her Iphone because all of her  friends will feel forgotten and begin to hate her.",
 		    colors: 	{
-		    				light: "#FF9D79",
-		    				medium: "#F05C25",
-		    				dark: "#9D2A00"
+		    				light: "#E6789F",
+		    				medium: "#C12B60",
+		    				dark: "#7E012D"
 		    			},
-		    storyPaper: "storyPaperOrange.png",
-		    galleryPaper: "galleryPaperOrange.png",
+		    storyPaper: "storyPaperPink.png",
+		    galleryPaper: "galleryPaperPink.png",
 		    topBarText: {
 		    				firstBoxHeader: "Friends",
 		    				firstBox: {
@@ -165,12 +165,12 @@ $(document).ready( function () {
 		    title: "TELEVISION SHOWDOWN",
 		    story: "Tiffany Applebottom is a professional slacker. She spent her entire life watching tv and sitting on the couch. Her life was based on watching romantic comedies, survivals shows, and any other show that the Disarm Network creates. So imagine her surprise when she turned on her television and realized none of her shows came on at the right time. Tiffany wants to write a strongly worded letter to the Disarm Network complaining about the network&#39;s sudden changes. In order for her to write the letter she must know the name of the show, what time it used to come on, the shows new time, and what genre the show is. Please help TIffany figure this out quickly before she does something crazy, like get a job.", //&#39; is the symbol an apostrophe
 		    colors: 	{
-		    				light: "#FFFF99",
-		    				medium: "#FFDE43",
-		    				dark: "#9B7F00"
+		    				light: "#FF9D79",
+		    				medium: "#F05C25",
+		    				dark: "#9D2A00"
 		    			},
-		    storyPaper: "storyPaperYellow.png",
-		    galleryPaper: "galleryPaperYellow.png",
+		    storyPaper: "storyPaperOrange.png",
+		    galleryPaper: "galleryPaperOrange.png",
 		    topBarText: {
 		    				firstBoxHeader: "Name of TV show",
 		    				firstBox: {
@@ -210,14 +210,14 @@ $(document).ready( function () {
 		    			},
 		    clues: [
 		              [
-		                "1. Keep in mind no show comes on the same time it used to.",
+		                "1. Between the show that used to come on at 8:00PM and the romantic comedy one is Dig It Up and the other show has been changed to 7:00PM.",
 		                "2. When Tiffany first heard about the show Face the Music, she thought it was a reality tv show. But it turned out the be a tv drama.",
 		                "3. The five tv shows are&#58; the gardening show, Better If Used, the shows that used to come on at 7:00PM and 10:00pm, and the show that new time is 9:00PM.",
 		                "4. The only change that Tiffany likes is That Passion and Peril (her favorite soap opera) no longer comes on last, it is now the first show of the evening.",
 		                "5. Dig It Up (the gardening show) used to come on after Fly on the Wall, but now it comes on after face the music.",
-		                "6. Between the show that used to come on at 8:00PM and the romantic comedy one is Dig It Up and the show has been changed to 7:00PM.",
-		                "7. Fly on the Wall new time is now squeezed between the show that comes on at 9:00PM and the romantic comedy.",
-		                "8. Between the show that used to come on at 7:00PM and the the show that has been changed to 10:00PM one is Dig It Up and the other is Fly on the Wall."
+		                "6. Fly on the Wall new time is now squeezed between the show that comes on at 9:00PM and the romantic comedy.",
+		                "7. Keep in mind no show comes on the same time it used to."
+		                // "8. Between the show that used to come on at 7:00PM and the the show that has been changed to 10:00PM one is Dig It Up and the other is Fly on the Wall."
 		              ]
 		          ],
 		    correctAnswer: [
@@ -240,7 +240,7 @@ $(document).ready( function () {
 		{
 		    id: 4,
 		    title: "A Day to Celebrate",
-		    story: "Catherine, Christopher, Carrie, Cory, and Chad are the children of Isaiah, king of the little people. Once a year King Isaiah has a little people festival. At the end of this years festival King Isaiah&#39;s children are suppose to put on some sort of display of what they love about being a little person and what they hate about the big people. King Isaiah is responsible for scheduling his children performances , but as usual, King Isaiah waited until the last minute to give the responsibility to Heinz, hi second advisor. Heinz now has two hours to learn the different types of performances, likes, and dislikes of the children. This can only go two ways for Heinz. He can seek the help of someone like you and have everything planned before the end of the festival, or the very spoiled children will begin to argue about who goes first and the arguing will give King Isaiah a headache, which will lead to Heinz losing his head.",
+		    story: "Catherine, Christopher, Carrie, Cory, and Chad are the children of Isaiah, king of the little people. Once a year King Isaiah has a little people festival. At the end of this year&#39;s festival King Isaiah&#39;s children are suppose to put on some sort of display of what they love about being a little person and what they hate about the big people. King Isaiah is responsible for scheduling his children performances, but as usual, King Isaiah waited until the last minute to give the responsibility to Heinz, his second advisor. Heinz now has two hours to learn the different types of performances, likes, and dislikes of the children. This can only go one of two ways for Heinz. He can seek the help of someone like you and have everything planned before the end of the festival, or the very spoiled children will begin to argue about who goes first and the arguing will give King Isaiah a headache, which will lead to Heinz losing his head.",
 		    colors: 	{
 		    				light: "#4DC57E",
 		    				medium: "#008837",
@@ -289,12 +289,12 @@ $(document).ready( function () {
 		              [
 		                "1. Between the one who sings and the one who hates everything one is christopher and the other is the one who loves traveling far (12 inches is far to a little person).",
 		                "2. Catherine is afraid of heights, her feet never leaves the ground.",
-		                "3. The five performances are: the one who sings, the one who performed a play, the performer who likes to travel far, the performer who hates loud music, and Chad.",
+		                "3. The five performances are&#58; the one who sings, the one who performed a play, the performer who likes to travel far, the performer who hates loud music, and Chad.",
 		                "4. Christopher and Carrie are always arguing, because he thinks it&#39;s horrible that big people can grow to be 5ft. and taller, and Carrie thinks it&#39;s the complaining that is the worst. They always go to king Isaiah to settle their dispute but he passes that off to Heinz (Poor Heinz).",
-		                "5. Between the one who put on a movie at the festival and the one who likes to travel far one is Chad and the other one is the child who hates everything big people do.",
+		                "5. Between the one who put on a movie at the festival and the one who likes to travel far one is Chad (who likes to fly) and the other one is the child who hates everything big people do.",
 		                "6. Carrie, who loves that she doesn&#39;t have to pay rent, does not know how to sing or dance. ",
 		                "7. Catherine (who hates bug food) will not do anything that requires her to speak in public.",
-		                "8. Isaiah&#39;s five children are: the one who made a speech, the one who hates noisy cars, Carrie, the one who hates loud music, and the one who loves to eat bugs."
+		                "8. Isaiah&#39;s five children are&#58; the one who made a speech, the one who hates noisy cars, Carrie, the one who hates loud music, and the one who loves to eat bugs."
 		              ]
 		          ],
 		    correctAnswer: [
@@ -309,7 +309,7 @@ $(document).ready( function () {
 								// #bottomMiddleThird puzzle box
 								[1, 8, 14, 15, 22],
 								// #bottomMiddleLast puzzle box
-								[1, 8, 14, 15, 24]
+								[4, 8, 12, 15, 21]
 
 		    				]
 		},
@@ -329,7 +329,7 @@ $(document).ready( function () {
 		    				firstBoxHeader: "Families",
 		    				firstBox: {
 		    					first: "Harrison Family",
-		    					second: "Jerkins Family",
+		    					second: "Jenkins Family",
 		    					third: "Jackson Family",
 		    					forth: "Stewards Family",
 		    					fifth: "Willson Family"
@@ -364,13 +364,13 @@ $(document).ready( function () {
 		    			},
 		    clues: [
 		              [
-		                "1. The Jackson family cannot cook. That&#39;s why they always order out, except on experimental Friday. Luckily for Taneesha and her family the Jackson&#39;s hosted dinner on Thursday.",
-		                "2. Between the family that made meatloaf and the one who hosted dinner on Tuesday one the Stwert family and the other hosted dinner at 6:30PM.",
+		                "1. The Jackson family cannot cook. That&#39;s why they always order out, except on experimental Friday. Luckily for Taneesha and her family, the Jackson&#39;s hosted dinner on Thursday.",
+		                "2. Between the family that made meatloaf and the one who hosted dinner on Tuesday. One the Stwert family and the other hosted dinner at 6:30PM.",
 		                "3. The Harrison family had their dinner before 6:30PM. They had plans to go bowling but was afraid to tell the block captain no.",
 		                "4. The lasagna dish was not cooked by the Stwert family, but was served at 6:00PM.",
 		                "5. Tanneesha couldn&#39;t enjoy her pizza on Thursday because she was sick from her meal on Wednesday at the Willson&#39;s house.",
 		                "6. Between the Harrison family and the family who served dinner at 6:30PM one made meatloaf and the other was hosting on Friday.",
-		                "7. The five families are: the Jerkins family, the family that made steak, and lasagna, the family that served dinner at 7:30PM, and the family that cooked dinner on Friday."
+		                "7. The five families are&#58; the Jenkins family, the family that made steak, and lasagna, the family that served dinner at 7:30PM, and the family that cooked dinner on Friday."
 		              ]
 		          ],
 		    correctAnswer: [
@@ -517,14 +517,14 @@ $(document).ready( function () {
 		    			},
 		    clues: [
 		              [
-		                "",
-		                "",
-		                "",
-		                "",
-		                "",
-		                "",
-		                "",
-		                ""
+		                "1. The five pokemon are&#58; the one she named Gooserina (which was created in 2014) and Moodle, the grass type, the one with blasto pump as a special attack, and the one she created in 2015.",
+		                "2. The pokemon she named Hippomean (who uses a pump to blast his opponents) was created in a odd number year.",
+		                "3. Between Gooserina and the one who special attack is forest frenzy, one is the grass type and the other was created in 2014.",
+		                "4. Peregrine, the flying pokemon, special attack is not the forest frenzy.",
+		                "5. 2013 was the year she came the closest to getting her pokemon on the show. The creators thought the flaming fouette was very clever.",
+		                "6. Between the one with the special attack called avant kick and the fire type one was created in 2014 and the other is called Moodle.",
+		                "7. The pokemon created in 2015 is a flying pokemon because she got on a plane for the first time that year.",
+		                "8. The five pokemon are&#58; the ones created in 2012 and 2013, the one with the special attack flapping wind, the fighting type, and the one called Hippomean (the water type)."
 		              ]
 		          ],
 		    correctAnswer: [
@@ -549,12 +549,12 @@ $(document).ready( function () {
 		    title: "A WHOLE NEW WORLD",
 		    story: "Once again Taneesha needs our help. Taneesha is a 9th grade transfer student at Magnavox High. She met the principal who gave her a schedule and a map to all her classes. Even with the map Taneesha went to the wrong classes and the classes she did manage to make it to she arrived late. At the end of the day Taneesha went back to the principal&#39;s office to seek help from the principal. When she arrived at the office she saw Jace, a kid from her neighborhood. Jace offered to show her around the next day. The next day came and Jace was nowhere to be found. This looks like the start of another really bad, terrible, god awful day for Taneesha. Will you help her navigate through the halls of Magnavox High before she is expelled for cutting classes and ends up homeless living in a cardboard box?",
 		    colors: 	{
-		    				light: "#FF9D79",
-		    				medium: "#F05C25",
-		    				dark: "#9D2A00"
+		    				light: "#E6789F",
+		    				medium: "#C12B60",
+		    				dark: "#7E012D"
 		    			},
-		    storyPaper: "storyPaperOrange.png",
-		    galleryPaper: "galleryPaperOrange.png",
+		    storyPaper: "storyPaperPink.png",
+		    galleryPaper: "galleryPaperPink.png",
 		    topBarText: {
 		    				firstBoxHeader: "Classes",
 		    				firstBox: {
@@ -626,12 +626,12 @@ $(document).ready( function () {
 		    title: "TECHNICAL MALFUNCTIONS",
 		    story: "Dr. Park is the chief of surgery at Atomas Hospital. He is responsible for scheduling the surgeries at the hospital. He writes all the surgeries at 6:00am on the viewing board. After working ten hours on the schedule, Dr. Park&#39;s computers begans to malfunctions. He no longer has access to his perfect plans. So he randomly writes names, times, and types of surgeries on the board and hopes for the best. Two hours later his computer is up and running. He realizes that the only thing he guessed correct was the patients&#39; to the surgeons. If you would like to see what Dr. Park should have written on the board, follow the clues and figure it out yourself. ",
 		    colors: 	{
-		    				light: "#FFFF99",
-		    				medium: "#E4D106",
-		    				dark: "#B1A200"
+		    				light: "#FF9D79",
+		    				medium: "#F05C25",
+		    				dark: "#9D2A00"
 		    			},
-		    storyPaper: "storyPaperYellow.png",
-		    galleryPaper: "galleryPaperYellow.png",
+		    storyPaper: "storyPaperOrange.png",
+		    galleryPaper: "galleryPaperOrange.png",
 		    topBarText: {
 		    				firstBoxHeader: "Surgeons",
 		    				firstBox: {
@@ -701,7 +701,8 @@ $(document).ready( function () {
   var populationGallery = function () {
   	//markup
   	length = puzzle5by5.length;
-  	var markup = "<div class=puzzleOption data=0><span>"+puzzle5by5[0].title+"</span></div>"
+  	var markup = "<div id='menu'>Main Menu</div>";
+  	markup += "<div class=puzzleOption data=0><span>"+puzzle5by5[0].title+"</span></div>"
   	for ( i = 1; i < length; i++) {
   		markup += "<div class=puzzleOption data="+i+"><span>"+puzzle5by5[i].title+"</span></div>"
   	}
@@ -746,6 +747,18 @@ $(document).ready( function () {
 var markup = function (selector, target){
 	$(selector).html(target);
 };
+
+//play app
+  $("#play").click( function () {
+  	$("#homepage").fadeOut("slow");
+  	$("#puzzleGallery").fadeIn(1800);
+  });
+
+//back to main menu
+  $("#menu").click( function () {
+  	$("#puzzleGallery").fadeOut("slow");
+  	$("#homepage").delay(800).fadeIn(1800);
+  });
 
 //////////////population of puzzle customizations///////////////////
 //set puzzle to the selected gallery puzzle

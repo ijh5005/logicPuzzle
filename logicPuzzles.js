@@ -2,6 +2,72 @@
 
 $(document).ready( function () {
   var i;
+  //change colors
+	  var c = 0;
+	  var o = 1;
+	  var l = 2;
+	  var oo = 3;
+	  var r = 4;
+	  var ex = 5;
+
+	  var colors = ["#FD7C7F", "#E6789F", "#FF9D79", "#4DC57E", "#5C64F9", "#A35DA3"];
+	  
+	  var color = function () {
+	    $(".c").css("color", colors[c]);
+	    c--
+	    if ( c === -1 ) { 
+	      c = 5; 
+	    }
+	  };
+
+	  var color2 = function () {
+	    $("#o").css("color", colors[o]);
+	    o--
+	    if ( o === -1 ) { 
+	      o = 5; 
+	    }
+	  };
+
+	  var color3 = function () {
+	    $(".l").css("color", colors[l]);
+	    l--
+	    if ( l === -1 ) { 
+	      l = 5; 
+	    }
+	  };
+	  
+	  var color4 = function () {
+	    $(".o").css("color", colors[oo]);
+	    oo--
+	    if ( oo === -1 ) { 
+	      oo = 5; 
+	    }
+	  };
+
+	  var color5 = function () {
+	    $(".r").css("color", colors[r]);
+	    r--
+	    if ( r === -1 ) { 
+	      r = 5; 
+	    }
+	  };
+
+	  var color6 = function () {
+	    $(".ex").css("color", colors[ex]);
+	    ex--
+	    if ( ex === -1 ) { 
+	      ex = 5; 
+	    }
+	  };
+
+	  window.setInterval(function(){
+	    color();
+	    color2();
+	    color3();
+	    color4();
+	    color5();
+	    color6();
+	  }, 1000);
 
   //populate the .guessHomeBox with a 5 by 5 grid of .guessBox's
 	  var populationGuessHome = function () {
@@ -34,6 +100,12 @@ $(document).ready( function () {
 	  };
 	  populationLeftBarHome();
   
+  //play app
+  $("#play").click( function () {
+  	$("#homepage").fadeOut("slow");
+  	$("#puzzleGallery").fadeIn(1800);
+  });
+
   //toggle correct answer indicator
   $(".guessBox").click(function () {
 		var backgroundColor = $(this).css("background-color");
