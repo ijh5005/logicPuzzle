@@ -3,7 +3,7 @@
 $(document).ready( function () {
 	var i, length;
 
-	//contains all colors and text for each puzzle
+//contains all puzzle information (colors, stories, clues, text, etc.)
 	var puzzle5by5 = [
 
 		{
@@ -517,12 +517,12 @@ $(document).ready( function () {
 		    			},
 		    clues: [
 		              [
-		                "1. The five pokemon are&#58; the one she named Gooserina (which was created in 2014) and Moodle, the grass type, the one with blasto pump as a special attack, and the one she created in 2015.",
-		                "2. The pokemon she named Hippomean (who uses a pump to blast his opponents) was created in a odd number year.",
-		                "3. Between Gooserina and the one who special attack is forest frenzy, one is the grass type and the other was created in 2014.",
-		                "4. Peregrine, the flying pokemon, special attack is not the forest frenzy.",
+		                "1. The five pokemon are&#58; the ones she named Gooserina (which was created in 2014) and Moodle, the grass type, the one with blasto pump as a special attack, and the one she created in 2015.",
+		                "2. The pokemon she named Hippomean (who uses a pump to blast his opponents) was created in an odd number year.",
+		                "3. Between Gooserina and the one whos special attack is forest frenzy, one is the grass type and the other was created in 2014.",
+		                "4. Peregrine, the flying pokemon, special attack is not forest frenzy.",
 		                "5. 2013 was the year she came the closest to getting her pokemon on the show. The creators thought the flaming fouette was very clever.",
-		                "6. Between the one with the special attack called avant kick and the fire type one was created in 2014 and the other is called Moodle.",
+		                "6. Between the one with the special attack called avant kick and the fire type, one was created in 2014 and the other is called Moodle.",
 		                "7. The pokemon created in 2015 is a flying pokemon because she got on a plane for the first time that year.",
 		                "8. The five pokemon are&#58; the ones created in 2012 and 2013, the one with the special attack flapping wind, the fighting type, and the one called Hippomean (the water type)."
 		              ]
@@ -670,14 +670,14 @@ $(document).ready( function () {
 		    				//The next two objects comes from the topBarText secondBoxHeader, secondBox, thirdBoxHeader, and thirdBoxHeader info
 		    			},
 		    clues: [
-	                [""],
-	                [""],
-	                [""],
-	                [""],
-	                [""],
-	                [""],
-	                [""],
-	                [""]
+	                "",
+	                "",
+	                "",
+	                "",
+	                "",
+	                "",
+	                "",
+	                ""
 		          ],
 		    correctAnswer: [
 		    					// #topMiddleSecond puzzle box
@@ -695,9 +695,10 @@ $(document).ready( function () {
 
 		    				]
 		},
+
 	];
 
-//populate the gallery page
+//#puzzleGallery page html
   var populationGallery = function () {
   	//markup
   	length = puzzle5by5.length;
@@ -719,16 +720,20 @@ $(document).ready( function () {
   	}
   };
   populatePaper();
-//choose a puzzle from the gallery
+//function: choose puzzle from gallery
 	$(".puzzleOption").click( function () {
 		var tempHolder, length, j;
 		var location = $(this).attr("data");
 		tempHolder = location;
+		//hide the text on the puzzle5by5.story
 		$("#pageLiner span").hide();
+		//zoom out of #puzzleGallery
 		$("#puzzleGallery").animate({
 			zoom: "41%"
 		}, {duration: 1000, complete: function (){
+			//hide the #puzzleGallery
 			$("#puzzleGallery").css("display", "none");
+			//bring in the #puzzleContainer
 			$("#puzzleContainer").delay(50).animate({
 				zoom: "100%"
 			}, {duration: 1200, 
@@ -736,157 +741,209 @@ $(document).ready( function () {
 					$("#puzzleContainer").css("display", "block");
 					},
 				complete: function (){
+					//set the story paper img
 					$("#storyPage").css("background-image", "url("+puzzle5by5[tempHolder].storyPaper+")");
 					$("#pageLiner span").show();
 					}
 				});
 		}});
 	});
-	
 //markup creator function
-var markup = function (selector, target){
-	$(selector).html(target);
-};
-
+	var markup = function (selector, target){
+		$(selector).html(target);
+	};
 //play app
   $("#play").click( function () {
-  	$("#homepage").fadeOut("slow");
-  	$("#puzzleGallery").fadeIn(1800);
+  	$("#homepage").delay(400).fadeOut("slow");
+  	$("#puzzleGallery").delay(800).fadeIn(2000);
   });
-
 //back to main menu
   $("#menu").click( function () {
   	$("#puzzleGallery").fadeOut("slow");
   	$("#homepage").delay(800).fadeIn(1800);
   });
 
-//non working pages
-	$("#store").click( function () {
-		$("#homepage").fadeOut("slow");
-	  	$("#storePage").fadeIn(1800);
-	});
-	$("#directions").click( function () {
-		$("#homepage").fadeOut("slow");
-	  	$("#howToPage").fadeIn(1800);
-	});
-	$("#achievements").click( function () {
-		$("#homepage").fadeOut("slow");
-	  	$("#achievementsPage").fadeIn(1800);
-	});
-	$("#tutorial").click( function () {
-		$("#homepage").fadeOut("slow");
-	  	$("#tutorialPage").fadeIn(1800);
-	});
-	$("#settings").click( function () {
-		$("#homepage").fadeOut("slow");
-	  	$("#settingsPage").fadeIn(1800);
-	});
-	$(".menuCS").click( function () {
-	  	$(this).parent().fadeOut("slow");
-	  	$("#homepage").delay(800).fadeIn(1800);
+	//when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
+	$("#play").click( function () {
+		//reset all homepage buttons to their original size, margins, border, and border radius
+		setTimeout(function() {
+			$(".homepageButton").css("margin-bottom", "20px")
+							.css("border-bottom", "10px solid #AAA")
+							.css("border-bottom-right-radius", "10px")
+							.css("border-bottom-left-radius", "10px");
+			//remove any pages that might be showing
+			$(".secondaryPage").css("display", "none");
+			//return other homepage button options to their original size
+			$(".homepageButton").animate({ width: "688px" }).removeClass("big");
+			$(".bigPage").removeClass("bigPage");
+		}, 4000);		
 	});
 
-//////////////population of puzzle customizations///////////////////
+	$("#store, #directions, #tutorial, #achievements, #settings").click( function () {
+		//get the current position of the clicked option for later use
+		var index = $(this).index();
+		//get the associated page that will later open down for later use
+		var page = $(this).next();
+		//gives the click option an active atr with its position for later use
+		$(this).attr("active", index);		
+		//get the width for validation uses
+		var width = $(this).css("width");
+		//true if there are no expanded homepage options
+		var isOptionLonger = $(this).is(".big");
+		var isPageExplanded = $(this).next().is(".bigPage");
+		var isAnimating = $(".homepageButton").is(".animating");
+		//var bigAmount = $(".big").length;
+		//console.log(bigAmount);
+		//run only if the homepage option's width is equal to it's inital value of 688px
+		if ( !isPageExplanded && !isAnimating ) {
+			//class added for later use
+			$(this).addClass("big").addClass("animating");
+			$(this).animate({ width: "99%" }, {	duration: 1500,
+											 	start: function () {
+											 		//slide up all secondary pages that may be showing
+													$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
+													$(".homepageButton[active!="+index+"]").animate({
+														width: "688px"
+													}).animate({ "margin-bottom": "20px" }, { complete: function () {
+													//reset all border properties via animation
+														$(".homepageButton").css("border-bottom", "10px solid #AAA");
+													}}).css("border-bottom-right-radius", "10px")
+													   .css("border-bottom-left-radius", "10px")
+													   .removeClass("big");
+												},
+												complete: function () {
+													//slide down the seconary page after the homepage option is done stretching
+													$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px");
+													//take away the margins/borders so two page could appear to be on one page
+													$(".homepageButton[active="+index+"]").css("margin-bottom", "0").css("border-bottom", "none").css("border-bottom-right-radius", "0px").css("border-bottom-left-radius", "0px");
+
+												}
+			});  // end animation
+			//add the big page class after everything is resolved to avoid closing the option too quickly
+			setTimeout(function() {
+				$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px").addClass("bigPage");
+				$(".homepageButton").removeClass("animating");
+			}, 2600);
+		}
+
+		//run only if there are no expanded homepage options
+		if (isOptionLonger && isPageExplanded) {
+			//slide up all secondary pages that may be showing
+			$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
+			//reset all hompage button sizes if any are expanded
+			$(".homepageButton").delay(800).animate({ width: "688px" }, {duration: 1000});
+			//reset all margins via animation
+			$(".homepageButton").animate({ "margin-bottom": "20px" }, { complete: function () {
+			//reset all border properties via animation
+				$(".homepageButton").css("border-bottom", "10px solid #AAA");
+			}}).css("border-bottom-right-radius", "10px")
+			   .css("border-bottom-left-radius", "10px")
+			   .removeClass("big");
+		} 
+
+	});
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////customize each puzzle (colors, stories, clues, text, etc.)///////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 //set puzzle to the selected gallery puzzle
 	var puzzleInheritance = function (){
-	$(".puzzleOption").click( function () {
-		var tempHolder, length, j;
-		var location = $(this).attr("data");
-		tempHolder = location;
+		$(".puzzleOption").click( function () {
+			var tempHolder, length, j;
+			var location = $(this).attr("data");
+			tempHolder = location;
 //.topBarOption markup
-	markup("#topSecond .topBar span", puzzle5by5[tempHolder].topBarText.firstBoxHeader);
-	markup("#topThird .topBar span", puzzle5by5[tempHolder].topBarText.secondBoxHeader);
-	markup("#topLast .topBar span", puzzle5by5[tempHolder].topBarText.thirdBoxHeader);
-	markup("#topSecond .topBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.firstBox.first);
-	markup("#topSecond .topBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.firstBox.second);
-	markup("#topSecond .topBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.firstBox.third);
-	markup("#topSecond .topBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.firstBox.forth);
-	markup("#topSecond .topBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.firstBox.fifth);
-	markup("#topThird .topBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.secondBox.first);
-	markup("#topThird .topBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.secondBox.second);
-	markup("#topThird .topBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.secondBox.third);
-	markup("#topThird .topBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.secondBox.forth);
-	markup("#topThird .topBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.secondBox.fifth);
-	markup("#topLast .topBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.thirdBox.first);
-	markup("#topLast .topBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.thirdBox.second);
-	markup("#topLast .topBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.thirdBox.third);
-	markup("#topLast .topBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.thirdBox.forth);
-	markup("#topLast .topBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.thirdBox.fifth);
-
+			markup("#topSecond .topBar span", puzzle5by5[tempHolder].topBarText.firstBoxHeader);
+			markup("#topThird .topBar span", puzzle5by5[tempHolder].topBarText.secondBoxHeader);
+			markup("#topLast .topBar span", puzzle5by5[tempHolder].topBarText.thirdBoxHeader);
+			markup("#topSecond .topBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.firstBox.first);
+			markup("#topSecond .topBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.firstBox.second);
+			markup("#topSecond .topBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.firstBox.third);
+			markup("#topSecond .topBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.firstBox.forth);
+			markup("#topSecond .topBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.firstBox.fifth);
+			markup("#topThird .topBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.secondBox.first);
+			markup("#topThird .topBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.secondBox.second);
+			markup("#topThird .topBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.secondBox.third);
+			markup("#topThird .topBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.secondBox.forth);
+			markup("#topThird .topBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.secondBox.fifth);
+			markup("#topLast .topBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.thirdBox.first);
+			markup("#topLast .topBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.thirdBox.second);
+			markup("#topLast .topBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.thirdBox.third);
+			markup("#topLast .topBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.thirdBox.forth);
+			markup("#topLast .topBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.thirdBox.fifth);
 //.leftBarOption markup
-	markup("#topMiddleFirst .leftBar span", puzzle5by5[tempHolder].leftBarText.firstBoxHeader);
-	markup("#bottomMiddleFirst .leftBar span", puzzle5by5[tempHolder].topBarText.thirdBoxHeader);
-	markup("#bottomFirst .leftBar span", puzzle5by5[tempHolder].topBarText.secondBoxHeader);
-	markup("#topMiddleFirst .leftBarOption[data=1] span", puzzle5by5[tempHolder].leftBarText.firstBox.first);
-	markup("#topMiddleFirst .leftBarOption[data=2] span", puzzle5by5[tempHolder].leftBarText.firstBox.second);
-	markup("#topMiddleFirst .leftBarOption[data=3] span", puzzle5by5[tempHolder].leftBarText.firstBox.third);
-	markup("#topMiddleFirst .leftBarOption[data=4] span", puzzle5by5[tempHolder].leftBarText.firstBox.forth);
-	markup("#topMiddleFirst .leftBarOption[data=5] span", puzzle5by5[tempHolder].leftBarText.firstBox.fifth);
-	markup("#bottomMiddleFirst .leftBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.thirdBox.first);
-	markup("#bottomMiddleFirst .leftBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.thirdBox.second);
-	markup("#bottomMiddleFirst .leftBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.thirdBox.third);
-	markup("#bottomMiddleFirst .leftBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.thirdBox.forth);
-	markup("#bottomMiddleFirst .leftBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.thirdBox.fifth);
-	markup("#bottomFirst .leftBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.secondBox.first);
-	markup("#bottomFirst .leftBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.secondBox.second);
-	markup("#bottomFirst .leftBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.secondBox.third);
-	markup("#bottomFirst .leftBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.secondBox.forth);
-	markup("#bottomFirst .leftBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.secondBox.fifth);
-
+			markup("#topMiddleFirst .leftBar span", puzzle5by5[tempHolder].leftBarText.firstBoxHeader);
+			markup("#bottomMiddleFirst .leftBar span", puzzle5by5[tempHolder].topBarText.thirdBoxHeader);
+			markup("#bottomFirst .leftBar span", puzzle5by5[tempHolder].topBarText.secondBoxHeader);
+			markup("#topMiddleFirst .leftBarOption[data=1] span", puzzle5by5[tempHolder].leftBarText.firstBox.first);
+			markup("#topMiddleFirst .leftBarOption[data=2] span", puzzle5by5[tempHolder].leftBarText.firstBox.second);
+			markup("#topMiddleFirst .leftBarOption[data=3] span", puzzle5by5[tempHolder].leftBarText.firstBox.third);
+			markup("#topMiddleFirst .leftBarOption[data=4] span", puzzle5by5[tempHolder].leftBarText.firstBox.forth);
+			markup("#topMiddleFirst .leftBarOption[data=5] span", puzzle5by5[tempHolder].leftBarText.firstBox.fifth);
+			markup("#bottomMiddleFirst .leftBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.thirdBox.first);
+			markup("#bottomMiddleFirst .leftBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.thirdBox.second);
+			markup("#bottomMiddleFirst .leftBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.thirdBox.third);
+			markup("#bottomMiddleFirst .leftBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.thirdBox.forth);
+			markup("#bottomMiddleFirst .leftBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.thirdBox.fifth);
+			markup("#bottomFirst .leftBarOption[data=1] span", puzzle5by5[tempHolder].topBarText.secondBox.first);
+			markup("#bottomFirst .leftBarOption[data=2] span", puzzle5by5[tempHolder].topBarText.secondBox.second);
+			markup("#bottomFirst .leftBarOption[data=3] span", puzzle5by5[tempHolder].topBarText.secondBox.third);
+			markup("#bottomFirst .leftBarOption[data=4] span", puzzle5by5[tempHolder].topBarText.secondBox.forth);
+			markup("#bottomFirst .leftBarOption[data=5] span", puzzle5by5[tempHolder].topBarText.secondBox.fifth);
 //#pageLiner markup
-markup("#pageLiner span", puzzle5by5[tempHolder].story);
-
-//#pageLiner markup
-markup("#title", puzzle5by5[tempHolder].title);
-
+			markup("#pageLiner span", puzzle5by5[tempHolder].story);
+			markup("#title", puzzle5by5[tempHolder].title);
 //color theme functions
-	//background-color theme function
-	var backgroundColorTheme = function ( selector, target) {
-		$(selector).css("background-color", target );
-	};
-	//border color theme function
-	var borderColorTheme = function ( selector, target) {
-		$(selector).css("border-color", target );
-	};
-	//text color theme function
-	var textColorTheme = function ( selector, target) {
-		$(selector).css("color", target );
-	};
-
+			//background-color theme function
+			var backgroundColorTheme = function ( selector, target) {
+				$(selector).css("background-color", target );
+			};
+			//border color theme function
+			var borderColorTheme = function ( selector, target) {
+				$(selector).css("border-color", target );
+			};
+			//text color theme function
+			var textColorTheme = function ( selector, target) {
+				$(selector).css("color", target );
+			};
 //set color themes
-	backgroundColorTheme("#gameBoardInside, #gameBoardInside, .gridbox, #puzzleGameBoardInside, #topFirst, #bottomMiddleLast, #bottomThird, #bottomLast, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.light);
-	backgroundColorTheme("#story, #puzzleStory, div#clue", puzzle5by5[tempHolder].colors.medium);
-	backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit", puzzle5by5[tempHolder].colors.dark);
-	borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption", puzzle5by5[tempHolder].colors.light);
-	borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.dark);
-	textColorTheme("#start, #backButton, #resetButton, #submit, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
-//clue box switch
-				var clueMarkup = function (selector, target) {
-				  $(selector).html("");
-				  $(selector).append(target);
-				};
+			backgroundColorTheme("#gameBoardInside, #gameBoardInside, .gridbox, #puzzleGameBoardInside, #topFirst, #bottomMiddleLast, #bottomThird, #bottomLast, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.light);
+			backgroundColorTheme("#story, #puzzleStory, div#clue", puzzle5by5[tempHolder].colors.medium);
+			backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit", puzzle5by5[tempHolder].colors.dark);
+			borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption", puzzle5by5[tempHolder].colors.light);
+			borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.dark);
+			textColorTheme("#start, #backButton, #resetButton, #submit, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
+//clue box functionality
+			//populate the clue box with current clue
+			var clueMarkup = function (selector, target) {
+			  $(selector).html("");
+			  $(selector).append(target);
+			};
 
-				var j = 0;
-				var clueLength = puzzle5by5[tempHolder].clues[0].length;
+			var j = 0;
+			var clueLength = puzzle5by5[tempHolder].clues[0].length;
+			//defualt first clue when puzzle is loaded
+			clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
+			//move forward though clues
+			$("#next").click( function () {
+				$("#currentClue").scrollTop(0);
+				j++;
+				if ( j === clueLength ) {
+				  j = 0;
+				}
 				clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
-				$("#next").click( function () {
-					$("#currentClue").scrollTop(0);
-					j++;
-					if ( j === clueLength ) {
-					  j = 0;
-					}
-					clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
-				});
-				$("#previous").click( function () {
-					$("#currentClue").scrollTop(0);
-					j--;
-					if ( j === -1 ) {
-					 	j = clueLength - 1;
-					}
-					clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
-				});
-		});
-	};
+			});
+			//move backward through clues
+			$("#previous").click( function () {
+				$("#currentClue").scrollTop(0);
+				j--;
+				if ( j === -1 ) {
+				 	j = clueLength - 1;
+				}
+				clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
+			});
+		});  // end $(".puzzleOption").click
+	};  // end var puzzleInheritance = function
 	puzzleInheritance();
 //submit button
 	$(".puzzleOption").click( function () {
@@ -901,74 +958,30 @@ markup("#title", puzzle5by5[tempHolder].title);
 				var position = $(this).index();
 				console.log(position);
 			}); //end short cut
+
+			//box check function
+			var boxCheck = function (selector, boxPosition) {
+				$(selector).each( function () {
+					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
+					var position = $(this).index();
+					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[boxPosition][j];
+					//used to check to see if correct is set to true
+					var correct = $(this).attr("correct");
+					if ( correct === "true" & position === correctAnswer) {
+						console.log("correct!");
+						correctAnswers ++;
+					}
+				});
+			};
+			
 			//check each box for right answers
 			for ( j = 0; j < 5; j++) {
-				$("#topMiddleSecond .guessBox").each( function () {
-					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
-					var position = $(this).index();
-					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[0][j];
-					//used to check to see if correct is set to true
-					var correct = $(this).attr("correct");
-					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
-						correctAnswers ++;
-					}
-				});
-				$("#topMiddleThird .guessBox").each( function () {
-					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
-					var position = $(this).index();
-					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[1][j];
-					//used to check to see if correct is set to true
-					var correct = $(this).attr("correct");
-					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
-						correctAnswers ++;
-					}
-				});
-				$("#topMiddleLast .guessBox").each( function () {
-					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
-					var position = $(this).index();
-					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[2][j];
-					//used to check to see if correct is set to true
-					var correct = $(this).attr("correct");
-					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
-						correctAnswers ++;
-					}
-				});
-				$("#bottomMiddleSecond .guessBox").each( function () {
-					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
-					var position = $(this).index();
-					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[3][j];
-					//used to check to see if correct is set to true
-					var correct = $(this).attr("correct");
-					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
-						correctAnswers ++;
-					}
-				});
-				$("#bottomMiddleThird .guessBox").each( function () {
-					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
-					var position = $(this).index();
-					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[4][j];
-					//used to check to see if correct is set to true
-					var correct = $(this).attr("correct");
-					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
-						correctAnswers ++;
-					}
-				});
-				$("#bottomSecond .guessBox").each( function () {
-					//get position of each .guessBox and match it to puzzle5by5.correctAnswer
-					var position = $(this).index();
-					var correctAnswer = puzzle5by5[tempHolder].correctAnswer[5][j];
-					//used to check to see if correct is set to true
-					var correct = $(this).attr("correct");
-					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
-						correctAnswers ++;
-					}
-				});
+				boxCheck("#topMiddleSecond .guessBox", 0);
+				boxCheck("#topMiddleThird .guessBox", 1);
+				boxCheck("#topMiddleLast .guessBox", 2);
+				boxCheck("#bottomMiddleSecond .guessBox", 3);
+				boxCheck("#bottomMiddleThird .guessBox", 4);
+				boxCheck("#bottomSecond .guessBox", 5);
 			}
 			
 			//display correct alert

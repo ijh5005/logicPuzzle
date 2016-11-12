@@ -15,49 +15,37 @@ $(document).ready( function () {
 	  var color = function () {
 	    $(".c").css("color", colors[c]);
 	    c--
-	    if ( c === -1 ) { 
-	      c = 5; 
-	    }
+	    if ( c === -1 ) { c = 5; }
 	  };
 
 	  var color2 = function () {
 	    $("#o").css("color", colors[o]);
 	    o--
-	    if ( o === -1 ) { 
-	      o = 5; 
-	    }
+	    if ( o === -1 ) { o = 5; }
 	  };
 
 	  var color3 = function () {
 	    $(".l").css("color", colors[l]);
 	    l--
-	    if ( l === -1 ) { 
-	      l = 5; 
-	    }
+	    if ( l === -1 ) { l = 5; }
 	  };
 	  
 	  var color4 = function () {
 	    $(".o").css("color", colors[oo]);
 	    oo--
-	    if ( oo === -1 ) { 
-	      oo = 5; 
-	    }
+	    if ( oo === -1 ) { oo = 5; }
 	  };
 
 	  var color5 = function () {
 	    $(".r").css("color", colors[r]);
 	    r--
-	    if ( r === -1 ) { 
-	      r = 5; 
-	    }
+	    if ( r === -1 ) { r = 5; }
 	  };
 
 	  var color6 = function () {
 	    $(".ex").css("color", colors[ex]);
 	    ex--
-	    if ( ex === -1 ) { 
-	      ex = 5; 
-	    }
+	    if ( ex === -1 ) { ex = 5; }
 	  };
 
 	  window.setInterval(function(){
@@ -69,7 +57,7 @@ $(document).ready( function () {
 	    color6();
 	  }, 1000);
 
-  //populate the .guessHomeBox with a 5 by 5 grid of .guessBox's
+//populate the .guessHomeBox with a 5 by 5 grid of .guessBox's
 	  var populationGuessHome = function () {
 	    var markup = "<div class='guessBox floatLeft' correct='false'></div";
 	    for ( i = 0; i < 24; i++) {
@@ -80,7 +68,7 @@ $(document).ready( function () {
 	  };
 	  populationGuessHome();
   
-  //populate the .leftBarHome with a 5 by 5 grid of .guessBox's
+//populate the .leftBarHome with a 5 by 5 grid of .guessBox's
 	  var populationLeftBarHome = function () {
 	    var markup = "<div class='leftBar'><span></span></div>";
 	    for ( i = 1; i < 6; i++) {
@@ -90,7 +78,7 @@ $(document).ready( function () {
 	  };
 	  populationLeftBarHome();
   
-  //populate the .topBarHome with a 5 by 5 grid of .guessBox's
+//populate the .topBarHome with a 5 by 5 grid of .guessBox's
 	  var populationLeftBarHome = function () {
 	    var markup = "<div class='topBar floatLeft'><span></span></div>";
 	    for ( i = 1; i < 6; i++) {
@@ -99,15 +87,9 @@ $(document).ready( function () {
 	    $(".topBarHome").html(markup);
 	  };
 	  populationLeftBarHome();
-  
-  //play app
-  $("#play").click( function () {
-  	$("#homepage").fadeOut("slow");
-  	$("#puzzleGallery").fadeIn(1800);
-  });
 
-  //toggle correct answer indicator
-  $(".guessBox").click(function () {
+//toggle correct answer indicator
+    $(".guessBox").click(function () {
 		var backgroundColor = $(this).css("background-color");
 		var dark = $("#start").css("background-color");
 		var medium = $("#story").css("background-color");
@@ -126,7 +108,17 @@ $(document).ready( function () {
 		}
 	});
 
-  	//start the puzzle (on start click)
+//reset the puzzle
+	$("#resetButton").click( function () {
+		$(".guessBox").css("background-color", "white");
+		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
+	});
+
+
+/////////////////////////////////////////////////////////////
+///////////////////////navigation////////////////////////////
+/////////////////////////////////////////////////////////////
+//start the puzzle (on start click)
 	$("div#start").click( function () {
 		//$("#win").fadeOut("fast");
 		$("div#story").animate({
@@ -138,9 +130,8 @@ $(document).ready( function () {
 				top: "-850px"
 			}, 1000);
 		}});
-	});
-  	
-  	//go back to gallery
+	});  	
+//go back to gallery
   	$("#story #backButton").click( function () {
   		$("body").css("overflow-y", "").css("background-color", "#CCC");
   		//$("#puzzleStory").css("display", "none");
@@ -152,9 +143,8 @@ $(document).ready( function () {
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
 		$("#puzzleStory.puzzle").css("display", "none");
-	});
-  	
-  	//go to the previous screen
+	});	
+//go to the previous screen
   	$("#puzzleStory #backButton").click( function () {
 		$("#puzzleStory.puzzle").animate({
 			top: "850px"
@@ -165,12 +155,6 @@ $(document).ready( function () {
 				top: "+=900px"
 			}, 1000);
 		}});
-	});
-
-	//reset the puzzle
-	$("#resetButton").click( function () {
-		$(".guessBox").css("background-color", "white");
-		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
 	});
 
 });

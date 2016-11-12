@@ -79,24 +79,29 @@ body {
 	background-color: #FD7C7F;
 }
 
-#store {
+#store,
+#storePage {
 	background-color: #E6789F;
 }
 
-#directions {
+#directions,
+#howToPage {
 	background-color: #FF9D79;
 }
 
-#tutorial {
+#tutorial,
+#tutorialPage {
 	background-color: #4DC57E;
 }
 
-#achievements {
+#achievements,
+#achievementsPage {
 	background-color: #5C64F9;
 }
 
-#settings {
-	background-color: #A35DA3;
+#settings,
+#settingsPage {
+	background-color: #A35DA3; 
 }
 
 #storePage,
@@ -106,6 +111,15 @@ body {
 #settingsPage {
 	display: none;
     margin: 0 auto;
+
+    height: 520px;
+    width: 99%;
+
+    border-radius: 10px;
+    border: 10px solid #AAA;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-top: none;
 }
 
 #storePage .comingSoon,
@@ -115,7 +129,6 @@ body {
 #settingsPage .comingSoon {
 	font-family: 'Permanent Marker', cursive;
     font-size: 84px;
-    width: 1500px;
     height: 72px;
     margin: 0 auto;
     text-align: center;
@@ -298,7 +311,7 @@ body {
 	height: 44.6009375em;
     position: relative;
     top: 44px;
-    left: 68px;
+    margin: 0 auto;
     /*background-image: url("paper.png");*/
     background-size: 367px 407.78px;
     background-size: 22.9375em 25.48625em;
@@ -423,7 +436,7 @@ body {
 }
 
 .leftBar {
-  height: 12.50em;
+  height: 12.25em;
   width: 2.25em;
   border: 0.125em solid;
   text-align: center;
@@ -634,4 +647,52 @@ body {
 	position: relative;
 	z-index: 4;
 	top: -1130px;
+}
+
+@media (max-width: 1750px) {
+	.puzzleOption {
+		width: 38%;
+		background-size: 100% 31.3em;
+	}
+	#puzzleGallery {
+	    width: 1000px;
+	}
+}
+
+@media (max-width: 1050px) {
+	#puzzleGallery {
+	    width: 800px;
+	}
+}
+
+@media (max-width: 850px) {
+	.puzzleOption {
+		width: 98%;
+		background-size: 100% 31.3em;
+		margin: 50px auto;
+	}
+	#puzzleGallery {
+	    width: 500px;
+	}
+	#menu {
+    	width: 100%;
+    }
+    /*.homepageButton {
+    	width: 88%;
+    }*/
+    #homepageHeading {
+    	font-size: 50px;
+    }
+}
+
+@media (max-width: 530px) {
+    /*.homepageButton {
+    	height: 200px;
+    }*/
+    #homepageHeading {
+    	font-size: 33px;
+    }
+    #homepageHeading {
+    	height: 50px;
+    }
 }
