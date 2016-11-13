@@ -583,7 +583,7 @@ body {
 	font-family: 'Sigmar One', cursive;
 	font-size: 138px;
 	position: relative;
-    top: 200px;
+    top: 320px;
     float: left;
     z-index: -1;
 
@@ -677,10 +677,48 @@ body {
 	}
 }
 
+@media (max-width: 1280px) {
+	#puzzleStory.puzzle {
+    	zoom: 80%;
+    }
+    #clue #previous {
+		position: relative;
+	    left: -1.2em;
+	    height: 10em;
+	    top: -1.5em;
+	    border-radius: 0;
+	    line-height: 9.6;
+	}
+
+	#clue #next {
+	    left: 15.8em;
+	    height: 10em;
+	    line-height: 9.6;
+	    top: -12.3em;
+	    border-radius: 0;
+	    border-left-width: 7px;
+	}
+
+	#currentClue {
+	    width: 15.4em;
+	    height: 8em;
+	    top: -1.5em;
+	    left: -1.7em;
+	    border-radius: 0;
+	}
+
+	#currentClue span {
+		font-size: 20px;
+	}
+}
+
 @media (max-width: 1050px) {
 	#puzzleGallery {
 	    width: 800px;
 	}
+	#puzzleStory.puzzle {
+    	zoom: 65%;
+    }
 }
 
 @media (max-width: 850px) {
@@ -701,6 +739,16 @@ body {
     #homepageHeading {
     	font-size: 50px;
     }
+}
+
+@media (max-width: 850px) {
+	#puzzleStory.puzzle {
+    	zoom: 63%;
+    }
+    #clue #next {
+	    left: 19.97em;
+	    top: -12.45em;
+	}
 }
 
 @media (max-width: 530px) {
