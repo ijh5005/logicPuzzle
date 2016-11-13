@@ -779,7 +779,8 @@ $(document).ready( function () {
 		}, 4000);		
 	});
 
-	$("#store, #directions, #tutorial, #achievements, #settings").click( function () {
+	$("#store, #directions, #tutorial, #achievements, #settings").click( function (event) {
+		event.preventDefault();
 		//get the current position of the clicked option for later use
 		var index = $(this).index();
 		//get the associated page that will later open down for later use
@@ -797,6 +798,9 @@ $(document).ready( function () {
 		//run only if the homepage option's width is equal to it's inital value of 688px
 		if ( !isPageExplanded && !isAnimating ) {
 			//class added for later use
+			$("html, body").animate({
+				scrollTop: $(this).offset().top
+			}, "slow");
 			$(this).addClass("big").addClass("animating");
 			$(this).animate({ width: "99%" }, {	duration: 1500,
 											 	start: function () {
@@ -839,8 +843,8 @@ $(document).ready( function () {
 			}}).css("border-bottom-right-radius", "10px")
 			   .css("border-bottom-left-radius", "10px")
 			   .removeClass("big");
+			   return false;
 		} 
-
 	});
 
 ///////////////////////////////////////////////////////////////////////////////////////////
