@@ -710,6 +710,10 @@ body {
 	#currentClue span {
 		font-size: 20px;
 	}
+	.puzzleOption span {
+	    top: 0.3em;
+	    font-size: 2.5em;
+	}
 }
 
 @media (max-width: 1050px) {
@@ -719,10 +723,6 @@ body {
 	#puzzleStory.puzzle {
     	zoom: 65%;
     }
-    .puzzleOption span {
-	    top: 0.3em;
-	    font-size: 2.5em;
-	}
 }
 
 @media (max-width: 850px) {
