@@ -720,7 +720,7 @@ $(document).ready( function () {
   	}
   };
   populatePaper();
-//function: choose puzzle from gallery
+//start puzzle from gallery
 	$(".puzzleOption").click( function () {
 		var tempHolder, length, j;
 		var location = $(this).attr("data");
@@ -731,12 +731,13 @@ $(document).ready( function () {
 		$("#puzzleGallery").animate({
 			zoom: "41%"
 		}, {duration: 1000, complete: function (){
+			$("body").css("zoom", "130%").css("overflow-y", "hidden");
 			//hide the #puzzleGallery
 			$("#puzzleGallery").css("display", "none");
 			//bring in the #puzzleContainer
-			$("#puzzleContainer").delay(50).animate({
+			$("body").delay(50).animate({
 				zoom: "100%"
-			}, {duration: 1200, 
+			}, {duration: 800, 
 				start: function () {
 					$("#puzzleContainer").css("display", "block");
 					},
@@ -763,89 +764,89 @@ $(document).ready( function () {
   	$("#homepage").delay(800).fadeIn(1800);
   });
 
-	//when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
-	$("#play").click( function () {
-		//reset all homepage buttons to their original size, margins, border, and border radius
+//when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
+$("#play").click( function () {
+	//reset all homepage buttons to their original size, margins, border, and border radius
+	setTimeout(function() {
+		$(".homepageButton").css("margin-bottom", "20px")
+						.css("border-bottom", "10px solid #AAA")
+						.css("border-bottom-right-radius", "10px")
+						.css("border-bottom-left-radius", "10px");
+		//remove any pages that might be showing
+		$(".secondaryPage").css("display", "none");
+		//return other homepage button options to their original size
+		$(".homepageButton").animate({ width: "688px" }).removeClass("big");
+		$(".bigPage").removeClass("bigPage");
+	}, 4000);		
+});
+
+$("#store, #directions, #tutorial, #achievements, #settings").click( function (event) {
+	event.preventDefault();
+	//get the current position of the clicked option for later use
+	var index = $(this).index();
+	//get the associated page that will later open down for later use
+	var page = $(this).next();
+	//gives the click option an active atr with its position for later use
+	$(this).attr("active", index);		
+	//get the width for validation uses
+	var width = $(this).css("width");
+	//true if there are no expanded homepage options
+	var isOptionLonger = $(this).is(".big");
+	var isPageExplanded = $(this).next().is(".bigPage");
+	var isAnimating = $(".homepageButton").is(".animating");
+	//var bigAmount = $(".big").length;
+	//console.log(bigAmount);
+	//run only if the homepage option's width is equal to it's inital value of 688px
+	if ( !isPageExplanded && !isAnimating ) {
+		$("html, body").animate({
+			scrollTop: $(this).offset().top
+		}, "slow");
+		//class added for later use
+		$(this).addClass("big").addClass("animating");
+		$(this).animate({ width: "99%" }, {	duration: 1500,
+										 	start: function () {
+										 		//slide up all secondary pages that may be showing
+												$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
+												$(".homepageButton[active!="+index+"]").animate({
+													width: "688px"
+												}).animate({ "margin-bottom": "20px" }, { complete: function () {
+												//reset all border properties via animation
+													$(".homepageButton").css("border-bottom", "10px solid #AAA");
+												}}).css("border-bottom-right-radius", "10px")
+												   .css("border-bottom-left-radius", "10px")
+												   .removeClass("big");
+											},
+											complete: function () {
+												//slide down the seconary page after the homepage option is done stretching
+												$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px");
+												//take away the margins/borders so two page could appear to be on one page
+												$(".homepageButton[active="+index+"]").css("margin-bottom", "0").css("border-bottom", "none").css("border-bottom-right-radius", "0px").css("border-bottom-left-radius", "0px");
+
+											}
+		});  // end animation
+		//add the big page class after everything is resolved to avoid closing the option too quickly
 		setTimeout(function() {
-			$(".homepageButton").css("margin-bottom", "20px")
-							.css("border-bottom", "10px solid #AAA")
-							.css("border-bottom-right-radius", "10px")
-							.css("border-bottom-left-radius", "10px");
-			//remove any pages that might be showing
-			$(".secondaryPage").css("display", "none");
-			//return other homepage button options to their original size
-			$(".homepageButton").animate({ width: "688px" }).removeClass("big");
-			$(".bigPage").removeClass("bigPage");
-		}, 4000);		
-	});
+			$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px").addClass("bigPage");
+			$(".homepageButton").removeClass("animating");
+		}, 2600);
+	}
 
-	$("#store, #directions, #tutorial, #achievements, #settings").click( function (event) {
-		event.preventDefault();
-		//get the current position of the clicked option for later use
-		var index = $(this).index();
-		//get the associated page that will later open down for later use
-		var page = $(this).next();
-		//gives the click option an active atr with its position for later use
-		$(this).attr("active", index);		
-		//get the width for validation uses
-		var width = $(this).css("width");
-		//true if there are no expanded homepage options
-		var isOptionLonger = $(this).is(".big");
-		var isPageExplanded = $(this).next().is(".bigPage");
-		var isAnimating = $(".homepageButton").is(".animating");
-		//var bigAmount = $(".big").length;
-		//console.log(bigAmount);
-		//run only if the homepage option's width is equal to it's inital value of 688px
-		if ( !isPageExplanded && !isAnimating ) {
-			//class added for later use
-			$("html, body").animate({
-				scrollTop: $(this).offset().top
-			}, "slow");
-			$(this).addClass("big").addClass("animating");
-			$(this).animate({ width: "99%" }, {	duration: 1500,
-											 	start: function () {
-											 		//slide up all secondary pages that may be showing
-													$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
-													$(".homepageButton[active!="+index+"]").animate({
-														width: "688px"
-													}).animate({ "margin-bottom": "20px" }, { complete: function () {
-													//reset all border properties via animation
-														$(".homepageButton").css("border-bottom", "10px solid #AAA");
-													}}).css("border-bottom-right-radius", "10px")
-													   .css("border-bottom-left-radius", "10px")
-													   .removeClass("big");
-												},
-												complete: function () {
-													//slide down the seconary page after the homepage option is done stretching
-													$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px");
-													//take away the margins/borders so two page could appear to be on one page
-													$(".homepageButton[active="+index+"]").css("margin-bottom", "0").css("border-bottom", "none").css("border-bottom-right-radius", "0px").css("border-bottom-left-radius", "0px");
-
-												}
-			});  // end animation
-			//add the big page class after everything is resolved to avoid closing the option too quickly
-			setTimeout(function() {
-				$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px").addClass("bigPage");
-				$(".homepageButton").removeClass("animating");
-			}, 2600);
-		}
-
-		//run only if there are no expanded homepage options
-		if (isOptionLonger && isPageExplanded) {
-			//slide up all secondary pages that may be showing
-			$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
-			//reset all hompage button sizes if any are expanded
-			$(".homepageButton").delay(800).animate({ width: "688px" }, {duration: 1000});
-			//reset all margins via animation
-			$(".homepageButton").animate({ "margin-bottom": "20px" }, { complete: function () {
-			//reset all border properties via animation
-				$(".homepageButton").css("border-bottom", "10px solid #AAA");
-			}}).css("border-bottom-right-radius", "10px")
-			   .css("border-bottom-left-radius", "10px")
-			   .removeClass("big");
-			   return false;
-		} 
-	});
+	//run only if there are no expanded homepage options
+	if (isOptionLonger && isPageExplanded) {
+		//slide up all secondary pages that may be showing
+		$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
+		//reset all hompage button sizes if any are expanded
+		$(".homepageButton").delay(800).animate({ width: "688px" }, {duration: 1000});
+		//reset all margins via animation
+		$(".homepageButton").animate({ "margin-bottom": "20px" }, { complete: function () {
+		//reset all border properties via animation
+			$(".homepageButton").css("border-bottom", "10px solid #AAA");
+		}}).css("border-bottom-right-radius", "10px")
+		   .css("border-bottom-left-radius", "10px")
+		   .removeClass("big");
+		   return false;
+	} 
+});
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////customize each puzzle (colors, stories, clues, text, etc.)///////////////////

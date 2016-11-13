@@ -7,6 +7,7 @@ font-family: 'Six Caps', sans-serif; story
 
 body {
 	background-color: #CCC;
+	zoom: 100%;
 }
 
 /*pointer*/
@@ -228,7 +229,6 @@ body {
 
 #puzzleContainer {
 	display: none;
-	zoom: 236%;
 	width: 800px;
 	margin: 0 auto;
 }
@@ -656,6 +656,24 @@ body {
 	}
 	#puzzleGallery {
 	    width: 1000px;
+	}
+}
+
+@media (max-width: 1500px) {
+	#story #backButton {
+	    left: 62px;
+	    top: -5.8px;
+	    height: 2.25em;
+	    width: 10.5625em;
+	    font-size: 1.875em;
+	    line-height: 2;
+	}
+	#start {
+	    height: 1.953125em;
+	    width: 10.5625em;
+	    position: relative;
+	    top: 62px;
+	    left: 159px;
 	}
 }
 
