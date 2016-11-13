@@ -729,7 +729,7 @@ $(document).ready( function () {
 		$("#pageLiner span").hide();
 		//zoom out of #puzzleGallery
 		$("#puzzleGallery").animate({
-			zoom: "41%"
+			zoom: "50%"
 		}, {duration: 1000, complete: function (){
 			$("body").css("zoom", "130%").css("overflow-y", "hidden");
 			//hide the #puzzleGallery
