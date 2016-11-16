@@ -230,7 +230,22 @@ body {
 #puzzleContainer {
 	display: none;
 	width: 800px;
+	height: 100vh;
 	margin: 0 auto;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#puzzleStoryHolder {
+	height: 100vh;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#puzzleStoryHolder {
+	display: none;
+	position: relative;
 }
 
 #puzzleStory {
@@ -238,8 +253,8 @@ body {
     margin: 0 auto;
     border: 10px solid;
     border-radius: 10px;
-    height: 56.375em;
-    width: 48.125em;
+    /*height: 56.375em;
+    width: 48.125em;*/
     position: relative;
     top: 15px;
 /*    border-color: #410041;
@@ -247,12 +262,12 @@ body {
 
 #puzzleStory.puzzle {
 /*    background-color: #741F74;*/
-	display: none;
-    margin: 0 auto;
+/*	display: none;
+*/    margin: 0 auto;
     border: 10px solid;
     border-radius: 10px;
-    height: 56.375em;
-    width: 74em;
+    /*height: 56.375em;*/
+    width: 950px;
     position: relative;
     top: 200px;
 /*    border-color: #410041;
@@ -298,8 +313,9 @@ body {
 
 .puzzleDiv {
 	height: 830px;
-	width: 1056px;
+	width: 60em;
 	margin: 0 auto;
+
 }
 
 #storyPage,
@@ -320,9 +336,14 @@ body {
 }
 
 #puzzleStoryPage {
+	width: 60em;
+}
+
+
+#puzzleStoryPage {
 	background-image: none;
-	width: 50em;
-	position: relative;
+/*	width: 50em;
+*/	position: relative;
 	top: 24px;
 	left: 0;
 	margin: 0 auto;
@@ -379,7 +400,7 @@ body {
 
 #gameBoard {
   height: 50em;
-  width: 50em;
+  width: 60em;
   margin: 0 auto;
 }
 
@@ -396,15 +417,14 @@ body {
 }
 
 #puzzleGameBoardInside {
-    width: 56em;
-    height: 51.5em;
+    width: 51em;
+    height: 50em;
     position: relative;
-    top: 4px;
-    left: -74px;
+    top: -17px;
     padding-top: 14px;
-    padding-left: 6em;
-/*    background-color: #A35DA3;
-*/    border-radius: 10px;
+    padding-left: 1em;
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
 .gridbox {
@@ -475,7 +495,7 @@ body {
 /*  border-color: #A35DA3;*/
 }
 
- .topBarHome {
+.topBarHome {
   height: 12.5em;
   width: 12.5em;
 }
@@ -523,15 +543,13 @@ body {
 
 #clue {
  	height: 8em;
-  	width: 23em;
-  	border: 8px solid;
-  	/*border-color: #410041;*/
-  	border-radius: 10px;
-  	/*background-color: #741F74;*/
-  	padding: 1em;
-	position: relative;
-	top: 1em;
-	left: -10em;
+    width: 23em;
+    border: 8px solid;
+    border-radius: 10px;
+    padding: 1em;
+    position: relative;
+    top: 38em;
+    left: 25em;
 }
 
 #previous,
@@ -669,7 +687,7 @@ body {
 	    line-height: 2;
 	}
 	#start {
-	    height: 1.953125em;
+	    height: 1.9em;
 	    width: 10.5625em;
 	    position: relative;
 	    top: 62px;
@@ -678,9 +696,44 @@ body {
 }
 
 @media (max-width: 1280px) {
+	/*#story,
+	#puzzleContainer {
+		width: 90vw;
+	}
+
+	#storyPage {
+		width: 80vw;
+		background-size: 80vw 713.615px;
+	}
+
 	#puzzleStory.puzzle {
-    	zoom: 80%;
+    	zoom: 87%;
     }
+
+    #pageLiner {
+	    width: 67vw;
+	    left: 102px;
+	}*/
+
+	#pageLiner span {
+	    line-height: 1.33;
+	    font-size: 2.4em;
+	    top: 14px;
+	}
+
+	#storyPage #title {
+	    top: 17px;
+	    font-size: 2.5em;
+	}
+
+	#story {
+    	zoom: 120%;
+    }
+
+	#puzzleContainer {
+    	width: 100vw;
+    }
+
     #clue #previous {
 		position: relative;
 	    left: -1.2em;
@@ -714,15 +767,14 @@ body {
 	    top: 0.3em;
 	    font-size: 2.5em;
 	}
+
+	816px
 }
 
 @media (max-width: 1050px) {
 	#puzzleGallery {
 	    width: 841px;
 	}
-	#puzzleStory.puzzle {
-    	zoom: 65%;
-    }
 }
 
 @media (max-width: 850px) {
@@ -743,12 +795,8 @@ body {
     #homepageHeading {
     	font-size: 50px;
     }
-}
 
-@media (max-width: 850px) {
-	#puzzleStory.puzzle {
-    	zoom: 63%;
-    }
+   
     #clue #next {
 	    left: 19.97em;
 	    top: -12.45em;
