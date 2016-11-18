@@ -399,9 +399,12 @@ body {
 */}
 
 #gameBoard {
-  height: 50em;
-  width: 60em;
-  margin: 0 auto;
+    height: 52em;
+    width: 59em;
+    margin: 0 auto;
+    /* overflow: scroll; */
+    top: -24px;
+    position: relative;
 }
 
 #gameBoardInside {
@@ -420,7 +423,7 @@ body {
     width: 51em;
     height: 50em;
     position: relative;
-    top: -17px;
+    top: 9px;
     padding-top: 14px;
     padding-left: 1em;
     border-radius: 10px;
@@ -456,7 +459,7 @@ body {
 }
 
 .leftBar {
-  height: 12.25em;
+  height: 11.95em;
   width: 2.25em;
   border: 0.125em solid;
   text-align: center;
@@ -491,7 +494,7 @@ body {
   border: 0.125em solid;
   position: relative;
   left: 2.5em;
-  top: -12.5em;
+  top: -12.1em;
 /*  border-color: #A35DA3;*/
 }
 
@@ -502,7 +505,7 @@ body {
 
 .topBar {
   height: 2.25em;
-  width: 12.25em;
+  width: 11.9em;
   border: 0.125em solid;
   text-align: center;
 /*  border-color: #A35DA3;
@@ -534,6 +537,32 @@ body {
 #bottomThird,
 #bottomLast {
 	/*background-color: #A35DA3;*/
+}
+
+#puzzleGameBoardInside {
+	zoom: 100%;
+}
+
+#zoomIn,
+#zoomOut {
+    height: 4em;
+    width: 25em;
+    border: 8px solid;
+    display: inline-block;
+    position: relative;
+    left: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#zoomClass {
+	overflow: scroll;
+}
+
+#zoomIn span,
+#zoomOut span {
+	font-size: 48px;
+	font-family: 'Permanent Marker', cursive;
 }
 
 #clues {
@@ -720,6 +749,29 @@ body {
 @media (max-width: 1050px) {
 	#puzzleGallery {
 	    width: 841px;
+	}
+
+	.puzzleDiv {
+		height: 88vh;
+	}
+
+	#clue {
+	    border: none;
+	    left: 22px;
+    	position: relative;
+	}
+
+	.topBar {
+    	width: 12.2em;
+    }
+
+    .leftBar {
+	    height: 12.2em;
+	    position: relative;
+	}
+
+	.leftBarOption {
+		top: -12.5em;
 	}
 }
 

@@ -720,8 +720,6 @@ $(document).ready( function () {
   	}
   };
   populatePaper();
-
-
 //change colors of letters on homepage
 	var c = 0;
 	var o = 1;
@@ -900,9 +898,6 @@ $(document).ready( function () {
 			}, 1000);
 		}});
 	});
-
-
-
 //markup creator function
 	var markup = function (selector, target){
 		$(selector).html(target);
@@ -917,7 +912,6 @@ $(document).ready( function () {
   	$("#puzzleGallery").fadeOut("slow");
   	$("#homepage").delay(800).fadeIn(1800);
   });
-
 //when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
 $("#play").click( function () {
 	//reset all homepage buttons to their original size, margins, border, and border radius
@@ -1066,12 +1060,41 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(selector).css("color", target );
 			};
 //set color themes
-			backgroundColorTheme("#gameBoardInside, #gameBoardInside, .gridbox, #puzzleGameBoardInside, #topFirst, #bottomMiddleLast, #bottomThird, #bottomLast, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.light);
+			backgroundColorTheme("#gameBoardInside, #gameBoardInside, .gridbox, #puzzleGameBoardInside, #topFirst, #bottomMiddleLast, #bottomThird, #bottomLast, div#next, div#previous, div#currentClue, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.light);
 			backgroundColorTheme("#story, #puzzleStory, div#clue", puzzle5by5[tempHolder].colors.medium);
 			backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit", puzzle5by5[tempHolder].colors.dark);
 			borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption", puzzle5by5[tempHolder].colors.light);
-			borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue", puzzle5by5[tempHolder].colors.dark);
+			borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
 			textColorTheme("#start, #backButton, #resetButton, #submit, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
+			textColorTheme("#zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
+//zoom button functionality
+	var zoom = 0;
+	$("#zoomIn").click( function () {
+		if (zoom < 3) {
+			$("#gameBoard").css("overflow", "scroll");
+			$("#puzzleGameBoardInside").animate({
+				zoom: "+=20%"
+			}, { complete: function () {
+				zoom ++;
+			}});
+		}
+	});
+	$("#zoomOut").click( function () {
+		if ( zoom > 1 ) {
+			$("#puzzleGameBoardInside").animate({
+				zoom: "-=20%"
+			}, { complete: function () {
+				zoom --;
+			}});
+		} else if ( zoom === 1 ) {
+			$("#puzzleGameBoardInside").animate({
+				zoom: "-=20%"
+			}, { complete: function () {
+				$("#gameBoard").css("overflow", "");
+				zoom --;
+			}});
+		}
+	});
 //clue box functionality
 			//populate the clue box with current clue
 			var clueMarkup = function (selector, target) {
