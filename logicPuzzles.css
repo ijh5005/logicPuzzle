@@ -480,12 +480,14 @@ body {
 	top: 4.8em;
 	width: 151px;
 	left: -2.625em;
+    font-weight: bold;
 }
 
 .topBarOption span {
 	top: 3.1em;
     left: -2.6em;
     width: 151px;
+    font-weight: bold;
 }
 
 .leftBarOption {
@@ -513,15 +515,17 @@ body {
 
 .topBar span,
 .leftBarOption span {
-  color: #A35DA3;
-  position: relative;
-  top: 0.525em;
-  left: 0.325em;
-  font-size: 1.25em;
+	color: #A35DA3;
+	position: relative;
+	top: 0.525em;
+	left: 0.325em;
+	font-size: 1.25em;
+    font-weight: bold;
 }
 
 .leftBarOption span{
-  left: 0.325em;
+  	left: 0.325em;
+    font-weight: bold;
 }
 
 .topBarOption {
