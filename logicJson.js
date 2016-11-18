@@ -866,10 +866,22 @@ $(document).ready( function () {
 		}, {
 				duration: 1000, 
 				complete: function () {
-							// $("body").css("overflow-y", "hidden");
+							$("body").css("overflow-y", "hidden");
 							$("#puzzleStoryHolder").css("display", "block");
 			$("#puzzleStoryHolder").animate({
 				top: "-=100vh"
+			}, 1000);
+		}});
+	});
+//go to the previous screen
+  	$("#puzzleStory #backButton").click( function () {
+		$("#puzzleStory.puzzle").animate({
+			top: "+=100vh"
+		}, {duration: 1000,  start: function () {
+			$("body").css("overflow-y", "hidden");
+			//$("#puzzleStory.puzzle").css("display", "block");
+			$("div#story").animate({
+				top: "+=100vh"
 			}, 1000);
 		}});
 	});  	
@@ -886,18 +898,6 @@ $(document).ready( function () {
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
 		$("#puzzleStory.puzzle").css("display", "none");
 	});	
-//go to the previous screen
-  	$("#puzzleStory #backButton").click( function () {
-		$("#puzzleStory.puzzle").animate({
-			top: "+=100vh"
-		}, {duration: 1000,  start: function () {
-			$("body").css("overflow-y", "hidden");
-			$("#puzzleStory.puzzle").css("display", "block");
-			$("div#story").animate({
-				top: "+=100vh"
-			}, 1000);
-		}});
-	});
 //markup creator function
 	var markup = function (selector, target){
 		$(selector).html(target);
@@ -1069,7 +1069,9 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			textColorTheme("#zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
 //zoom button functionality
 	var zoom = 0;
+	//click the zoom in button to zoom in
 	$("#zoomIn").click( function () {
+		//zoom in max of 2 times
 		if (zoom < 3) {
 			$("#gameBoard").css("overflow", "scroll");
 			$("#puzzleGameBoardInside").animate({
@@ -1079,6 +1081,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			}});
 		}
 	});
+	//click the zoom out button to zoom out
 	$("#zoomOut").click( function () {
 		if ( zoom > 1 ) {
 			$("#puzzleGameBoardInside").animate({
@@ -1086,6 +1089,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			}, { complete: function () {
 				zoom --;
 			}});
+		//retur game board to original position before zooming in
 		} else if ( zoom === 1 ) {
 			$("#puzzleGameBoardInside").animate({
 				zoom: "-=20%"
@@ -1117,6 +1121,24 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			});
 			//move backward through clues
 			$("#previous").click( function () {
+				$("#currentClue").scrollTop(0);
+				j--;
+				if ( j === -1 ) {
+				 	j = clueLength - 1;
+				}
+				clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
+			});
+			//slipe left and right to change the clue
+			$("#currentClue").on("swipeleft", function () {
+				$("#currentClue").scrollTop(0);
+				j++;
+				if ( j === clueLength ) {
+				  j = 0;
+				}
+				clueMarkup("#currentClue span", puzzle5by5[tempHolder].clues[0][j]);
+			});
+			//slipe right and right to change the clue
+			$("#currentClue").on("swiperight", function () {
 				$("#currentClue").scrollTop(0);
 				j--;
 				if ( j === -1 ) {
