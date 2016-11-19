@@ -877,13 +877,16 @@ $(document).ready( function () {
   	$("#puzzleStory #backButton").click( function () {
 		$("#puzzleStory.puzzle").animate({
 			top: "+=100vh"
-		}, {duration: 1000,  start: function () {
-			$("body").css("overflow-y", "hidden");
-			//$("#puzzleStory.puzzle").css("display", "block");
-			$("div#story").animate({
-				top: "+=100vh"
-			}, 1000);
-		}});
+		}, {	duration: 1000,  
+				start: function () {
+					$("body").css("overflow-y", "hidden");
+					$("div#story").animate({
+						top: "+=100vh"
+					}, 1000)},
+				complete: function () {
+					$("#puzzleStoryHolder").css("display", "none");
+				}
+			});
 	});  	
 //go back to gallery
   	$("#story #backButton").click( function () {
