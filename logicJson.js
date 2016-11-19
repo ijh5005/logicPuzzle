@@ -865,11 +865,7 @@ $(document).ready( function () {
 			top: "-=100vh"
 		}, {
 				duration: 1000,
-				start: 	function () {
-							$("body").css("overflow-y", "hidden");
-				},
 				complete: function () {
-							$("body").css("overflow-y", "");
 							$("#puzzleStoryHolder").css("display", "block");
 							$("#puzzleStoryHolder").animate({
 								top: "-=100vh"
@@ -878,12 +874,11 @@ $(document).ready( function () {
 	});
 //go to the previous screen
   	$("#puzzleStory #backButton").click( function () {
-		$("#puzzleStory.puzzle").animate({
+		$("#puzzleStoryHolder").animate({
 			top: "+=100vh"
 		}, {	duration: 1000,  
 				start: function () {
-					$("body").css("overflow-y", "hidden");
-					$("puzzleContainer").animate({
+					$("#puzzleContainer").animate({
 						top: "+=100vh"
 					}, 1000)},
 				complete: function () {
