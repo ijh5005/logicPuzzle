@@ -849,6 +849,7 @@ $(document).ready( function () {
 			}, {duration: 200, 
 				start: function () {
 					$("#puzzleContainer").css("display", "flex");
+					$("#pageLiner").scrollTop(0);
 					},
 				complete: function (){
 					//set the story paper img
@@ -878,6 +879,7 @@ $(document).ready( function () {
 			top: "+=100vh"
 		}, {	duration: 1000,  
 				start: function () {
+					$("#pageLiner").scrollTop(0);
 					$("#puzzleContainer").animate({
 						top: "+=100vh"
 					}, 1000)},
@@ -888,7 +890,6 @@ $(document).ready( function () {
 	});  	
 //go back to gallery
   	$("#story #backButton").click( function () {
-  		$("body").css("overflow-y", "").css("background-color", "#CCC");
   		//$("#puzzleStory").css("display", "none");
   		$(".puzzleOption").css("display", "block");
   		//$(".puzzleOption").attr("id","");
@@ -897,7 +898,6 @@ $(document).ready( function () {
 		$("#storyPage").css("background-image", "none");
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
-		$("#puzzleStory.puzzle").css("display", "none");
 	});	
 //markup creator function
 	var markup = function (selector, target){
@@ -907,6 +907,7 @@ $(document).ready( function () {
   $("#play").click( function () {
   	$("#homepage").delay(400).fadeOut("slow");
   	$("#puzzleGallery").delay(800).fadeIn(2000);
+  	$("body").scrollTop(0);
   });
 //back to main menu
   $("#menu").click( function () {
@@ -1073,7 +1074,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	//click the zoom in button to zoom in
 	$("#zoomIn").click( function () {
 		//zoom in max of 2 times
-		if (zoom < 3) {
+		if (zoom < 5) {
 			$("#gameBoard").css("overflow", "scroll");
 			$("#puzzleGameBoardInside").animate({
 				zoom: "+=20%"
@@ -1194,7 +1195,10 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 					$("#puzzleGameBoardInside").effect( "explode", 1800 );
 					$("#win").css("z-index", "1");
 				} else {
-					console.log("Sorry. I know you can do it if you try again!");
+					$("#submit").html("Sorry..");
+					setTimeout(function() {
+					    $("#submit").html("Submit");
+					}, 2000);
 				}
 		});
 	});
