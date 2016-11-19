@@ -859,17 +859,20 @@ $(document).ready( function () {
 		}});
 	});
 //start the puzzle (on start click)
-	$("div#start").click( function () {
+	$("#start").click( function () {
 		//$("#win").fadeOut("fast");
-		$("div#story").animate({
+		$("#puzzleContainer").animate({
 			top: "-=100vh"
 		}, {
-				duration: 1000, 
-				complete: function () {
+				duration: 1000,
+				start: 	function () {
 							$("body").css("overflow-y", "hidden");
+				},
+				complete: function () {
+							$("body").css("overflow-y", "");
 							$("#puzzleStoryHolder").css("display", "block");
-			$("#puzzleStoryHolder").animate({
-				top: "-=100vh"
+							$("#puzzleStoryHolder").animate({
+								top: "-=100vh"
 			}, 1000);
 		}});
 	});
@@ -880,7 +883,7 @@ $(document).ready( function () {
 		}, {	duration: 1000,  
 				start: function () {
 					$("body").css("overflow-y", "hidden");
-					$("div#story").animate({
+					$("puzzleContainer").animate({
 						top: "+=100vh"
 					}, 1000)},
 				complete: function () {

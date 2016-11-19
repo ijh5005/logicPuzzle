@@ -234,6 +234,7 @@ body {
 	margin: 0 auto;
 	flex-direction: column;
 	justify-content: center;
+	position: relative;
 }
 
 #puzzleStoryHolder {
@@ -287,11 +288,12 @@ body {
 }
 
 #options {
-	width: 628px;
+	width: 39.25em;
     align-items: center;
     margin: 0 auto;
     position: relative;
     top: -107px;
+    text-align: center;
 }
 
 #backButton,
@@ -299,7 +301,7 @@ body {
 #submit {
 	border-radius: 10px;
 	height: 84px;
-	width: 200px;
+	width: 3.5em;
 	text-align: center;
 	left: -300px;
 	font-family: 'Permanent Marker', cursive;
@@ -309,7 +311,7 @@ body {
 }
 
 #submit {
-	width: 220px;
+	width: 3.75em;
 }
 
 .puzzleDiv {
@@ -345,7 +347,7 @@ body {
 	background-image: none;
 /*	width: 50em;
 */	position: relative;
-	top: 24px;
+	top: -45px;
 	left: 0;
 	margin: 0 auto;
 }
