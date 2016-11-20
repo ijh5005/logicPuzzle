@@ -868,6 +868,7 @@ $(document).ready( function () {
 				duration: 1000,
 				complete: function () {
 							$("#puzzleStoryHolder").css("display", "block");
+							$("body").css("overflow-y", "hidden");
 							$("#puzzleStoryHolder").animate({
 								top: "-=100vh"
 			}, 1000);
@@ -885,6 +886,7 @@ $(document).ready( function () {
 					}, 1000)},
 				complete: function () {
 					$("#puzzleStoryHolder").css("display", "none");
+					$("body").css("overflow-y", "");
 				}
 			});
 	});  	
@@ -1198,9 +1200,10 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 					$("#win").css("z-index", "1");
 				} else {
 					$("#submit").html("Sorry..");
+					$("#gameBoard").effect("shake");
 					setTimeout(function() {
 					    $("#submit").html("Submit");
-					}, 2000);
+					}, 3000);
 				}
 		});
 	});
