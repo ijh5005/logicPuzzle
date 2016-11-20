@@ -716,7 +716,7 @@ body {
 
 	#previous, #next, #currentClue {
 	    height: 9em;
-	    width: 36px;
+	    width: 35px;
 	}
 
 	#previous, #next {
@@ -751,6 +751,14 @@ body {
 		left: 403px;
     	top: 898px
 	}
+
+	#puzzleStoryHolder {
+		zoom: 120%;
+	}
+
+	#puzzleStory.puzzle {
+    	top: 252px;
+    }
 }
 
 @media (max-width: 1750px) {

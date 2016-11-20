@@ -1193,6 +1193,8 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			//display correct alert
 				if ( correctAnswers === 30 ) {
 					$("#puzzleGameBoardInside").effect( "explode", 1800 );
+					$("#submit").fadeOut("fast");
+					$("#clue").fadeOut();
 					$("#win").css("z-index", "1");
 				} else {
 					$("#submit").html("Sorry..");
