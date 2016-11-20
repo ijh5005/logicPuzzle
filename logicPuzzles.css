@@ -697,11 +697,68 @@ body {
 	top: -1130px;
 }
 
+@media (min-width: 1050px) {
+	#zoomIn, #zoomOut {
+    	display: none;
+	}
+
+	#puzzleGameBoardInside {
+	    top: -6px;
+	}
+
+	#clue {
+	    height: 10em;
+	    width: 24em;
+	    position: relative;
+	    top: -254px;
+	    left: 470px;
+	}
+
+	#previous, #next, #currentClue {
+	    height: 9em;
+	    width: 36px;
+	}
+
+	#previous, #next {
+	    line-height: 3;
+	}
+
+	#currentClue {
+	    height: 9em;
+	    width: 36px;
+	    width: 256px;
+	}
+
+	#currentClue span {
+	    font-size: 22px;
+	    width: 9.5em;
+	}
+
+	#backButton {
+		position: relative;
+		left: -606px;
+    	top: 160px;
+	}
+
+	#resetButton {
+		position: relative;
+		left: -403px;
+		top: 272px;
+	}
+
+	#submit {
+		position: relative;
+		left: 403px;
+    	top: 898px
+	}
+}
+
 @media (max-width: 1750px) {
 	.puzzleOption {
 		width: 38%;
 		background-size: 100% 31.3em;
 	}
+
 	#puzzleGallery {
 	    width: 1000px;
 	}
