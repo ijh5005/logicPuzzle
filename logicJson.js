@@ -776,9 +776,9 @@ $(document).ready( function () {
 	}, 1000);
 //populate the .guessHomeBox with a 5 by 5 grid of .guessBox's
 	var populationGuessHome = function () {
-	    var markup = "<div class='guessBox floatLeft' correct='false'></div";
+	    var markup = "<div class='guessBox floatLeft' correct='false' data='0'></div";
 	    for ( i = 0; i < 24; i++) {
-	    	markup += "><div class='guessBox floatLeft' correct='false'></div";
+	    	markup += "><div class='guessBox floatLeft' correct='false' data='"+(i+1)+"'></div";
 	    }
 	    markup += ">";
 	    $(".guessHomeBox").html(markup);
@@ -804,6 +804,8 @@ $(document).ready( function () {
 	populationLeftBarHome();
 //toggle correct answer indicator (light color/dark color)
     $(".guessBox").click(function () {
+    	var thisParent = $(this).parent();
+    	var thisBox = $(this);
 		var backgroundColor = $(this).css("background-color");
 		var dark = $("#start").css("background-color");
 		var medium = $("#story").css("background-color");
@@ -820,6 +822,55 @@ $(document).ready( function () {
 		else {
 			$(this).css("background-color", "rgb(255, 255, 255)").attr("correct", false);
 		}
+
+		//auto populate wrong answers
+		var quickPopulate = function () {
+			var i, j, row, col;
+			var correctAnswer = $(thisBox).attr("data");;
+			//array of the row indexes
+			var autofillRow = [
+				[0, 1, 2, 3, 4],
+				[5, 6, 7, 8, 9],
+				[10, 11, 12, 13, 14],
+				[15, 16, 17, 18, 19],
+				[20, 21, 22, 23, 24]
+			];
+			//array of the col indexes
+			var autofillCol = [
+				[0, 5, 10, 15, 20],
+				[1, 6, 11, 16, 21],
+				[2, 7, 12, 17, 22],
+				[3, 8, 13, 18, 23],
+				[4, 9, 14, 19, 24]
+			];
+			if( thisBox.css("background-color") === medium ){
+				for (i = 0; i < 5; i++) {
+					for (j = 0; j < 5; j++){
+						if( autofillRow[i][j] == correctAnswer ){
+							row = autofillRow[i];
+						}
+					}
+				}
+				for (i = 0; i < 5; i++) {
+					for (j = 0; j < 5; j++){
+						if( autofillCol[i][j] == correctAnswer ){
+							col = autofillCol[i];
+						}
+					}
+				}
+
+				var combined = row.concat(col);
+				for (i = 0; i < 10; i++) {
+					$(thisParent).children().each( function () {
+						if ( $(this).attr("data") == combined[i] && $(this).attr("data") != correctAnswer) {
+							$(this).css("background-color", dark);
+						}
+					});
+				}
+
+			}
+		};
+		quickPopulate();
 	});
 //reset the puzzle to clear the light/dark colors
 	$("#resetButton").click( function () {
@@ -1207,4 +1258,5 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				}
 		});
 	});
+	
 });
