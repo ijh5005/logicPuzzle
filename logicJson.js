@@ -870,7 +870,7 @@ $(document).ready( function () {
 
 			}
 		};
-		quickPopulate();
+		//quickPopulate();
 	});
 //reset the puzzle to clear the light/dark colors
 	$("#resetButton").click( function () {
