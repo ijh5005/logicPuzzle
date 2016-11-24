@@ -919,7 +919,7 @@ $(document).ready( function () {
 				duration: 1000,
 				complete: function () {
 							$("#puzzleStoryHolder").css("display", "block");
-							$("body").css("overflow-y", "hidden");
+							//$("body").css("overflow-y", "hidden");
 							$("#puzzleStoryHolder").animate({
 								top: "-=100vh"
 			}, 1000);
@@ -937,7 +937,7 @@ $(document).ready( function () {
 					}, 1000)},
 				complete: function () {
 					$("#puzzleStoryHolder").css("display", "none");
-					$("body").css("overflow-y", "");
+					//$("body").css("overflow-y", "");
 				}
 			});
 	});  	
