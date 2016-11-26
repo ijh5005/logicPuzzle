@@ -697,7 +697,91 @@ body {
 	top: -1130px;
 }
 
-@media (min-width: 1050px) {
+@media (max-width: 1750px) {
+	.puzzleOption {
+		width: 38%;
+		background-size: 100% 31.3em;
+	}
+
+	#puzzleGallery {
+	    width: 1000px;
+	}
+}
+
+@media (max-width: 1500px) {
+	#story #backButton {
+	    left: 62px;
+	    top: -5.8px;
+	    height: 2.25em;
+	    width: 10.5625em;
+	    font-size: 1.875em;
+	    line-height: 2;
+	}
+	#start {
+	    height: 1.9em;
+	    width: 10.5625em;
+	    position: relative;
+	    top: 62px;
+	    left: 159px;
+	}
+}
+
+@media (max-width: 1280px) {
+	#pageLiner span {
+	    line-height: 1.33;
+	    font-size: 2.4em;
+	    top: 14px;
+	}
+
+	#storyPage #title {
+	    top: 17px;
+	    font-size: 2.5em;
+	}
+
+	#story {
+    	zoom: 120%;
+    }
+
+	#puzzleContainer {
+    	width: 100vw;
+    }
+
+	.puzzleOption span {
+	    top: 0.3em;
+	    font-size: 2.5em;
+	}
+}
+
+@media (max-width: 1280px) {
+	#puzzleGallery {
+	    width: 841px;
+	}
+
+	.puzzleDiv {
+		height: 94em;
+	}
+
+	#clue {
+	    border: none;
+	    left: 22px;
+    	position: relative;
+	}
+
+	.topBar {
+    	width: 12.2em;
+    }
+
+    .leftBar {
+	    height: 12.2em;
+	    position: relative;
+	}
+
+	.leftBarOption {
+		top: -12.5em;
+	}
+}
+
+@media (min-width: 1280px) {
 	#zoomIn, #zoomOut {
     	display: none;
 	}
@@ -761,89 +845,13 @@ body {
     }
 }
 
-@media (max-width: 1750px) {
-	.puzzleOption {
-		width: 38%;
-		background-size: 100% 31.3em;
+@media (max-width: 1800px) {
+	#backButton {
+	    left: 610px;
 	}
 
-	#puzzleGallery {
-	    width: 1000px;
-	}
-}
-
-@media (max-width: 1500px) {
-	#story #backButton {
-	    left: 62px;
-	    top: -5.8px;
-	    height: 2.25em;
-	    width: 10.5625em;
-	    font-size: 1.875em;
-	    line-height: 2;
-	}
-	#start {
-	    height: 1.9em;
-	    width: 10.5625em;
-	    position: relative;
-	    top: 62px;
-	    left: 159px;
-	}
-}
-
-@media (max-width: 1280px) {
-	#pageLiner span {
-	    line-height: 1.33;
-	    font-size: 2.4em;
-	    top: 14px;
-	}
-
-	#storyPage #title {
-	    top: 17px;
-	    font-size: 2.5em;
-	}
-
-	#story {
-    	zoom: 120%;
-    }
-
-	#puzzleContainer {
-    	width: 100vw;
-    }
-
-	.puzzleOption span {
-	    top: 0.3em;
-	    font-size: 2.5em;
-	}
-
-	816px
-}
-
-@media (max-width: 1050px) {
-	#puzzleGallery {
-	    width: 841px;
-	}
-
-	.puzzleDiv {
-		height: 94em;
-	}
-
-	#clue {
-	    border: none;
-	    left: 22px;
-    	position: relative;
-	}
-
-	.topBar {
-    	width: 12.2em;
-    }
-
-    .leftBar {
-	    height: 12.2em;
-	    position: relative;
-	}
-
-	.leftBarOption {
-		top: -12.5em;
+	#resetButton {
+		left: 814px;
 	}
 }
 
