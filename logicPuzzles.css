@@ -849,6 +849,12 @@ body {
     }
 }
 
+@media (min-width: 1800px) {
+	#puzzleStory.puzzle {
+	    top: 58px;
+	}
+}
+
 @media (max-width: 1800px) {
 	#backButton {
 	    left: 610px;
@@ -856,6 +862,16 @@ body {
 
 	#resetButton {
 		left: 814px;
+	}
+
+	#puzzleStory.puzzle {
+	    top: 58px;
+	}
+}
+
+@media (max-width: 1280px) {
+	#puzzleStory.puzzle {
+	    top: 164px;
 	}
 }
 
