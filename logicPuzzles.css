@@ -5,6 +5,10 @@ font-family: 'Permanent Marker', cursive; title
 font-family: 'Six Caps', sans-serif; story
 ********************************************/
 
+html, body {
+	height: 100vh;
+}
+
 body {
 	background-color: #CCC;
 	zoom: 100%;

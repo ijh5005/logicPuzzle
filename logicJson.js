@@ -918,8 +918,8 @@ $(document).ready( function () {
 		}, {
 				duration: 1000,
 				complete: function () {
-							$("#puzzleStoryHolder").css("display", "block");
-							//$("body").css("overflow-y", "hidden");
+							$("#puzzleContainer").css("display", "none");
+							$("#puzzleStoryHolder").css("display", "block").css("top", "100vh");
 							$("#puzzleStoryHolder").animate({
 								top: "-=100vh"
 			}, 1000);
@@ -932,12 +932,13 @@ $(document).ready( function () {
 		}, {	duration: 1000,  
 				start: function () {
 					$("#pageLiner").scrollTop(0);
-					$("#puzzleContainer").animate({
-						top: "+=100vh"
-					}, 1000)},
+				},
 				complete: function () {
 					$("#puzzleStoryHolder").css("display", "none");
-					//$("body").css("overflow-y", "");
+					$("#puzzleContainer").css("display", "flex");
+					$("#puzzleContainer").animate({
+						top: "+=100vh"
+					}, 1000)
 				}
 			});
 	});  	
@@ -1243,7 +1244,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				boxCheck("#bottomSecond .guessBox", 5);
 			}
 			
-			//display correct alert
+			//display correct/incorrect response when submit is clicked
 				if ( correctAnswers === 30 ) {
 					$("#puzzleGameBoardInside").effect( "explode", 1800 );
 					$("#submit").fadeOut("fast");
