@@ -882,6 +882,11 @@ $(document).ready( function () {
 	$("#resetButton").click( function () {
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
+		//remove the highlights
+  		$(".guessBox").children().removeClass("highlightLeft");
+	    $(".guessBox").children().removeClass("highlight");
+	    highlightCheck = false;
+		highlightCheckLeft = false;
 	});
 /////////////////////////////////////////////////////////////
 ///////////////////////navigation////////////////////////////
@@ -950,6 +955,9 @@ $(document).ready( function () {
 	});  	
 //go back to gallery
   	$("#story #backButton").click( function () {
+  		//remove the highlights
+  		$(".guessBox").children().removeClass("highlightLeft");
+	    $(".guessBox").children().removeClass("highlight");
   		//$("#puzzleStory").css("display", "none");
   		$(".puzzleOption").css("display", "block");
   		//$(".puzzleOption").attr("id","");
@@ -1222,7 +1230,6 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			//shortct
 			$(".guessBox[correct='true']").each( function () {
 				var position = $(this).index();
-				console.log(position);
 			}); //end short cut
 
 			//box check function
@@ -1234,7 +1241,6 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 					//used to check to see if correct is set to true
 					var correct = $(this).attr("correct");
 					if ( correct === "true" & position === correctAnswer) {
-						console.log("correct!");
 						correctAnswers ++;
 					}
 				});
@@ -1275,13 +1281,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			if ( highlightCheck ) {
 				highlightCheck = false;
 				highlightCheckLeft = false;
+				console.log("true");
 
 				//remove the highlighted boxes
 	    		$(".guessBox").children().removeClass("highlight");
 	    		$(".guessBox").children().removeClass("highlightLeft");
 			} else {
 				highlightCheck = true;
-
+				console.log("false");
 				//remove the highlighted boxes
 		    	$(".guessBox").children().removeClass("highlight");
 
