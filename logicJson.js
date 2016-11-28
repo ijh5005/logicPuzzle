@@ -804,6 +804,12 @@ $(document).ready( function () {
 	populationLeftBarHome();
 //toggle correct answer indicator (light color/dark color)
     $(".guessBox").click(function () {
+    	//remove the highlighted boxes
+    	$(".guessBox").children().removeClass("highlight");
+    	$(".guessBox").children().removeClass("highlightLeft");
+    	highlightCheck = false;
+    	highlightCheckLeft = false;
+
     	var thisParent = $(this).parent();
     	var thisBox = $(this);
 		var backgroundColor = $(this).css("background-color");
@@ -1259,5 +1265,210 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				}
 		});
 	});
-	
+//highlight row and col functionality
+	var highlightCheck = false;
+	var highlightCheckLeft = false;
+
+	//topBarOption
+		$(".topBarOption[data='1']").click( function () {
+
+			if ( highlightCheck ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlight");
+	    		$(".guessBox").children().removeClass("highlightLeft");
+			} else {
+				highlightCheck = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlight");
+
+		    	$(this).parent().next().next().next().next().children("[data='0'], [data='5'], [data='10'], [data='15'], [data='20']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().children("[data='0'], [data='5'], [data='10'], [data='15'], [data='20']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='0'], [data='5'], [data='10'], [data='15'], [data='20']").html("<div class='highlight'></div>");
+			}
+		});
+
+		$(".topBarOption[data='2']").click( function () {
+
+			if ( highlightCheck ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlight");
+	    		$(".guessBox").children().removeClass("highlightLeft");
+			} else {
+				highlightCheck = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlight");
+
+				$(this).parent().next().next().next().next().children("[data='1'], [data='6'], [data='11'], [data='16'], [data='21']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().children("[data='1'], [data='6'], [data='11'], [data='16'], [data='21']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='1'], [data='6'], [data='11'], [data='16'], [data='21']").html("<div class='highlight'></div>");
+			}
+		});
+
+		$(".topBarOption[data='3']").click( function () {
+
+			if ( highlightCheck ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlight");
+	    		$(".guessBox").children().removeClass("highlightLeft");
+			} else {
+				highlightCheck = true;
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlight");
+
+				$(this).parent().next().next().next().next().children("[data='2'], [data='7'], [data='12'], [data='17'], [data='22']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().children("[data='2'], [data='7'], [data='12'], [data='17'], [data='22']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='2'], [data='7'], [data='12'], [data='17'], [data='22']").html("<div class='highlight'></div>");
+			}
+		});
+
+		$(".topBarOption[data='4']").click( function () {
+
+			if ( highlightCheck ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlight");
+	    		$(".guessBox").children().removeClass("highlightLeft");
+			} else {
+				highlightCheck = true;
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlight");
+
+				$(this).parent().next().next().next().next().children("[data='3'], [data='8'], [data='13'], [data='18'], [data='23']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().children("[data='3'], [data='8'], [data='13'], [data='18'], [data='23']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='3'], [data='8'], [data='13'], [data='18'], [data='23']").html("<div class='highlight'></div>");
+			}
+		});
+
+		$(".topBarOption[data='5']").click( function () {
+
+			if ( highlightCheck ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlight");
+	    		$(".guessBox").children().removeClass("highlightLeft");
+			} else {
+				highlightCheck = true;
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlight");
+
+				$(this).parent().next().next().next().next().children("[data='4'], [data='9'], [data='14'], [data='19'], [data='24']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().children("[data='4'], [data='9'], [data='14'], [data='19'], [data='24']").html("<div class='highlight'></div>");
+				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='4'], [data='9'], [data='14'], [data='19'], [data='24']").html("<div class='highlight'></div>");
+			}
+		});
+	//leftBarOption
+		$(".leftBarOption[data='1']").click( function () {
+
+			if ( highlightCheckLeft ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlightLeft");
+	    		$(".guessBox").children().removeClass("highlight");
+			} else {
+				highlightCheckLeft = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlightLeft");
+		    	$(this).parent().next().children("[data='0'], [data='1'], [data='2'], [data='3'], [data='4']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().children("[data='0'], [data='1'], [data='2'], [data='3'], [data='4']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().next().children("[data='0'], [data='1'], [data='2'], [data='3'], [data='4']").html("<div class='highlightLeft'></div>");
+			}
+		});
+
+		$(".leftBarOption[data='2']").click( function () {
+
+			if ( highlightCheckLeft ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlightLeft");
+	    		$(".guessBox").children().removeClass("highlight");
+			} else {
+				highlightCheckLeft = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlightLeft");
+				$(this).parent().next().children("[data='5'], [data='6'], [data='7'], [data='8'], [data='9']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().children("[data='5'], [data='6'], [data='7'], [data='8'], [data='9']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().next().children("[data='5'], [data='6'], [data='7'], [data='8'], [data='9']").html("<div class='highlightLeft'></div>");
+			}
+		});
+
+		$(".leftBarOption[data='3']").click( function () {
+
+			if ( highlightCheckLeft ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlightLeft");
+	    		$(".guessBox").children().removeClass("highlight");
+			} else {
+				highlightCheckLeft = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlightLeft");
+				$(this).parent().next().children("[data='10'], [data='11'], [data='12'], [data='13'], [data='14']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().children("[data='10'], [data='11'], [data='12'], [data='13'], [data='14']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().next().children("[data='10'], [data='11'], [data='12'], [data='13'], [data='14']").html("<div class='highlightLeft'></div>");
+			}
+		});
+
+		$(".leftBarOption[data='4']").click( function () {
+
+			if ( highlightCheckLeft ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlightLeft");
+	    		$(".guessBox").children().removeClass("highlight");
+			} else {
+				highlightCheckLeft = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlightLeft");
+				$(this).parent().next().children("[data='15'], [data='16'], [data='17'], [data='18'], [data='19']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().children("[data='15'], [data='16'], [data='17'], [data='18'], [data='19']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().next().children("[data='15'], [data='16'], [data='17'], [data='18'], [data='19']").html("<div class='highlightLeft'></div>");
+			}
+		});
+
+		$(".leftBarOption[data='5']").click( function () {
+
+			if ( highlightCheckLeft ) {
+				highlightCheck = false;
+				highlightCheckLeft = false;
+
+				//remove the highlighted boxes
+	    		$(".guessBox").children().removeClass("highlightLeft");
+	    		$(".guessBox").children().removeClass("highlight");
+			} else {
+				highlightCheckLeft = true;
+
+				//remove the highlighted boxes
+		    	$(".guessBox").children().removeClass("highlightLeft");
+				$(this).parent().next().children("[data='20'], [data='21'], [data='22'], [data='23'], [data='24']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().children("[data='20'], [data='21'], [data='22'], [data='23'], [data='24']").html("<div class='highlightLeft'></div>");
+				$(this).parent().next().next().next().children("[data='20'], [data='21'], [data='22'], [data='23'], [data='24']").html("<div class='highlightLeft'></div>");
+			}
+		});
 });

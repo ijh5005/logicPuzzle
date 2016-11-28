@@ -701,6 +701,28 @@ body {
 	top: -1130px;
 }
 
+.guessBox .highlight {
+  	border: 0.2em solid #CCC;
+  	height: 1.5em;
+	width: 1.5em;
+	position: relative;
+	top: 0.25em;
+	left: 0.25em;
+	border-radius: 50px;
+	background-color: #444;
+}
+
+.guessBox .highlightLeft {
+  	border: 0.2em solid #CCC;
+  	height: 1.5em;
+	width: 1.5em;
+	position: relative;
+	top: 0.25em;
+	left: 0.25em;
+	border-radius: 50px;
+	background-color: #444;
+}
+
 @media (max-width: 1750px) {
 	.puzzleOption {
 		width: 38%;
