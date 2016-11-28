@@ -435,11 +435,17 @@ body {
     padding-left: 1em;
     border-radius: 10px;
     margin: 0 auto;
+
+    width: 57em;
+    height: 57em;
+    left: -5px;
 }
 
 .gridbox {
   height: 12.5em;
   width: 12.5em;
+
+  zoom: 112%;
 /*  background-color: #A35DA3;
 */}
 
@@ -552,6 +558,7 @@ body {
 
 #puzzleGameBoardInside {
 	zoom: 100%;
+	/*zoom: 112%;*/
 }
 
 #zoomIn,
@@ -564,6 +571,8 @@ body {
     left: 60px;
     border-radius: 10px;
     text-align: center;
+
+    top: 10px;
 }
 
 #zoomClass {
@@ -587,6 +596,8 @@ body {
   	border: 8px solid;
   	border-radius: 10px;
   	margin: 14px;
+
+  	height: 28em;
 }
 
 #previous,
@@ -609,6 +620,8 @@ body {
   	float: left;
   	margin-top: 0.2em;
   	border-radius: 10px;
+
+  	height: 26em;
 }
 
 #previous span,
@@ -800,6 +813,8 @@ body {
     .leftBar {
 	    height: 12.2em;
 	    position: relative;
+
+	    top: -2px;
 	}
 
 	.leftBarOption {

@@ -1141,7 +1141,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	var zoom = 0;
 	//click the zoom in button to zoom in
 	$("#zoomIn").click( function () {
-		//zoom in max of 2 times
+		//zoom in max of 5 times
 		if (zoom < 5) {
 			$("#gameBoard").css("overflow", "scroll");
 			$("#puzzleGameBoardInside").animate({
@@ -1159,7 +1159,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			}, { complete: function () {
 				zoom --;
 			}});
-		//retur game board to original position before zooming in
+		//return game board to original position before zooming in
 		} else if ( zoom === 1 ) {
 			$("#puzzleGameBoardInside").animate({
 				zoom: "-=20%"
