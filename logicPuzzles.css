@@ -702,9 +702,9 @@ body {
 }
 
 .guessBox .highlight {
-  	border: 0.2em solid #CCC;
-  	height: 1.5em;
-	width: 1.5em;
+  	border: 0.4em solid #CCC;
+    height: 1em;
+    width: 1em;
 	position: relative;
 	top: 0.25em;
 	left: 0.25em;
@@ -713,9 +713,9 @@ body {
 }
 
 .guessBox .highlightLeft {
-  	border: 0.2em solid #CCC;
-  	height: 1.5em;
-	width: 1.5em;
+  	border: 0.4em solid #CCC;
+    height: 1em;
+    width: 1em;
 	position: relative;
 	top: 0.25em;
 	left: 0.25em;
