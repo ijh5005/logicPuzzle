@@ -19,7 +19,7 @@ body {
 
 @keyframes animatedBackground {
 	from { background-position: 0 0; }
-	to { background-position: 674px 0; }
+	to { background-position: 676px 0; }
 }
 
 /*pointer*/
@@ -1072,6 +1072,7 @@ body {
 @media (max-width: 1280px) {
 	#puzzleStory.puzzle {
 	    top: 164px;
+	    left: -6px;
 	}
 }
 

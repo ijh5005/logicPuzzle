@@ -975,12 +975,13 @@ $(document).ready( function () {
   $("#play").click( function () {
   	$("#homepage").delay(400).fadeOut("slow");
   	$("#puzzleGallery").delay(800).fadeIn(2000);
-  	$("body").scrollTop(0);
+  	$("body").scrollTop(0).css("background-image", "url(backgroundPlain.png)");
   });
 //back to main menu
   $("#menu").click( function () {
   	$("#puzzleGallery").fadeOut("slow");
   	$("#homepage").delay(800).fadeIn(1800);
+  	$("body").scrollTop(0).css("background-image", "url(background.png)");
   });
 //when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
 $("#play").click( function () {
