@@ -10,8 +10,17 @@ html, body {
 }
 
 body {
-	background-color: #CCC;
-	zoom: 100%;
+/*	background-color: #CCC;
+*/	zoom: 100%;
+	background: url(background.png) repeat;
+	background-position: 0px 0px;
+
+	animation: animatedBackground 15s linear infinite;
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 1725px 0; }
 }
 
 /*pointer*/
