@@ -977,6 +977,28 @@ $(document).ready( function () {
   	$("#puzzleGallery").delay(800).fadeIn(2000);
   	$("body").scrollTop(0).css("background-image", "url(backgroundPlain.png)");
   });
+//store functionality
+	$(".item").click( function () {
+		var position = $(this).attr("data");
+		$(this).animate({
+				width: "0em"
+			}, {
+			    duration: 1000,
+			    start: function () {
+			    	$(this).children().html("");
+			    	$(this).css("margin", "0 auto").css("display", "block");
+			    	$("#storeBelt").css("background-color", "#E6789F").css("border-color", "#E6789F");
+			    	$(".item[data!="+position+"]").hide();
+			    },
+			    complete: function () {
+			    	$(this).children().hide().html("WORK IN PROGRESS... CHECK OUT THE PLAY OPTION INSTEAD!").fadeIn(3000);
+					$(this).animate({
+						height: "70%",
+						width: "78%"
+					});
+			    }
+		});
+	});
 //back to main menu
   $("#menu").click( function () {
   	$("#puzzleGallery").fadeOut("slow");
@@ -1022,7 +1044,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 		}, "slow");
 		//class added for later use
 		$(this).addClass("big").addClass("animating");
-		$(this).animate({ width: "99%" }, {	duration: 1500,
+		$(this).animate({ width: "96%" }, {	duration: 1500,
 										 	start: function () {
 										 		//slide up all secondary pages that may be showing
 												$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");

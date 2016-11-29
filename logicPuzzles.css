@@ -22,6 +22,60 @@ body {
 	to { background-position: 676px 0; }
 }
 
+
+
+/*//STORE SPAGE//*/
+
+#storePage {
+	
+}
+
+#storeBeltHolder {
+    height: 34em;
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    overflow-x: hidden;
+    margin: 0 auto;
+    position: relative;
+    top: -1em;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#storeBelt {
+	height: 24em;
+	width: 90%;
+	border: 10px solid #BBB;
+	margin: 0 auto;
+	overflow: auto;
+	white-space: nowrap;
+	border-radius: 10px;
+	background-color: #F1A1BD;
+}
+
+.item {
+	height: 20em;
+    width: 13.75em;
+	border: 6px solid #BBB;
+	margin: 0.625em 1.5625em 0.625em 1.5625em;
+	background-color: #D2527F;
+	display: inline-block;
+	position: relative;
+	top: 10px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.item span {
+	word-wrap: break-word;
+	white-space: normal;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 34px;
+    position: relative;
+    top: 3em;
+}
+
 /*pointer*/
 .homepageButton,
 #start,
@@ -126,7 +180,7 @@ body {
     margin: 0 auto;
 
     height: 520px;
-    width: 99%;
+    width: 96%;
 
     border-radius: 10px;
     border: 10px solid #AAA;
@@ -387,8 +441,7 @@ body {
 #pageLiner span {
 	position: relative;
     top: 26px;
-    width: 574px;
-    width: 35.875em;
+    width: 13.75em
     word-wrap: break-word;
     line-height: 2.3;
     font-family: 'Tillana', cursive;
