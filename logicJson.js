@@ -1138,37 +1138,37 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			textColorTheme("#start, #backButton, #resetButton, #submit, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
 			textColorTheme("#zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
 //zoom button functionality
-	var zoom = 0;
-	//click the zoom in button to zoom in
-	$("#zoomIn").click( function () {
-		//zoom in max of 5 times
-		if (zoom < 5) {
-			$("#gameBoard").css("overflow", "scroll");
-			$("#puzzleGameBoardInside").animate({
-				zoom: "+=20%"
-			}, { complete: function () {
-				zoom ++;
-			}});
-		}
-	});
-	//click the zoom out button to zoom out
-	$("#zoomOut").click( function () {
-		if ( zoom > 1 ) {
-			$("#puzzleGameBoardInside").animate({
-				zoom: "-=20%"
-			}, { complete: function () {
-				zoom --;
-			}});
-		//return game board to original position before zooming in
-		} else if ( zoom === 1 ) {
-			$("#puzzleGameBoardInside").animate({
-				zoom: "-=20%"
-			}, { complete: function () {
-				$("#gameBoard").css("overflow", "");
-				zoom --;
-			}});
-		}
-	});
+			var zoom = 0;
+			//click the zoom in button to zoom in
+			$("#zoomIn").click( function () {
+				//zoom in max of 5 times
+				if (zoom < 5) {
+					$("#gameBoard").css("overflow", "scroll");
+					$("#puzzleGameBoardInside").animate({
+						zoom: "+=20%"
+					}, { complete: function () {
+						zoom ++;
+					}});
+				}
+			});
+			//click the zoom out button to zoom out
+			$("#zoomOut").click( function () {
+				if ( zoom > 1 ) {
+					$("#puzzleGameBoardInside").animate({
+						zoom: "-=20%"
+					}, { complete: function () {
+						zoom --;
+					}});
+				//return game board to original position before zooming in
+				} else if ( zoom === 1 ) {
+					$("#puzzleGameBoardInside").animate({
+						zoom: "-=20%"
+					}, { complete: function () {
+						$("#gameBoard").css("overflow", "");
+						zoom --;
+					}});
+				}
+			});
 //clue box functionality
 			//populate the clue box with current clue
 			var clueMarkup = function (selector, target) {

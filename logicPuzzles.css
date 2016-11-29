@@ -406,7 +406,7 @@ body {
 */}
 
 #gameBoard {
-    height: 52em;
+    height: 59em;
     width: 59em;
     margin: 0 auto;
     /* overflow: scroll; */
@@ -436,16 +436,18 @@ body {
     border-radius: 10px;
     margin: 0 auto;
 
-    width: 57em;
+    /*width: 59em;
     height: 57em;
     left: -5px;
+    width: 54em;
+    padding-left: 0;*/
 }
 
 .gridbox {
   height: 12.5em;
   width: 12.5em;
 
-  zoom: 112%;
+  /*zoom: 112%;*/
 /*  background-color: #A35DA3;
 */}
 
@@ -479,8 +481,7 @@ body {
 /*  border-color: #A35DA3;
 */}
 
-.leftBar span,
-.topBarOption span {
+.leftBar span {
   transform: rotate(-90deg);
   display: inline-block;
   color: #A35DA3;
@@ -493,13 +494,6 @@ body {
 	top: 4.8em;
 	width: 151px;
 	left: -2.625em;
-    font-weight: bold;
-}
-
-.topBarOption span {
-	top: 3.1em;
-    left: -2.6em;
-    width: 151px;
     font-weight: bold;
 }
 
@@ -541,13 +535,26 @@ body {
     font-weight: bold;
 }
 
+.topBarOption span {
+	font-size: 1.25em;
+    font-weight: bold;
+    position: relative;
+    left: 4px;
+}
+
 .topBarOption {
-  height: 9.75em;
-  width: 2.25em;
+  width: 9.75em;
+  height: 2.25em;
+  transform: rotate(90deg);
   border: 0.125em solid;
-  float: left;
 /*  border-color: #A35DA3;
 */}
+
+.gridbox[id="topSecond"],
+.gridbox[id="topThird"],
+.gridbox[id="topLast"] {
+	position: relative;
+}
 
 #topFirst,
 #bottomMiddleLast,
@@ -597,14 +604,14 @@ body {
   	border-radius: 10px;
   	margin: 14px;
 
-  	height: 28em;
+  	height: 26em;
 }
 
 #previous,
 #next {
   	width: 6em;
   	text-align: center;
-  	line-height: 10;
+  	line-height: 9;
   	font-weight: 900;
   	font-size: 1em;
   	margin: 0 0.4em;
@@ -621,7 +628,7 @@ body {
   	margin-top: 0.2em;
   	border-radius: 10px;
 
-  	height: 26em;
+  	height: 24em;
 }
 
 #previous span,
@@ -736,6 +743,39 @@ body {
 	background-color: #444;
 }
 
+@media (min-width: 1800px) {
+
+	.topBarOption[data="1"] {
+	    position: absolute;
+	    left: -3.72em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="2"] {
+	    position: absolute;
+	    left: -1.29em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="3"] {
+	    position: absolute;
+	    left: 1.16em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="4"] {
+	    position: absolute;
+	    left: 3.6em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="5"] {
+	    position: absolute;
+	    left: 6.07em;
+	    top: 6.2em;
+	}
+}
+
 @media (max-width: 1750px) {
 	.puzzleOption {
 		width: 38%;
@@ -762,6 +802,39 @@ body {
 	    position: relative;
 	    top: 62px;
 	    left: 159px;
+	}
+}
+
+@media (max-width: 1800px) {
+
+	.topBarOption[data="1"] {
+	    position: absolute;
+	    left: -3.72em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="2"] {
+	    position: absolute;
+	    left: -1.29em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="3"] {
+	    position: absolute;
+	    left: 1.16em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="4"] {
+	    position: absolute;
+	    left: 3.6em;
+	    top: 6.2em;
+	}
+
+	.topBarOption[data="5"] {
+	    position: absolute;
+	    left: 6.07em;
+	    top: 6.2em;
 	}
 }
 
@@ -792,12 +865,44 @@ body {
 }
 
 @media (max-width: 1280px) {
+
+	#puzzleStoryHolder {
+	    width: 63em;
+	}
+
+	#puzzleStory.puzzle {
+		width: 62em;
+    }
+
 	#puzzleGallery {
 	    width: 841px;
 	}
 
 	.puzzleDiv {
 		height: 94em;
+		width: 62em;
+	}
+
+	#puzzleStoryPage {
+	    width: 62em;
+	}
+
+	#gameBoard {
+    	width: 62em;
+    }
+
+	#puzzleGameBoardInside {
+	    height: 57em;
+	    left: -2px;
+	    width: 54em;
+	    padding-left: 0;
+	    width: 59em;
+	    padding-top: 0;
+	}
+
+	.gridbox {
+		width: 14.75em;
+		height: 14.75em;
 	}
 
 	#clue {
@@ -805,10 +910,6 @@ body {
 	    left: 22px;
     	position: relative;
 	}
-
-	.topBar {
-    	width: 12.2em;
-    }
 
     .leftBar {
 	    height: 12.2em;
@@ -819,6 +920,65 @@ body {
 
 	.leftBarOption {
 		top: -12.5em;
+	}
+
+	.leftBarOption {
+	  height: 2.7em;
+	  width: 11.55em;
+	  top: -14.68em;
+	  left: 2.85em;
+	}
+
+	.guessBox {
+	  height: 2.7em;
+	  width: 2.7em;
+	}
+
+	.leftBar {
+	    height: 14.5em;
+	    width: 2.7em;
+	    position: relative;
+	    top: 0; 
+	}
+
+	.topBar {
+    	width: 14.5em;
+    	height: 2.7em;
+    }
+
+    .topBarOption {
+	    width: 11.5em;
+	    height: 2.7em;
+	}
+
+	.topBarOption[data="1"] {
+	    position: absolute;
+	    left: -4.35em;
+	    top: 7.3em;
+	}
+
+	.topBarOption[data="2"] {
+	    position: absolute;
+	    left: -1.35em;
+	    top: 7.3em;
+	}
+
+	.topBarOption[data="3"] {
+	    position: absolute;
+	    left: 1.35em;
+	    top: 7.3em;
+	}
+
+	.topBarOption[data="4"] {
+	    position: absolute;
+	    left: 4.35em;
+	    top: 7.3em;
+	}
+
+	.topBarOption[data="5"] {
+	    position: absolute;
+	    left: 7.35em;
+	    top: 7.3em;
 	}
 }
 
@@ -835,7 +995,7 @@ body {
 	    height: 10em;
 	    width: 24em;
 	    position: relative;
-	    top: -254px;
+	    top: -360px;
 	    left: 470px;
 	}
 
@@ -850,8 +1010,7 @@ body {
 
 	#currentClue {
 	    height: 9em;
-	    width: 36px;
-	    width: 256px;
+	    width: 252px;
 	}
 
 	#currentClue span {
@@ -875,10 +1034,6 @@ body {
 		position: relative;
 		left: 403px;
     	top: 898px
-	}
-
-	#puzzleStoryHolder {
-		zoom: 120%;
 	}
 
 	#puzzleStory.puzzle {
