@@ -7,6 +7,10 @@ $(document).ready( function () {
 	var before = [];
 	var after = [];
 
+	//used for the undo button
+	var undo =[];
+	var undoIndex = 0;
+
 
 //contains all puzzle information (colors, stories, clues, text, etc.)
 	var puzzle5by5 = [
@@ -1186,10 +1190,10 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 //set color themes
 			backgroundColorTheme("#gameBoardInside, #gameBoardInside, .gridbox, #puzzleGameBoardInside, #topFirst, #bottomMiddleLast, #bottomThird, #bottomLast, div#next, div#previous, div#currentClue, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.light);
 			backgroundColorTheme("#story, #puzzleStory, div#clue", puzzle5by5[tempHolder].colors.medium);
-			backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit", puzzle5by5[tempHolder].colors.dark);
+			backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit, #undo", puzzle5by5[tempHolder].colors.dark);
 			borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption", puzzle5by5[tempHolder].colors.light);
 			borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
-			textColorTheme("#start, #backButton, #resetButton, #submit, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
+			textColorTheme("#start, #backButton, #resetButton, #submit, #undo, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
 			textColorTheme("#zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
 //zoom button functionality
 			var zoom = 0;
@@ -1328,6 +1332,33 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				}
 		});
 	});
+//undo button
+	var undoButton = function () {
+		var prevSnapshot = 0;
+		//take a snapshot of the board by getting the background color of each gridbox on each turn
+			//push the background color of each gridbox to undoArray -> push into the undo array
+		$(".guessBox").mousedown( function () {
+			var undoArray = [];
+			$(".guessBox").each( function (index) {
+				var backgroundColor = $(this).css("background-color");
+				undoArray.push(backgroundColor);
+			});
+			undo.push(undoArray);
+			//console.log(undo);
+			undoIndex++;
+			//console.log(undoIndex);
+			prevSnapshot = undoIndex - 1;
+		});
+		//undo the current state by referencing the previous snap shot
+		$("#undo").click( function () {
+			$(".guessBox").each( function (index) {
+				$(this).css("background-color", undo[prevSnapshot][index]);
+			});
+			prevSnapshot--;
+		});
+	};
+
+	undoButton();
 //highlight row and col functionality
 	var highlightCheck = false;
 	var highlightCheckLeft = false;

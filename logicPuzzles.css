@@ -82,6 +82,7 @@ body {
 #resetButton,
 #submit,
 #backButton,
+#undo,
 .guessBox,
 .puzzleOption,
 #menu,
@@ -364,7 +365,8 @@ body {
 
 #backButton,
 #resetButton,
-#submit {
+#submit,
+#undo {
 	border-radius: 10px;
 	height: 84px;
 	width: 3.5em;
@@ -1049,14 +1051,14 @@ body {
 	}
 
 	#puzzleGameBoardInside {
-	    top: -6px;
+	    top: -5.6em;
 	}
 
 	#clue {
 	    height: 10em;
 	    width: 24em;
 	    position: relative;
-	    top: -360px;
+	    top: -28em;
 	    left: 470px;
 	}
 
@@ -1097,6 +1099,12 @@ body {
     	top: 898px
 	}
 
+	#undo {
+	    position: relative;
+	    left: -10.75em;
+	    top: 5.2em;
+	}
+
 	#puzzleStory.puzzle {
     	top: 252px;
     }
@@ -1117,6 +1125,12 @@ body {
 		left: 814px;
 	}
 
+	#undo {
+		left: 10.58em;
+	    top: 5.26em;
+	    position: relative;
+	}
+
 	#puzzleStory.puzzle {
 	    top: 58px;
 	}
@@ -1127,6 +1141,15 @@ body {
 	    top: 164px;
 	    left: -6px;
 	}
+
+	#options {
+    	width: 52.25em;
+    }
+
+    #undo {
+    	left: 0;
+    	top: 0;
+    }
 }
 
 @media (max-width: 850px) {
