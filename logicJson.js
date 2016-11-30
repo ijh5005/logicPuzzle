@@ -1316,6 +1316,11 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 					$("#submit").fadeOut("fast");
 					$("#clue").fadeOut();
 					$("#win").css("z-index", "1");
+
+					$("#submit").html("You Win!!");
+					setTimeout(function() {
+					    $("#submit").html("Submit");
+					}, 3000);
 				} else {
 					$("#submit").html("Sorry..");
 					$("#gameBoard").effect("shake");
