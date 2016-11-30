@@ -1312,15 +1312,13 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			
 			//display correct/incorrect response when submit is clicked
 				if ( correctAnswers === 30 ) {
-					$("#puzzleGameBoardInside").effect( "explode", 1800 );
-					$("#submit").fadeOut("fast");
+					//$("#puzzleGameBoardInside").effect( "explode", 1800 );
+					//$("#submit").fadeOut("fast");
 					$("#clue").fadeOut();
-					$("#win").css("z-index", "1");
+					correctAnswers++;
+					//$("#win").css("z-index", "1");
 
-					$("#submit").html("You Win!!");
-					setTimeout(function() {
-					    $("#submit").html("Submit");
-					}, 3000);
+					$("#submit").html("Winner");
 				} else {
 					$("#submit").html("Sorry..");
 					$("#gameBoard").effect("shake");
