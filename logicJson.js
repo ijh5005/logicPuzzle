@@ -3,6 +3,11 @@
 $(document).ready( function () {
 	var i, length;
 
+	//quickPopInit() helper variables
+	var before = [];
+	var after = [];
+
+
 //contains all puzzle information (colors, stories, clues, text, etc.)
 	var puzzle5by5 = [
 
@@ -832,7 +837,11 @@ $(document).ready( function () {
 		//auto populate wrong answers
 		var quickPopulate = function () {
 			var i, j, row, col;
-			var correctAnswer = $(thisBox).attr("data");;
+			var correctAnswer = $(thisBox).attr("data");
+			var thisBoxColor = thisBox.css("background-color");
+
+			
+
 			//array of the row indexes
 			var autofillRow = [
 				[0, 1, 2, 3, 4],
@@ -849,7 +858,10 @@ $(document).ready( function () {
 				[3, 8, 13, 18, 23],
 				[4, 9, 14, 19, 24]
 			];
-			if( thisBox.css("background-color") === medium ){
+
+			//store the row and col to be highlighted in the var combined
+			if( thisBoxColor === medium ){
+				//row data locations
 				for (i = 0; i < 5; i++) {
 					for (j = 0; j < 5; j++){
 						if( autofillRow[i][j] == correctAnswer ){
@@ -857,6 +869,7 @@ $(document).ready( function () {
 						}
 					}
 				}
+				//row data locations
 				for (i = 0; i < 5; i++) {
 					for (j = 0; j < 5; j++){
 						if( autofillCol[i][j] == correctAnswer ){
@@ -876,8 +889,26 @@ $(document).ready( function () {
 
 			}
 		};
-		//quickPopulate();
+
+		var quickPopInit = function () {
+			var parentId = thisParent.attr("id");
+			var data = thisBox.attr("data");
+			after[0] = parentId;
+			after[1] = data;
+
+			if ( before[0] === after[0] && before[1] === after[1] ) {
+				quickPopulate();
+			} else {
+				before[0] = parentId;
+				before[1] = data;
+			}
+		};
+
+		quickPopInit();
+
 	});
+
+	
 //reset the puzzle to clear the light/dark colors
 	$("#resetButton").click( function () {
 		$(".guessBox").css("background-color", "white");
