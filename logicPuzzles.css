@@ -14,13 +14,13 @@ body {
 	zoom: 100%;
 	/*background: url(background.png) repeat;
 	background-position: 0px 0px;
-	ani*/mation: animatedBackground 15s linear infinite;
+	animation: animatedBackground 15s linear infinite;*/
 }
 
-@keyframes animatedBackground {
+/*@keyframes animatedBackground {
 	from { background-position: 0 0; }
 	to { background-position: 676px 0; }
-}
+}*/
 
 
 
@@ -28,6 +28,12 @@ body {
 
 #storePage {
 	
+}
+
+.storePuzzleIconClass {
+	position: relative;
+    top: 7em;
+    left: 0.5em;
 }
 
 #storeBeltHolder {

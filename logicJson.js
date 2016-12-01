@@ -1030,9 +1030,11 @@ $(document).ready( function () {
 			    	$(this).css("margin", "0 auto").css("display", "block");
 			    	$("#storeBelt").css("background-color", "#E6789F").css("border-color", "#E6789F");
 			    	$(".item[data!="+position+"]").hide();
+			    	$(".storePuzzleIconClass").hide();
 			    },
 			    complete: function () {
 			    	$(this).children().hide().html("WORK IN PROGRESS... CHECK OUT THE PLAY OPTION INSTEAD!").fadeIn(3000);
+			    	$(".storePuzzleIconClass").hide();
 					$(this).animate({
 						height: "70%",
 						width: "78%"
