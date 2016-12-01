@@ -10,6 +10,7 @@ $(document).ready( function () {
 	//used for the undo button
 	var undo =[];
 	var undoIndex = 0;
+	var prevSnapshot = 0;
 
 
 //contains all puzzle information (colors, stories, clues, text, etc.)
@@ -1001,6 +1002,11 @@ $(document).ready( function () {
 		$("#storyPage").css("background-image", "none");
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
+		undo = [];
+		//console.log(undo);
+		prevSnapshot = 0;
+		undoIndex = 0;
+		//im not sure whats going on... after going back to menu the undo button doesn't work
 	});	
 //markup creator function
 	var markup = function (selector, target){
@@ -1334,10 +1340,10 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	});
 //undo button
 	var undoButton = function () {
-		var prevSnapshot = 0;
 		//take a snapshot of the board by getting the background color of each gridbox on each turn
 			//push the background color of each gridbox to undoArray -> push into the undo array
 		$(".guessBox").mousedown( function () {
+			console.log(undo);//check console for undo
 			var undoArray = [];
 			$(".guessBox").each( function (index) {
 				var backgroundColor = $(this).css("background-color");
