@@ -1002,6 +1002,7 @@ $(document).ready( function () {
 		$("#storyPage").css("background-image", "none");
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
+		$("#puzzleGameBoardInside").css("zoom", "100%");
 		undo = [];
 		//console.log(undo);
 		prevSnapshot = 0;
@@ -1198,10 +1199,10 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 //set color themes
 			backgroundColorTheme("#gameBoardInside, #gameBoardInside, .gridbox, #puzzleGameBoardInside, #topFirst, #bottomMiddleLast, #bottomThird, #bottomLast, div#next, div#previous, div#currentClue, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.light);
 			backgroundColorTheme("#story, #puzzleStory, div#clue", puzzle5by5[tempHolder].colors.medium);
-			backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit, #undo", puzzle5by5[tempHolder].colors.dark);
-			borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption", puzzle5by5[tempHolder].colors.light);
-			borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, div#currentClue, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
-			textColorTheme("#start, #backButton, #resetButton, #submit, #undo, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span", puzzle5by5[tempHolder].colors.light);
+			backgroundColorTheme("#start, .leftBar, .leftBarOption, .topBar, .topBarOption, #backButton, #resetButton, #submit, #undo, #previous, #next", puzzle5by5[tempHolder].colors.dark);
+			borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption, div#currentClue", puzzle5by5[tempHolder].colors.light);
+			borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
+			textColorTheme("#start, #backButton, #resetButton, #submit, #undo, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span, #previous, #next", puzzle5by5[tempHolder].colors.light);
 			textColorTheme("#zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
 //zoom button functionality
 			var zoom = 0;
@@ -1214,6 +1215,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 						zoom: "+=20%"
 					}, { complete: function () {
 						zoom ++;
+						console.log("zoom in");
 					}});
 				}
 			});
@@ -1224,6 +1226,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 						zoom: "-=20%"
 					}, { complete: function () {
 						zoom --;
+						console.log("zoom out");
 					}});
 				//return game board to original position before zooming in
 				} else if ( zoom === 1 ) {
@@ -1232,6 +1235,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 					}, { complete: function () {
 						$("#gameBoard").css("overflow", "");
 						zoom --;
+						console.log("zoom out");
 					}});
 				}
 			});

@@ -688,6 +688,7 @@ body {
   	font-size: 1em;
   	margin: 0 0.4em;
   	cursor: pointer;
+  	font-family: 'Permanent Marker', cursive;
 }
 
 #previous,
@@ -699,7 +700,6 @@ body {
   	float: left;
   	margin-top: 0.2em;
   	border-radius: 10px;
-
   	height: 24em;
 }
 
