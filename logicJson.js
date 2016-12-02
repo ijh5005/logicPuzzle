@@ -1008,10 +1008,8 @@ $(document).ready( function () {
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
 		$("#puzzleGameBoardInside").css("zoom", "100%");
 		undo = [];
-		//console.log(undo);
 		prevSnapshot = 0;
 		undoIndex = 0;
-		//im not sure whats going on... after going back to menu the undo button doesn't work
 	});	
 //markup creator function
 	var markup = function (selector, target){
@@ -1349,7 +1347,9 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 		});
 	});
 //undo button
+	//undo functionality
 	var undoButton = function () {
+		var gridColor;
 		//take a snapshot of the board by getting the background color of each gridbox on each turn
 			//push the background color of each gridbox to undoArray -> push into the undo array
 		$(".guessBox").mousedown( function () {
@@ -1375,6 +1375,27 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	};
 
 	undoButton();
+
+	//reset undo button
+		$("#undo").click( function () {
+			var count = 0;
+			var gridColor;
+			$(".guessBox").each( function () {
+				gridColor = $(this).css("background-color");
+				console.log(gridColor);
+				if ( gridColor == "rgb(255, 255, 255)" || gridColor == "rgb(187, 187, 187)"){
+					count++;
+					console.log(count);
+					if (count === 150) {
+						console.log(count);
+						undo = [];
+						prevSnapshot = 0;
+						undoIndex = 0;
+					}
+				}
+			});
+		});
+
 //highlight row and col functionality
 	var highlightCheck = false;
 	var highlightCheckLeft = false;
