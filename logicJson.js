@@ -934,11 +934,15 @@ $(document).ready( function () {
 		tempHolder = location;
 		//hide the text on the puzzle5by5.story
 		$("#pageLiner span").hide();
-		//zoom out of #puzzleGallery
 		$("#puzzleGallery").animate({
-			zoom: "50%"
-		}, {duration: 1000, complete: function (){
-			//$("body").css("zoom", "100%").css("overflow-y", "hidden");
+			top: "100vh",
+			opacity: 0
+			//zoom: "50%"
+		}, {duration: 1000,
+			during: function () {
+				$("#puzzleGallery").fadeOut(800);
+			},
+			complete: function (){
 			//hide the #puzzleGallery
 			$("#puzzleGallery").css("display", "none");
 			//bring in the #puzzleContainer
@@ -946,7 +950,7 @@ $(document).ready( function () {
 				//zoom: "100%"
 			}, {duration: 200, 
 				start: function () {
-					$("#puzzleContainer").css("display", "flex");
+					$("#puzzleContainer").fadeIn("slow").css("display", "flex");
 					$("#pageLiner").scrollTop(0);
 					},
 				complete: function (){
@@ -998,7 +1002,7 @@ $(document).ready( function () {
   		$(".puzzleOption").css("display", "block");
   		//$(".puzzleOption").attr("id","");
 		$("#puzzleContainer").fadeOut();
-		$("#puzzleGallery").css("zoom", "100%").delay(800).fadeIn();
+		$("#puzzleGallery").css("top", "0").delay(800).css("opacity", "1").fadeIn();    //.css("zoom", "100%")
 		$("#storyPage").css("background-image", "none");
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
@@ -1047,7 +1051,7 @@ $(document).ready( function () {
   $("#menu").click( function () {
   	$("#puzzleGallery").fadeOut("slow");
   	$("#homepage").delay(800).fadeIn(1800);
-  	$("body").scrollTop(0).css("background-image", "url(background.png)");
+  	$("body").scrollTop(0);
   });
 //when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
 $("#play").click( function () {

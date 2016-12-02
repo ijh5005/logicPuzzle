@@ -262,6 +262,7 @@ body {
 	text-align: center;
 	zoom: 100%;
 	display: none;
+	position: relative;
 }
 
 #selected {
@@ -948,6 +949,7 @@ body {
 
 	#puzzleGallery {
 	    width: 841px;
+	    position: relative;
 	}
 
 	.puzzleDiv {
