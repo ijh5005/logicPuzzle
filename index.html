@@ -19,11 +19,11 @@
 		<div id="storePage" class="secondaryPage">
 			<div id="storeBeltHolder">
 			  <div id="storeBelt" ng-controller="storePuzzleIcon">
-			    <div class="item" data="1"><span>EASY</span> <img src="storePuzzleIcon.png" class="storePuzzleIconClass"></div>
-			    <div class="item" data="2"><span>MEDIUM</span> <img src="storePuzzleIcon.png" class="storePuzzleIconClass"></div>
-			    <div class="item" data="3"><span>HARD</span> <img src="storePuzzleIcon.png" class="storePuzzleIconClass"></div>
-			    <div class="item" data="4"><span>PACKAGES</span> <img src="storePuzzleIcon2.png" class="storePuzzleIconClass"></div>
-			    <div class="item" data="5"><span>RANDOM</span> <img src="storePuzzleIcon2.png" class="storePuzzleIconClass"></div>
+			    <div class="item" data="1"><span class="storeOption">EASY</span> <img src="storePuzzleIcon3.png" class="storePuzzleIconClass"></div>
+			    <div class="item" data="2"><span class="storeOption">MEDIUM</span> <img src="storePuzzleIcon3.png" class="storePuzzleIconClass"></div>
+			    <div class="item" data="3"><span class="storeOption">HARD</span> <img src="storePuzzleIcon3.png" class="storePuzzleIconClass"></div>
+			    <div class="item" data="4"><span class="storeOption">PACKAGES</span> <img src="storePuzzleIcon3.png" class="storePuzzleIconClass"></div>
+			    <div class="item" data="5"><span class="storeOption">RANDOM</span> <img src="storePuzzleIcon3.png" class="storePuzzleIconClass"></div>
 			  </div>
 			</div>
 		</div>
@@ -76,7 +76,9 @@
 						<div id="resetButton">RESET</div>
 						<div id="backButton">BACK</div>
 						<div id="submit">Submit</div>
+						<div id="zoomOut"><span>-</span></div>
 						<div id="undo">Undo</div>
+						<div id="zoomIn"><span>+</span></div>
 					</div>
 					<div id="gameBoard">
 						<div id="puzzleGameBoardInside">
@@ -111,8 +113,8 @@
 							</div>
 						</div> -->
 					</div>
-					<div id="zoomOut"><span>zoom out</span></div>
-					<div id="zoomIn"><span>zoom in</span></div>
+					<!-- <div id="zoomOut"><span>zoom out</span></div>
+					<div id="zoomIn"><span>zoom in</span></div> -->
 					<div id="clue">
 					  <div id="previous"> <span> < </span> </div>
 					  <div id="currentClue"><span></span></div>

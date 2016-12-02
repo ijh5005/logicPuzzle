@@ -33,7 +33,10 @@ body {
 .storePuzzleIconClass {
 	position: relative;
     top: 7em;
-    left: 0.5em;
+}
+
+.storeOption {
+	display: block;
 }
 
 #storeBeltHolder {
@@ -372,7 +375,8 @@ body {
 #backButton,
 #resetButton,
 #submit,
-#undo {
+#undo,
+#zoomIn, #zoomOut {
 	border-radius: 10px;
 	height: 84px;
 	width: 3.5em;
@@ -614,7 +618,7 @@ body {
 .topBarOption {
   width: 9.75em;
   height: 2.25em;
-  transform: rotate(90deg);
+  transform: rotate(270deg);
   border: 0.125em solid;
 /*  border-color: #A35DA3;
 */}
@@ -639,7 +643,7 @@ body {
 
 #zoomIn,
 #zoomOut {
-    height: 4em;
+    /*height: 4em;
     width: 25em;
     border: 8px solid;
     display: inline-block;
@@ -647,8 +651,7 @@ body {
     left: 60px;
     border-radius: 10px;
     text-align: center;
-
-    top: 10px;
+	top: 16em;*/
 }
 
 #zoomClass {
@@ -958,6 +961,7 @@ body {
 
 	#gameBoard {
     	width: 62em;
+    	top: 4em;
     }
 
 	#puzzleGameBoardInside {
@@ -978,6 +982,7 @@ body {
 	    border: none;
 	    left: 22px;
     	position: relative;
+    	top: 5em;
 	}
 
     .leftBar {
@@ -1144,18 +1149,40 @@ body {
 
 @media (max-width: 1280px) {
 	#puzzleStory.puzzle {
-	    top: 164px;
+	    top: 0;
 	    left: -6px;
+	    height: 109em;
 	}
 
 	#options {
-    	width: 52.25em;
+    	width: 58em;
+    	top: 3em;
+    }
+
+    #options div {
+    	hieght: 5em;
     }
 
     #undo {
     	left: 0;
     	top: 0;
     }
+
+    #resetButton, #submit, #undo, #options #backButton, #zoomIn, #zoomOut {
+	    font-size: 66px;
+        padding: 32px;
+    	margin: 3px;
+	}
+
+	#clue {
+    	width: 60em;
+    	left: 0;
+    }
+
+    #previous, #next {
+    	width: 8em;
+    }
+
 }
 
 @media (max-width: 850px) {
