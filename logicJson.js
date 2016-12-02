@@ -1353,7 +1353,6 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 		//take a snapshot of the board by getting the background color of each gridbox on each turn
 			//push the background color of each gridbox to undoArray -> push into the undo array
 		$(".guessBox").mousedown( function () {
-			console.log(undo);//check console for undo
 			var undoArray = [];
 			$(".guessBox").each( function (index) {
 				var backgroundColor = $(this).css("background-color");
@@ -1382,12 +1381,9 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			var gridColor;
 			$(".guessBox").each( function () {
 				gridColor = $(this).css("background-color");
-				console.log(gridColor);
 				if ( gridColor == "rgb(255, 255, 255)" || gridColor == "rgb(187, 187, 187)"){
 					count++;
-					console.log(count);
 					if (count === 150) {
-						console.log(count);
 						undo = [];
 						prevSnapshot = 0;
 						undoIndex = 0;
