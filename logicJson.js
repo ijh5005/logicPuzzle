@@ -1341,7 +1341,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 					$("#submit").html("Winner");
 				} else {
 					$("#submit").html("Sorry..");
-					$("#gameBoard").effect("shake");
+					//$("#gameBoard").effect("shake");
 					setTimeout(function() {
 					    $("#submit").html("Submit");
 					}, 3000);
