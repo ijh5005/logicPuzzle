@@ -3,6 +3,8 @@
 $(document).ready( function () {
 	var i, length;
 
+	var themeNum = 0;
+
 	//quickPopInit() helper variables
 	var before = [];
 	var after = [];
@@ -20,13 +22,9 @@ $(document).ready( function () {
 		    id: 1,
 		    title: "COOK FOR LOVE",
 		    story: "There are five couples competing on a cooking show called Cooking Couples. Each couple earned a cash prize to go towards their dream wedding. In order to win a prize they each had  to cook a signature couple&#39;s dish. Each couple will receive their check in the mail&#59; But unfortunately the executive producer, Shayla, mixed up the contestants information. Using the following clues can you help Shayla figure out which couple cooked which dish, won which cash prize, and where to send their check, Before she is fired. No pressure&#33;",
-		    colors: 	{
-		    				light: "#FD7C7F",
-		    				medium: "#E54D51",
-		    				dark: "#830003"
-		    			},
-		    storyPaper: "storyPaperRed.png",
-		    galleryPaper: "galleryPaperRed.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Couples",
 		    				firstBox: {
@@ -97,13 +95,9 @@ $(document).ready( function () {
 		    id: 2,
 		    title: "GOODBYE OLD FRIEND",
 		    story: "The hardest part about moving to a new city is leaving behind all of your friends in the old city. This is exactly what Taneesha is going through. Next week she will be moving to Natural Springs with her family. So this week five of Taneesha&#39;s friends (her best friends) picked a day and planned a date with Taneesha. Taneesha is having a hard time keeping up with all of the different places, different people, different times, and different activities. So she decided to write it all down in her Iphone. I hope she doesn&#39;t lose her Iphone because all of her  friends will feel forgotten and begin to hate her.",
-		    colors: 	{
-		    				light: "#E6789F",
-		    				medium: "#C12B60",
-		    				dark: "#7E012D"
-		    			},
-		    storyPaper: "storyPaperPink.png",
-		    galleryPaper: "galleryPaperPink.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Friends",
 		    				firstBox: {
@@ -174,13 +168,9 @@ $(document).ready( function () {
 		    id: 3,
 		    title: "TELEVISION SHOWDOWN",
 		    story: "Tiffany Applebottom is a professional slacker. She spent her entire life watching tv and sitting on the couch. Her life was based on watching romantic comedies, survivals shows, and any other show that the Disarm Network creates. So imagine her surprise when she turned on her television and realized none of her shows came on at the right time. Tiffany wants to write a strongly worded letter to the Disarm Network complaining about the network&#39;s sudden changes. In order for her to write the letter she must know the name of the show, what time it used to come on, the shows new time, and what genre the show is. Please help TIffany figure this out quickly before she does something crazy, like get a job.", //&#39; is the symbol an apostrophe
-		    colors: 	{
-		    				light: "#FF9D79",
-		    				medium: "#F05C25",
-		    				dark: "#9D2A00"
-		    			},
-		    storyPaper: "storyPaperOrange.png",
-		    galleryPaper: "galleryPaperOrange.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Name of TV show",
 		    				firstBox: {
@@ -251,13 +241,9 @@ $(document).ready( function () {
 		    id: 4,
 		    title: "A Day to Celebrate",
 		    story: "Catherine, Christopher, Carrie, Cory, and Chad are the children of Isaiah, king of the little people. Once a year King Isaiah has a little people festival. At the end of this year&#39;s festival King Isaiah&#39;s children are suppose to put on some sort of display of what they love about being a little person and what they hate about the big people. King Isaiah is responsible for scheduling his children performances, but as usual, King Isaiah waited until the last minute to give the responsibility to Heinz, his second advisor. Heinz now has two hours to learn the different types of performances, likes, and dislikes of the children. This can only go one of two ways for Heinz. He can seek the help of someone like you and have everything planned before the end of the festival, or the very spoiled children will begin to argue about who goes first and the arguing will give King Isaiah a headache, which will lead to Heinz losing his head.",
-		    colors: 	{
-		    				light: "#4DC57E",
-		    				medium: "#008837",
-		    				dark: "#004920"//"#006B2B"
-		    			},
-		    storyPaper: "storyPaperGreen.png",
-		    galleryPaper: "galleryPaperGreen.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Children",
 		    				firstBox: {
@@ -328,13 +314,9 @@ $(document).ready( function () {
 		    id: 5,
 		    title: "Family Dinner",
 		    story: "Taneesha and her family finally moved to Natural Springs and they do not know anyone in the neighborhood. So the neighborhood block captain thought it would be nice if some of the neighbors with children invited Taneesha and her family over for dinner. The block captain made a list of which family they should visit, on which day, and which time, and what the host will be serving. Then she past the list on to Taneesha. Taneesha has a fun and eventful week ahead of her. If you&#39;d like to join her for a week of free food follow the clues to figure out where Taneesha will be.",
-		    colors: 	{
-		    				light: "#5C64F9",
-		    				medium: "#3C44EC",
-		    				dark: "#050B66"//"#060E82" "#020AA1"
-		    			},
-		    storyPaper: "storyPaperBlue.png",
-		    galleryPaper: "galleryPaperBlue.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Families",
 		    				firstBox: {
@@ -404,13 +386,9 @@ $(document).ready( function () {
 		    id: 6,
 		    title: "OPPORTUNITYS KNOCKING",
 		    story: "Alex, a senior at Magnavox High, scored a 2300 on his S.A.T. and a 32 on his A.C.T. So it really shouldn&#39;t come as a surprise to hear that five college representatives came to Magnavox to meet Alex (one for everyday of the week). When the reps met Alex they each offered him a different scholarship toward tuition, and a secret bribe. Now Alex has a big decision to make, one that will alter his life forever. Alex has composed a list of who he met, which college they represent, how much the scholarship was worth, and what the secret bribe was. Alex gave his list to the guidance counselor (Jim) to seek advice. But unfortunately  Jim the counselor cannot read Alex&#39;s chicken scratch. Can you help him decipher the list before Alex misses out on a chance of a lifetime?",
-		    colors: 	{
-		    				light: "#A35DA3",
-		    				medium: "#741F74",
-		    				dark: "#410041"
-		    			},
-		    storyPaper: "storyPaperPurple.png",
-		    galleryPaper: "galleryPaperPurple.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Colleges",
 		    				firstBox: {
@@ -481,13 +459,9 @@ $(document).ready( function () {
 		    id: 7,
 		    title: "OBSESSED MUCH",
 		    story: "Kelly is obsessed with the children&#39;s show Pokemon. For the past five years she sent a letter to the creators of the show asking them to use one of her specially made cartoons on the show. Each year she created a different type of pokemon, gave them a specific special attack, and most importantly a very special name. This year she is more determined to have her character on the show. In order to do this Kelly must review all of her past failures. This could be the year Kelly finally succeeds or she could could have a total nervous breakdown. Will you help Kelly review her previous failed attempts before she has to pay thousands of dollars to a therapist.",
-		    colors: 	{
-		    				light: "#FD7C7F",
-		    				medium: "#E54D51",
-		    				dark: "#830003"
-		    			},
-		    storyPaper: "storyPaperRed.png",
-		    galleryPaper: "galleryPaperRed.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Pokemon",
 		    				firstBox: {
@@ -558,13 +532,9 @@ $(document).ready( function () {
 		    id: 8,
 		    title: "A WHOLE NEW WORLD",
 		    story: "Once again Taneesha needs our help. Taneesha is a 9th grade transfer student at Magnavox High. She met the principal who gave her a schedule and a map to all her classes. Even with the map Taneesha went to the wrong classes and the classes she did manage to make it to she arrived late. At the end of the day Taneesha went back to the principal&#39;s office to seek help from the principal. When she arrived at the office she saw Jace, a kid from her neighborhood. Jace offered to show her around the next day. The next day came and Jace was nowhere to be found. This looks like the start of another really bad, terrible, god awful day for Taneesha. Will you help her navigate through the halls of Magnavox High before she is expelled for cutting classes and ends up homeless living in a cardboard box?",
-		    colors: 	{
-		    				light: "#E6789F",
-		    				medium: "#C12B60",
-		    				dark: "#7E012D"
-		    			},
-		    storyPaper: "storyPaperPink.png",
-		    galleryPaper: "galleryPaperPink.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Classes",
 		    				firstBox: {
@@ -635,13 +605,9 @@ $(document).ready( function () {
 		    id: 9,
 		    title: "TECHNICAL MALFUNCTIONS",
 		    story: "Dr. Park is the chief of surgery at Atomas Hospital. He is responsible for scheduling the surgeries at the hospital. He writes all the surgeries at 6:00am on the viewing board. After working ten hours on the schedule, Dr. Park&#39;s computers begans to malfunctions. He no longer has access to his perfect plans. So he randomly writes names, times, and types of surgeries on the board and hopes for the best. Two hours later his computer is up and running. He realizes that the only thing he guessed correct was the patients&#39; to the surgeons. If you would like to see what Dr. Park should have written on the board, follow the clues and figure it out yourself. ",
-		    colors: 	{
-		    				light: "#FF9D79",
-		    				medium: "#F05C25",
-		    				dark: "#9D2A00"
-		    			},
-		    storyPaper: "storyPaperOrange.png",
-		    galleryPaper: "galleryPaperOrange.png",
+		    colors: 	{},
+		    storyPaper: "",
+		    galleryPaper: "",
 		    topBarText: {
 		    				firstBoxHeader: "Surgeons",
 		    				firstBox: {
@@ -708,6 +674,122 @@ $(document).ready( function () {
 
 	];
 
+//Theme colors
+	var themeArray = [
+		{
+			color: {
+				light: "#FD7C7F",
+				medium: "#E54D51",
+				dark: "#830003"
+			},
+			storyPaper: "storyPaperRed.png",
+			galleryPaper: "galleryPaperRed.png",
+	 	    
+		},
+
+		{
+			color: {
+				light: "#E6789F",
+				medium: "#C12B60",
+				dark: "#7E012D"
+			},
+			storyPaper: "storyPaperPink.png",
+		    galleryPaper: "galleryPaperPink.png"
+		},
+		
+		{
+			color: {
+				light: "#FF9D79",
+				medium: "#F05C25",
+				dark: "#9D2A00"
+			},
+			storyPaper: "storyPaperOrange.png",
+	 	    galleryPaper: "galleryPaperOrange.png"
+		},
+		
+		{
+			color: {
+				light: "#4DC57E",
+				medium: "#008837",
+				dark: "#004920"
+			},
+			storyPaper: "storyPaperGreen.png",
+		    galleryPaper: "galleryPaperGreen.png"
+		},
+		
+		{
+			color: {
+				light: "#5C64F9",
+				medium: "#3C44EC",
+				dark: "#050B66"
+			},
+			storyPaper: "storyPaperBlue.png",
+		    galleryPaper: "galleryPaperBlue.png"		
+		},
+		
+		{
+			color: {
+				light: "#A35DA3",
+				medium: "#741F74",
+				dark: "#410041"
+			},
+			storyPaper: "storyPaperPurple.png",
+	 	    galleryPaper: "galleryPaperPurple.png"		
+		}
+	];
+
+	var colorTheme = function () {
+		var colorChoice = $(".colorSelector[class*='settingsSelected']").attr("data");
+
+		if ( colorChoice == 0 ) {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[0].color;
+				puzzle5by5[i].storyPaper = themeArray[0].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[0].galleryPaper;
+			}
+		} else if ( colorChoice == 1 ) {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[1].color;
+				puzzle5by5[i].storyPaper = themeArray[1].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[1].galleryPaper;
+			}
+		} else if ( colorChoice == 2 ) {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[2].color;
+				puzzle5by5[i].storyPaper = themeArray[2].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[2].galleryPaper;
+			}
+		} else if ( colorChoice == 3 ) {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[3].color;
+				puzzle5by5[i].storyPaper = themeArray[3].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[3].galleryPaper;
+			}
+		} else if ( colorChoice == 4 ) {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[4].color;
+				puzzle5by5[i].storyPaper = themeArray[4].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[4].galleryPaper;
+			}
+		} else if ( colorChoice == 5 ) {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[5].color;
+				puzzle5by5[i].storyPaper = themeArray[5].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[5].galleryPaper;
+			}
+		} else {
+			for (i = 0; i < puzzle5by5.length; i++) {
+				puzzle5by5[i].colors = themeArray[themeNum].color;
+				puzzle5by5[i].storyPaper = themeArray[themeNum].storyPaper;
+				puzzle5by5[i].galleryPaper = themeArray[themeNum].galleryPaper;
+				themeNum++;
+				if (themeNum === 6) {
+					themeNum = 0;
+				}
+			}
+		}
+	} // end colorTheme
+
 //#puzzleGallery page html
   var populationGallery = function () {
   	//markup
@@ -729,7 +811,6 @@ $(document).ready( function () {
   		$(".puzzleOption[data="+i+"]").css("background-image", "url("+puzzle5by5[i].galleryPaper+")");
   	}
   };
-  populatePaper();
 //change colors of letters on homepage
 	var c = 0;
 	var o = 1;
@@ -784,6 +865,20 @@ $(document).ready( function () {
 	color5();
 	color6();
 	}, 1000);
+//selected from settings option
+	$("#settingsPage .vsize").click( function () {
+		$("#settingsPage .vsize").removeClass("settingsSelected");
+		$(this).addClass("settingsSelected");
+	});
+
+	$("#settingsPage .colorOption, #themeDefualt").click( function () {
+		$("#settingsPage .colorOption, #themeDefualt").removeClass("settingsSelected");
+		$(this).addClass("settingsSelected");
+	});
+
+	$("#settingsPage .resetOption").click( function () {
+		$(this).toggleClass("settingsSelected");
+	});
 //populate the .guessHomeBox with a 5 by 5 grid of .guessBox's
 	var populationGuessHome = function () {
 	    var markup = "<div class='guessBox floatLeft' correct='false' data='0'></div";
@@ -1016,11 +1111,13 @@ $(document).ready( function () {
 		$(selector).html(target);
 	};
 //play app
-  $("#play").click( function () {
-  	$("#homepage").delay(400).fadeOut("slow");
-  	$("#puzzleGallery").delay(800).fadeIn(2000);
-  	$("body").scrollTop(0).css("background-image", "url(backgroundPlain.png)");
-  });
+	$("#play").click( function () {
+		colorTheme();
+		populatePaper();
+		$("#homepage").delay(400).fadeOut("slow");
+		$("#puzzleGallery").delay(800).fadeIn(2000);
+		$("body").scrollTop(0).css("background-image", "url(backgroundPlain.png)");
+	});
 //store functionality
 	$(".item").click( function () {
 		var position = $(this).attr("data");
@@ -1036,7 +1133,7 @@ $(document).ready( function () {
 			    	$(".storePuzzleIconClass").hide();
 			    },
 			    complete: function () {
-			    	$(this).children().hide().html("WORK IN PROGRESS... CHECK OUT THE PLAY OPTION INSTEAD!").fadeIn(3000);
+			    	$(this).children().hide().html("WORK IN PROGRESS... CHECK OUT THE PLAY AND SETTINGS OPTIONS INSTEAD!").fadeIn(3000);
 			    	$(".storePuzzleIconClass").hide();
 					$(this).animate({
 						height: "70%",
@@ -1104,6 +1201,9 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 												   .removeClass("big");
 											},
 											complete: function () {
+												$("html, body").delay(1200).animate({
+													scrollTop: $(this).offset().top
+												}, "slow");
 												//slide down the seconary page after the homepage option is done stretching
 												$(page).slideDown(800).css("border-top-right-radius", "0px").css("border-top-left-radius", "0px");
 												//take away the margins/borders so two page could appear to be on one page

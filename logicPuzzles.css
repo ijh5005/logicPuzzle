@@ -85,6 +85,127 @@ body {
     top: 3em;
 }
 
+#settingsPage {
+	overflow: scroll;
+}
+
+#settingsPage .options {
+    font-size: 4em;
+    margin-bottom: 50px;
+    margin-left: 18px;
+}
+
+#settingsPage .listOptions {
+    font-size: 3.4em;
+    margin-left: 1em;
+    position: relative;
+    top: -0.6em;
+}
+.settingsSelected {
+	border: 13px solid #410041;
+    position: relative;
+    top: -1.5em;
+    border-radius: 6px;
+}
+
+#themeDefualt{
+    display: inline-block;
+    font-size: 52px;
+    position: relative;
+    top: -0.95em;
+    padding: 6px;
+}
+
+.colorOption {
+	height: 70px;
+	width: 70px;
+	display: inline-block;
+    background-size: cover;
+    margin: 0 0.75em;
+    position: relative;
+    top: -2.4em;
+}
+
+#colorOption1 {
+	background-image: url("redChoice.png");
+}
+
+#colorOption2 {
+	background-image: url("pinkChoice.png");
+}
+
+#colorOption3 {
+	background-image: url("orangeChoice.png");
+}
+
+#colorOption4 {
+	background-image: url("greenChoice.png");
+}
+
+#colorOption5 {
+	background-image: url("blueChoice.png");
+}
+
+#colorOption6 {
+	background-image: url("purpleChoice.png");
+}
+
+.vsize {
+	height: 70px;
+	width: 70px;
+	display: inline-block;
+    margin: 0 0.75em;
+    position: relative;
+    top: -2.4em;
+    border-radius: 50px;
+}
+
+#volume1 {
+	background-color: #E54D51;
+}
+
+#volume2 {
+	background-color: #C12B60;
+}
+
+#volume3 {
+	background-color: #F05C25;
+}
+
+#volume4 {
+	background-color: #008837;
+}
+
+#volume5 {
+	background-color: #3C44EC;
+}
+
+#volume6 {
+	background-color: #741F74;
+}
+
+.reset {
+	display: inline-block;
+}
+
+.resetOption {
+	height: 70px;
+    width: 70px;
+    display: inline-block;
+    margin: 0 3.75em;
+    position: relative;
+    top: 1em;
+    background-color: #AAA;
+    border-radius: 6px;
+}
+
+.settingsPageUI {
+    font-size: 1em;
+    position: relative;
+    width: 80%;
+    top: -2em;
+    margin: 0 auto;}
+
 /*pointer*/
 .homepageButton,
 #start,
@@ -197,6 +318,7 @@ body {
     margin: 0 auto;
     margin-bottom: 20px;
     border-top: none;
+	font-family: 'Permanent Marker', cursive;
 }
 
 #storePage .comingSoon,
