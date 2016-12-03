@@ -787,6 +787,7 @@ $(document).ready( function () {
 					themeNum = 0;
 				}
 			}
+			themeNum = 0;
 		}
 	} // end colorTheme
 
@@ -1112,7 +1113,7 @@ $(document).ready( function () {
 	};
 //play app
 	$("#play").click( function () {
-		colorTheme();
+		colorTheme();		
 		populatePaper();
 		$("#homepage").delay(400).fadeOut("slow");
 		$("#puzzleGallery").delay(800).fadeIn(2000);
@@ -1144,9 +1145,14 @@ $(document).ready( function () {
 	});
 //back to main menu
   $("#menu").click( function () {
+  	for (i = 0; i < puzzle5by5.length; i++) {
+		puzzle5by5[i].colors = "";
+		puzzle5by5[i].storyPaper = "";
+		puzzle5by5[i].galleryPaper = "";
+	}
   	$("#puzzleGallery").fadeOut("slow");
-  	$("#homepage").delay(800).fadeIn(1800);
   	$("body").scrollTop(0);
+  	$("#homepage").fadeIn(1800);
   });
 //when the play button is clicked, reset all homepage buttons to their original size then navigate to the puzzle gallery
 $("#play").click( function () {
