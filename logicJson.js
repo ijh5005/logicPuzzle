@@ -1321,35 +1321,33 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 //zoom button functionality
 			var zoom = 0;
 			//click the zoom in button to zoom in
-			$("#zoomIn").click( function () {
+			$("#zoomIn").unbind().click( function () {
 				//zoom in max of 5 times
 				if (zoom < 5) {
+					zoom ++;
+					console.log(zoom);
 					$("#gameBoard").css("overflow", "scroll");
 					$("#puzzleGameBoardInside").animate({
 						zoom: "+=20%"
-					}, { complete: function () {
-						zoom ++;
-						console.log("zoom in");
-					}});
+					});
 				}
 			});
-			//click the zoom out button to zoom out
-			$("#zoomOut").click( function () {
+			//click the zoom out button
+			$("#zoomOut").unbind().click( function () {
 				if ( zoom > 1 ) {
+					zoom --;
+					console.log(zoom);
 					$("#puzzleGameBoardInside").animate({
 						zoom: "-=20%"
-					}, { complete: function () {
-						zoom --;
-						console.log("zoom out");
-					}});
+					});
 				//return game board to original position before zooming in
 				} else if ( zoom === 1 ) {
+					zoom = 0;
+					console.log(zoom);
 					$("#puzzleGameBoardInside").animate({
 						zoom: "-=20%"
 					}, { complete: function () {
 						$("#gameBoard").css("overflow", "");
-						zoom --;
-						console.log("zoom out");
 					}});
 				}
 			});
