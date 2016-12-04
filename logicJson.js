@@ -1059,6 +1059,8 @@ $(document).ready( function () {
 	});
 //start the puzzle (on start click)
 	$("#start").click( function () {
+		var light = $("#zoomIn").css("background-color");
+		var dark = $("#undo").css("background-color");
 		//$("#win").fadeOut("fast");
 		$("#puzzleContainer").animate({
 			top: "-=100vh"
@@ -1070,12 +1072,29 @@ $(document).ready( function () {
 							opacity: 1
 						}, 1000);
 					}, 1000);
-							$("#puzzleContainer").css("display", "none");
-							$("#puzzleStoryHolder").css("display", "block").css("top", "100vh");
-							$("#puzzleStoryHolder").animate({
-								top: "-=100vh"
-			}, 1000);
-		}});
+					setTimeout( function () {
+						$("#zoomIn, #zoomOut").css("background-color", dark);
+						$("#zoomIn, #zoomOut").css("color", light);
+					}, 1500);
+					setTimeout( function () {
+						$("#zoomIn, #zoomOut").css("background-color", light);
+						$("#zoomIn, #zoomOut").css("color", dark);
+					}, 2000);
+					setTimeout( function () {
+						$("#zoomIn, #zoomOut").css("background-color", dark);
+						$("#zoomIn, #zoomOut").css("color", light);
+					}, 2500);
+					setTimeout( function () {
+						$("#zoomIn, #zoomOut").css("background-color", light);
+						$("#zoomIn, #zoomOut").css("color", dark);
+					}, 3000);
+					$("#puzzleContainer").css("display", "none");
+					$("#puzzleStoryHolder").css("display", "block").css("top", "100vh");
+					$("#puzzleStoryHolder").animate({
+							top: "-=100vh"
+					}, 1000);
+				}
+			});
 	});
 //go to the previous screen
   	$("#puzzleStory #backButton").click( function () {
