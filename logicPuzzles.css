@@ -93,6 +93,7 @@ body {
     font-size: 4em;
     margin-bottom: 50px;
     margin-left: 18px;
+    padding-bottom: 0.4em;
 }
 
 #settingsPage .listOptions {
@@ -375,7 +376,7 @@ body {
  
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
 }
 
 #puzzleGallery{
@@ -766,6 +767,7 @@ body {
 
 #zoomIn,
 #zoomOut {
+	opacity: 0;
     /*height: 4em;
     width: 25em;
     border: 8px solid;

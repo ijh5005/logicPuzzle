@@ -1065,6 +1065,11 @@ $(document).ready( function () {
 		}, {
 				duration: 1000,
 				complete: function () {
+					setTimeout( function () {
+						$("#zoomIn, #zoomOut").animate({
+							opacity: 1
+						}, 1000);
+					}, 1000);
 							$("#puzzleContainer").css("display", "none");
 							$("#puzzleStoryHolder").css("display", "block").css("top", "100vh");
 							$("#puzzleStoryHolder").animate({
@@ -1091,6 +1096,7 @@ $(document).ready( function () {
 	});  	
 //go back to gallery
   	$("#story #backButton").click( function () {
+  		$("#zoomIn, #zoomOut").css("opacity", 0);
   		//remove the highlights
   		$(".guessBox").children().removeClass("highlightLeft");
 	    $(".guessBox").children().removeClass("highlight");
