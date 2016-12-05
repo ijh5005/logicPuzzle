@@ -919,12 +919,12 @@ body {
 }
 
 .guessBox .highlight {
-  	border: 0.4em solid #CCC;
-    height: 1em;
-    width: 1em;
+  border: 0.4em solid #CCC;
+  height: 1em;
+  width: 1em;
 	position: relative;
-	top: 0.25em;
-	left: 0.25em;
+	top: 0.5em;
+	left: 0.5em;
 	border-radius: 50px;
 	background-color: #444;
 }
@@ -934,8 +934,8 @@ body {
     height: 1em;
     width: 1em;
 	position: relative;
-	top: 0.25em;
-	left: 0.25em;
+	top: 0.5em;
+	left: 0.5em;
 	border-radius: 50px;
 	background-color: #444;
 }

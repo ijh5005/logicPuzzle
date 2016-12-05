@@ -1,6 +1,8 @@
 "use strict";
 
 $(document).ready( function () {
+
+//global variables
 	var i, length;
 
 	var themeNum = 0;
@@ -13,8 +15,6 @@ $(document).ready( function () {
 	var undo =[];
 	var undoIndex = 0;
 	var prevSnapshot = 0;
-
-
 //contains all puzzle information (colors, stories, clues, text, etc.)
 	var puzzle5by5 = [
 
@@ -673,8 +673,7 @@ $(document).ready( function () {
 		},
 
 	];
-
-//Theme colors
+//Theme colors for all puzzles
 	var themeArray = [
 		{
 			color: {
@@ -790,7 +789,6 @@ $(document).ready( function () {
 			themeNum = 0;
 		}
 	} // end colorTheme
-
 //#puzzleGallery page html
   var populationGallery = function () {
   	//markup
@@ -1528,6 +1526,9 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	//topBarOption
 		$(".topBarOption[data='1']").click( function () {
 
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
+
 			if ( highlightCheck ) {
 				highlightCheck = false;
 				highlightCheckLeft = false;
@@ -1545,10 +1546,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 		    	$(this).parent().next().next().next().next().children("[data='0'], [data='5'], [data='10'], [data='15'], [data='20']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().children("[data='0'], [data='5'], [data='10'], [data='15'], [data='20']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='0'], [data='5'], [data='10'], [data='15'], [data='20']").html("<div class='highlight'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".topBarOption[data='2']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheck ) {
 				highlightCheck = false;
@@ -1566,10 +1571,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().next().next().next().children("[data='1'], [data='6'], [data='11'], [data='16'], [data='21']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().children("[data='1'], [data='6'], [data='11'], [data='16'], [data='21']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='1'], [data='6'], [data='11'], [data='16'], [data='21']").html("<div class='highlight'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".topBarOption[data='3']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheck ) {
 				highlightCheck = false;
@@ -1586,10 +1595,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().next().next().next().children("[data='2'], [data='7'], [data='12'], [data='17'], [data='22']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().children("[data='2'], [data='7'], [data='12'], [data='17'], [data='22']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='2'], [data='7'], [data='12'], [data='17'], [data='22']").html("<div class='highlight'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".topBarOption[data='4']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheck ) {
 				highlightCheck = false;
@@ -1606,10 +1619,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().next().next().next().children("[data='3'], [data='8'], [data='13'], [data='18'], [data='23']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().children("[data='3'], [data='8'], [data='13'], [data='18'], [data='23']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='3'], [data='8'], [data='13'], [data='18'], [data='23']").html("<div class='highlight'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".topBarOption[data='5']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheck ) {
 				highlightCheck = false;
@@ -1626,10 +1643,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().next().next().next().children("[data='4'], [data='9'], [data='14'], [data='19'], [data='24']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().children("[data='4'], [data='9'], [data='14'], [data='19'], [data='24']").html("<div class='highlight'></div>");
 				$(this).parent().next().next().next().next().next().next().next().next().next().next().next().next().children("[data='4'], [data='9'], [data='14'], [data='19'], [data='24']").html("<div class='highlight'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 	//leftBarOption
 		$(".leftBarOption[data='1']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheckLeft ) {
 				highlightCheck = false;
@@ -1646,10 +1667,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 		    	$(this).parent().next().children("[data='0'], [data='1'], [data='2'], [data='3'], [data='4']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().children("[data='0'], [data='1'], [data='2'], [data='3'], [data='4']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().next().children("[data='0'], [data='1'], [data='2'], [data='3'], [data='4']").html("<div class='highlightLeft'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".leftBarOption[data='2']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheckLeft ) {
 				highlightCheck = false;
@@ -1666,10 +1691,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().children("[data='5'], [data='6'], [data='7'], [data='8'], [data='9']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().children("[data='5'], [data='6'], [data='7'], [data='8'], [data='9']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().next().children("[data='5'], [data='6'], [data='7'], [data='8'], [data='9']").html("<div class='highlightLeft'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".leftBarOption[data='3']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheckLeft ) {
 				highlightCheck = false;
@@ -1686,10 +1715,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().children("[data='10'], [data='11'], [data='12'], [data='13'], [data='14']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().children("[data='10'], [data='11'], [data='12'], [data='13'], [data='14']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().next().children("[data='10'], [data='11'], [data='12'], [data='13'], [data='14']").html("<div class='highlightLeft'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".leftBarOption[data='4']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheckLeft ) {
 				highlightCheck = false;
@@ -1706,10 +1739,14 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().children("[data='15'], [data='16'], [data='17'], [data='18'], [data='19']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().children("[data='15'], [data='16'], [data='17'], [data='18'], [data='19']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().next().children("[data='15'], [data='16'], [data='17'], [data='18'], [data='19']").html("<div class='highlightLeft'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 
 		$(".leftBarOption[data='5']").click( function () {
+
+			var light = $("#currentClue").css("background-color");
+			var dark = $("#undo").css("background-color");
 
 			if ( highlightCheckLeft ) {
 				highlightCheck = false;
@@ -1726,6 +1763,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(this).parent().next().children("[data='20'], [data='21'], [data='22'], [data='23'], [data='24']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().children("[data='20'], [data='21'], [data='22'], [data='23'], [data='24']").html("<div class='highlightLeft'></div>");
 				$(this).parent().next().next().next().children("[data='20'], [data='21'], [data='22'], [data='23'], [data='24']").html("<div class='highlightLeft'></div>");
+				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
 });
