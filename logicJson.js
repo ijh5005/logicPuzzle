@@ -7,6 +7,8 @@ $(document).ready( function () {
 
 	var themeNum = 0;
 
+	var bodyPositionGallery = 0;
+
 	//quickPopInit() helper variables
 	var before = [];
 	var after = [];
@@ -1023,6 +1025,8 @@ $(document).ready( function () {
 /////////////////////////////////////////////////////////////
 //start the puzzle from gallery
 	$(".puzzleOption").click( function () {
+		bodyPositionGallery = $("body").scrollTop();
+		console.log(bodyPositionGallery);
 		var tempHolder, length, j;
 		var location = $(this).attr("data");
 		tempHolder = location;
@@ -1113,6 +1117,7 @@ $(document).ready( function () {
 	});  	
 //go back to gallery
   	$("#story #backButton").click( function () {
+  		//scroll back to the left position
   		$("#zoomIn, #zoomOut").css("opacity", 0);
   		//remove the highlights
   		$(".guessBox").children().removeClass("highlightLeft");
@@ -1121,15 +1126,21 @@ $(document).ready( function () {
   		$(".puzzleOption").css("display", "block");
   		//$(".puzzleOption").attr("id","");
 		$("#puzzleContainer").fadeOut();
-		$("#puzzleGallery").css("top", "0").delay(800).css("opacity", "1").fadeIn();    //.css("zoom", "100%")
+		$("#puzzleGallery").css("top", "0").delay(800).css("opacity", "1").fadeIn();
 		$("#storyPage").css("background-image", "none");
 		$(".guessBox").css("background-color", "white");
 		$("#topMiddleThird .guessBox, #bottomMiddleSecond .guessBox").css("background-color", "#BBB");
 		$("#puzzleGameBoardInside").css("zoom", "100%");
+		//scroll to last page position
+		setTimeout( function () {
+			$("html, body").animate({
+				scrollTop: bodyPositionGallery
+			}, "slow");
+		}, 2000);
 		undo = [];
 		prevSnapshot = 0;
 		undoIndex = 0;
-	});	
+	});
 //markup creator function
 	var markup = function (selector, target){
 		$(selector).html(target);
