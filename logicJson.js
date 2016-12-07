@@ -1169,27 +1169,27 @@ $(document).ready( function () {
 		{
 			title: "EASY",
 			description: "Enjoy 3&#215;3 puzzles for less than a cup of coffee!",
-			price: "$0.99 for 10"
+			price: "99&cent; for 10"
 		},
 		{
 			title: "MEDIUM",
 			description: "Enjoy 4&#215;4 puzzles for almost four quarters!",
-			price: "$0.99 for 8"
+			price: "99&cent; for 8"
 		},
 		{
 			title: "HARD",
 			description: "Enjoy 5&#215;5 puzzles for the price of soda pop!",
-			price: "$0.99 for 6"
+			price: "99&cent; for 6"
 		},
 		{
 			title: "PACKAGES",
 			description: "Enjoy 2 of each difficulty puzzle for only.. 99&cent;!",
-			price: "$0.99 for 6"
+			price: "99&cent; for 6"
 		},
 		{
 			title: "RANDOM",
 			description: "Do you like surprises? Enjoy 8 random puzzles!",
-			price: "$0.99 for 8"
+			price: "99&cent; for 8"
 		},
 	];
 
