@@ -1168,17 +1168,17 @@ $(document).ready( function () {
 	var itemDescription = [
 		{
 			title: "EASY",
-			description: "Enjoy a 3&#215;3 puzzle for less than a cup of coffee!",
+			description: "Enjoy 3&#215;3 puzzles for less than a cup of coffee!",
 			price: "$0.99 for 10"
 		},
 		{
 			title: "MEDIUM",
-			description: "Enjoy a 4&#215;4 puzzle for almost four quarters!",
+			description: "Enjoy 4&#215;4 puzzles for almost four quarters!",
 			price: "$0.99 for 8"
 		},
 		{
 			title: "HARD",
-			description: "Enjoy a 5&#215;5 puzzle for the price of soda pop!",
+			description: "Enjoy 5&#215;5 puzzles for the price of soda pop!",
 			price: "$0.99 for 6"
 		},
 		{
