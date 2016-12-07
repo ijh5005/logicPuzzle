@@ -4,20 +4,16 @@ $(document).ready( function () {
 
 //global variables
 	var i, length;
-
 	var themeNum = 0;
-
 	var bodyPositionGallery = 0;
-
 	//quickPopInit() helper variables
 	var before = [];
 	var after = [];
-
 	//used for the undo button
 	var undo =[];
 	var undoIndex = 0;
 	var prevSnapshot = 0;
-//contains all puzzle information (colors, stories, clues, text, etc.)
+//json contains all puzzle information (colors, stories, clues, text, etc.)
 	var puzzle5by5 = [
 
 		{
@@ -675,143 +671,155 @@ $(document).ready( function () {
 		},
 
 	];
-//Theme colors for all puzzles
-	var themeArray = [
-		{
-			color: {
-				light: "#FD7C7F",
-				medium: "#E54D51",
-				dark: "#830003"
+	//dynamically populate theme colors for all puzzles
+		//array contains the six theme colors for this app as well as the icon papers
+		var themeArray = [
+			{
+				color: {
+					light: "#FD7C7F",
+					medium: "#E54D51",
+					dark: "#830003"
+				},
+				storyPaper: "storyPaperRed.png",
+				galleryPaper: "galleryPaperRed.png",
+		 	    
 			},
-			storyPaper: "storyPaperRed.png",
-			galleryPaper: "galleryPaperRed.png",
-	 	    
-		},
 
-		{
-			color: {
-				light: "#E6789F",
-				medium: "#C12B60",
-				dark: "#7E012D"
+			{
+				color: {
+					light: "#E6789F",
+					medium: "#C12B60",
+					dark: "#7E012D"
+				},
+				storyPaper: "storyPaperPink.png",
+			    galleryPaper: "galleryPaperPink.png"
 			},
-			storyPaper: "storyPaperPink.png",
-		    galleryPaper: "galleryPaperPink.png"
-		},
-		
-		{
-			color: {
-				light: "#FF9D79",
-				medium: "#F05C25",
-				dark: "#9D2A00"
+			
+			{
+				color: {
+					light: "#FF9D79",
+					medium: "#F05C25",
+					dark: "#9D2A00"
+				},
+				storyPaper: "storyPaperOrange.png",
+		 	    galleryPaper: "galleryPaperOrange.png"
 			},
-			storyPaper: "storyPaperOrange.png",
-	 	    galleryPaper: "galleryPaperOrange.png"
-		},
-		
-		{
-			color: {
-				light: "#4DC57E",
-				medium: "#008837",
-				dark: "#004920"
+			
+			{
+				color: {
+					light: "#4DC57E",
+					medium: "#008837",
+					dark: "#004920"
+				},
+				storyPaper: "storyPaperGreen.png",
+			    galleryPaper: "galleryPaperGreen.png"
 			},
-			storyPaper: "storyPaperGreen.png",
-		    galleryPaper: "galleryPaperGreen.png"
-		},
-		
-		{
-			color: {
-				light: "#5C64F9",
-				medium: "#3C44EC",
-				dark: "#050B66"
+			
+			{
+				color: {
+					light: "#5C64F9",
+					medium: "#3C44EC",
+					dark: "#050B66"
+				},
+				storyPaper: "storyPaperBlue.png",
+			    galleryPaper: "galleryPaperBlue.png"		
 			},
-			storyPaper: "storyPaperBlue.png",
-		    galleryPaper: "galleryPaperBlue.png"		
-		},
-		
-		{
-			color: {
-				light: "#A35DA3",
-				medium: "#741F74",
-				dark: "#410041"
-			},
-			storyPaper: "storyPaperPurple.png",
-	 	    galleryPaper: "galleryPaperPurple.png"		
-		}
-	];
+			
+			{
+				color: {
+					light: "#A35DA3",
+					medium: "#741F74",
+					dark: "#410041"
+				},
+				storyPaper: "storyPaperPurple.png",
+		 	    galleryPaper: "galleryPaperPurple.png"		
+			}
+		];
 
-	var colorTheme = function () {
-		var colorChoice = $(".colorSelector[class*='settingsSelected']").attr("data");
+		//set the colors used on each puzzle
+		var colorTheme = function () {
+			//this is linked to the settings tab
+			//set the color of the puzzles based on which theme color option is selected
+			var colorChoice = $(".colorSelector[class*='settingsSelected']").attr("data");
 
-		if ( colorChoice == 0 ) {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[0].color;
-				puzzle5by5[i].storyPaper = themeArray[0].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[0].galleryPaper;
-			}
-		} else if ( colorChoice == 1 ) {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[1].color;
-				puzzle5by5[i].storyPaper = themeArray[1].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[1].galleryPaper;
-			}
-		} else if ( colorChoice == 2 ) {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[2].color;
-				puzzle5by5[i].storyPaper = themeArray[2].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[2].galleryPaper;
-			}
-		} else if ( colorChoice == 3 ) {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[3].color;
-				puzzle5by5[i].storyPaper = themeArray[3].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[3].galleryPaper;
-			}
-		} else if ( colorChoice == 4 ) {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[4].color;
-				puzzle5by5[i].storyPaper = themeArray[4].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[4].galleryPaper;
-			}
-		} else if ( colorChoice == 5 ) {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[5].color;
-				puzzle5by5[i].storyPaper = themeArray[5].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[5].galleryPaper;
-			}
-		} else {
-			for (i = 0; i < puzzle5by5.length; i++) {
-				puzzle5by5[i].colors = themeArray[themeNum].color;
-				puzzle5by5[i].storyPaper = themeArray[themeNum].storyPaper;
-				puzzle5by5[i].galleryPaper = themeArray[themeNum].galleryPaper;
-				themeNum++;
-				if (themeNum === 6) {
-					themeNum = 0;
+			if ( colorChoice == 0 ) {
+				//red option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[0].color;
+					puzzle5by5[i].storyPaper = themeArray[0].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[0].galleryPaper;
 				}
+			} else if ( colorChoice == 1 ) {
+				//pink option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[1].color;
+					puzzle5by5[i].storyPaper = themeArray[1].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[1].galleryPaper;
+				}
+			} else if ( colorChoice == 2 ) {
+				//orange option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[2].color;
+					puzzle5by5[i].storyPaper = themeArray[2].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[2].galleryPaper;
+				}
+			} else if ( colorChoice == 3 ) {
+				//green option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[3].color;
+					puzzle5by5[i].storyPaper = themeArray[3].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[3].galleryPaper;
+				}
+			} else if ( colorChoice == 4 ) {
+				//blue option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[4].color;
+					puzzle5by5[i].storyPaper = themeArray[4].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[4].galleryPaper;
+				}
+			} else if ( colorChoice == 5 ) {
+				//purple option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[5].color;
+					puzzle5by5[i].storyPaper = themeArray[5].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[5].galleryPaper;
+				}
+			} else {
+				//default option selected
+				for (i = 0; i < puzzle5by5.length; i++) {
+					puzzle5by5[i].colors = themeArray[themeNum].color;
+					puzzle5by5[i].storyPaper = themeArray[themeNum].storyPaper;
+					puzzle5by5[i].galleryPaper = themeArray[themeNum].galleryPaper;
+					themeNum++;
+					if (themeNum === 6) {
+						themeNum = 0;
+					}
+				}
+				themeNum = 0;
 			}
-			themeNum = 0;
-		}
-	} // end colorTheme
+		} // end colorTheme
 //#puzzleGallery page html
-  var populationGallery = function () {
-  	//markup
-  	length = puzzle5by5.length;
-  	var markup = "<div id='menu'>Main Menu</div>";
-  	markup += "<div class=puzzleOption data=0><span>"+puzzle5by5[0].title+"</span></div>"
-  	for ( i = 1; i < length; i++) {
-  		markup += "<div class=puzzleOption data="+i+"><span>"+puzzle5by5[i].title+"</span></div>"
-  	}
-  	$("#puzzleGallery").html(markup);
-  };
-  populationGallery();
+	//gallery dynamic population function
+	var populationGallery = function () {
+		//markup
+		length = puzzle5by5.length;
+		var markup = "<div id='menu'>Main Menu</div>";
+		markup += "<div class=puzzleOption data=0><span>"+puzzle5by5[0].title+"</span></div>"
+		for ( i = 1; i < length; i++) {
+			markup += "<div class=puzzleOption data="+i+"><span>"+puzzle5by5[i].title+"</span></div>"
+		}
+		$("#puzzleGallery").html(markup);
+	};
+	populationGallery();
 
-  //give each puzzle its theme page color
-  var populatePaper = function () {
-  	var length = puzzle5by5.length;
-  	//gallery puzzle pages
-  	for ( i = 0; i < length; i++) { //"+puzzle5by5[i].galleryPaper+"
-  		$(".puzzleOption[data="+i+"]").css("background-image", "url("+puzzle5by5[i].galleryPaper+")");
-  	}
-  };
+	//give each puzzle its theme page color
+	var populatePaper = function () {
+		var length = puzzle5by5.length;
+		//gallery puzzle pages
+		for ( i = 0; i < length; i++) {
+			$(".puzzleOption[data="+i+"]").css("background-image", "url("+puzzle5by5[i].galleryPaper+")");
+		}
+	};
 //change colors of letters on homepage
 	var c = 0;
 	var o = 1;
@@ -822,6 +830,7 @@ $(document).ready( function () {
 
 	var colors = ["#FD7C7F", "#E6789F", "#FF9D79", "#4DC57E", "#5C64F9", "#A35DA3"];
 
+	//color of the letters c - o - l - o - r are changing every section from these functions
 	var color = function () {
 		$(".c").css("color", colors[c]);
 		c--
@@ -857,7 +866,7 @@ $(document).ready( function () {
 		ex--
 		if ( ex === -1 ) { ex = 5; }
 	};
-
+	//this changes the colors
 	window.setInterval(function(){
 	color();
 	color2();
@@ -908,7 +917,8 @@ $(document).ready( function () {
 		$(".topBarHome").html(markup);
 	};
 	populationLeftBarHome();
-//toggle correct answer indicator (light color/dark color)
+//.guessBox unctionality
+	//toggle correct answer indicator (light color/dark color)
     $(".guessBox").click(function () {
     	//remove the highlighted boxes
     	$(".guessBox").children().removeClass("highlight");
@@ -1008,8 +1018,6 @@ $(document).ready( function () {
 		quickPopInit();
 
 	});
-
-	
 //reset the puzzle to clear the light/dark colors
 	$("#resetButton").click( function () {
 		$(".guessBox").css("background-color", "white");
@@ -1020,13 +1028,13 @@ $(document).ready( function () {
 	    highlightCheck = false;
 		highlightCheckLeft = false;
 	});
-/////////////////////////////////////////////////////////////
-///////////////////////navigation////////////////////////////
-/////////////////////////////////////////////////////////////
-//start the puzzle from gallery
+
+
+
+//****NAVIGATION****//
+//select puzzle from gallery
 	$(".puzzleOption").click( function () {
 		bodyPositionGallery = $("body").scrollTop();
-		console.log(bodyPositionGallery);
 		var tempHolder, length, j;
 		var location = $(this).attr("data");
 		tempHolder = location;
@@ -1059,7 +1067,7 @@ $(document).ready( function () {
 				});
 		}});
 	});
-//start the puzzle (on start click)
+//start puzzle from story page
 	$("#start").click( function () {
 		var light = $("#zoomIn").css("background-color");
 		var dark = $("#undo").css("background-color");
@@ -1141,6 +1149,9 @@ $(document).ready( function () {
 		prevSnapshot = 0;
 		undoIndex = 0;
 	});
+
+
+
 //markup creator function
 	var markup = function (selector, target){
 		$(selector).html(target);
@@ -1154,28 +1165,63 @@ $(document).ready( function () {
 		$("body").scrollTop(0).css("background-image", "url(backgroundPlain.png)");
 	});
 //store functionality
+	var itemDescription = [
+		{
+			title: "EASY",
+			description: "Enjoy a 3&#215;3 puzzle for less than a cup of coffee!",
+			price: "$0.99 for 10"
+		},
+		{
+			title: "MEDIUM",
+			description: "Enjoy a 4&#215;4 puzzle for almost four quarters!",
+			price: "$0.99 for 8"
+		},
+		{
+			title: "HARD",
+			description: "Enjoy a 5&#215;5 puzzle for the price of soda pop!",
+			price: "$0.99 for 6"
+		},
+		{
+			title: "PACKAGES",
+			description: "Enjoy 2 of each difficulty puzzle for only.. 99&cent;!",
+			price: "$0.99 for 6"
+		},
+		{
+			title: "RANDOM",
+			description: "Do you like surprises? Enjoy 8 random puzzles!",
+			price: "$0.99 for 8"
+		},
+	];
+
 	$(".item").click( function () {
-		var position = $(this).attr("data");
-		$(this).animate({
-				width: "0em"
-			}, {
-			    duration: 1000,
-			    start: function () {
-			    	$(this).children().html("");
-			    	$(this).css("margin", "0 auto").css("display", "block");
-			    	$("#storeBelt").css("background-color", "#E6789F").css("border-color", "#E6789F");
-			    	$(".item[data!="+position+"]").hide();
-			    	$(".storePuzzleIconClass").hide();
-			    },
-			    complete: function () {
-			    	$(this).children().hide().html("WORK IN PROGRESS... CHECK OUT THE PLAY AND SETTINGS OPTIONS INSTEAD!").fadeIn(3000);
-			    	$(".storePuzzleIconClass").hide();
-					$(this).animate({
-						height: "70%",
-						width: "78%"
-					});
-			    }
+		var textFinder = $(this).children("span").html();
+		var arrayLength = itemDescription.length;
+		$("#storeBeltHolder").hide();
+		$("#purchasePage").show();
+		$("#purchaseScreen").hide();
+		$("#purchasePage").css("width", "0%").css("height", "0%").animate({
+			width: "90%",
+			height: "80%"
+		}, { 	duration: 1000,
+				complete: function () {
+					for (i=0; i<arrayLength; i++) {
+						var match = itemDescription[i].title;
+						if (textFinder === match) {
+							$("#ad").html(itemDescription[i].description);
+							$("#cost").html(itemDescription[i].price);
+						}
+					}
+					$("#purchaseScreen").fadeIn("slow");
+				}
 		});
+	});
+
+	//back to the store gallery
+	$("#storeBackButton").click( function () {
+		$("#purchasePage").fadeOut();
+		setTimeout( function () {
+			$("#storeBeltHolder").fadeIn("slow");
+		}, 600);
 	});
 //back to main menu
   $("#menu").click( function () {
@@ -1218,8 +1264,9 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	var isOptionLonger = $(this).is(".big");
 	var isPageExplanded = $(this).next().is(".bigPage");
 	var isAnimating = $(".homepageButton").is(".animating");
-	//var bigAmount = $(".big").length;
-	//console.log(bigAmount);
+	//hide html, the show after 2sec
+	$("#storeBeltHolder, #purchasePage").hide();
+	setTimeout( function () { $("#storeBeltHolder").fadeIn("slow"); }, 2000);
 	//run only if the homepage option's width is equal to it's inital value of 688px
 	if ( !isPageExplanded && !isAnimating ) {
 		$("html, body").animate({
@@ -1353,7 +1400,6 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				//zoom in max of 5 times
 				if (zoom < 5) {
 					zoom ++;
-					console.log(zoom);
 					$("#gameBoard").css("overflow", "scroll");
 					$("#puzzleGameBoardInside").animate({
 						zoom: "+=20%"
@@ -1364,14 +1410,12 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			$("#zoomOut").unbind().click( function () {
 				if ( zoom > 1 ) {
 					zoom --;
-					console.log(zoom);
 					$("#puzzleGameBoardInside").animate({
 						zoom: "-=20%"
 					});
 				//return game board to original position before zooming in
 				} else if ( zoom === 1 ) {
 					zoom = 0;
-					console.log(zoom);
 					$("#puzzleGameBoardInside").animate({
 						zoom: "-=20%"
 					}, { complete: function () {
@@ -1543,14 +1587,12 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			if ( highlightCheck ) {
 				highlightCheck = false;
 				highlightCheckLeft = false;
-				console.log("true");
 
 				//remove the highlighted boxes
 	    		$(".guessBox").children().removeClass("highlight");
 	    		$(".guessBox").children().removeClass("highlightLeft");
 			} else {
 				highlightCheck = true;
-				console.log("false");
 				//remove the highlighted boxes
 		    	$(".guessBox").children().removeClass("highlight");
 

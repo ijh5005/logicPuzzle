@@ -85,6 +85,72 @@ body {
     top: 3em;
 }
 
+#purchasePage {
+  height: 80%;
+  width: 90%;
+  border: 12px solid #BBB;
+  border-radius: 10px;
+  margin: 0 auto;
+  background-color: #D2527F;
+  display: none;
+}
+
+#purchaseScreen {
+  height: 100%;
+  width: 94%;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#productDescr,
+#buyBox {
+  height: 85%;
+  width: 50%;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  top: 6%;
+  float: left
+}
+
+#productDescr {
+  font-size: 3em;
+  height: 78%;
+}
+
+#storeBackButton {
+  height: 20%;
+  width: 20%;
+  border: 5px solid #BBB;
+  border-radius: 10px;
+  position: absolute;
+  left: 75%;
+  font-size: 2.4em;
+  border-radius: 50px;
+  background-color: #E6789F;
+  line-height: 1.8;
+}
+
+#buyButton {
+  height: 45%;
+  width: 45%;
+  border: 5px solid #BBB;
+  border-radius: 10px;
+  position: relative;
+  top: 36%;
+  margin: 0 auto;
+  background-color: #E6789F;
+}
+
+#buyButton #buy {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  top: 26%;
+  font-size: 3em;
+}
+
 #settingsPage {
 	overflow: scroll;
 }
