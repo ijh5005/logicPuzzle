@@ -394,7 +394,7 @@ body {
 #tutorialPage .comingSoon,
 #settingsPage .comingSoon {
 	font-family: 'Permanent Marker', cursive;
-    font-size: 80px;
+    font-size: 4em;
     height: 72px;
     margin: 0 auto;
     text-align: center;
