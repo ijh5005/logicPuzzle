@@ -338,6 +338,8 @@ body {
     margin: 0 auto;
     margin-bottom: 20px;
     text-align: center;
+        height: 13.0625rem;
+    width: 43rem;
 }
 
 #play {
@@ -1406,3 +1408,43 @@ body {
     	height: 50px;
     }
 }
+
+//
+/*@media (max-width: 799px) {
+
+    #homepageHeading {
+      font-size: 33px;
+    }
+    #homepageHeading {
+      height: 50px;
+    }
+}
+
+@media (max-width: 850px) {
+    .homepageButton {
+      width: 75%;
+    }
+}
+
+@media (max-width: 800px) {
+    .homepageButton {
+      border: 5px solid #AAA;
+      height: 2.66em;
+      font-size: 35px;
+    }
+    .hompageButton span {
+      font-size: 34px;     
+    }
+    #homepageHeading {
+      font-size: 32px;
+    }
+}
+
+@media (max-width: 410px) {
+    .homepageButton {
+      font-size: 26px;
+    }
+    #homepageHeading {
+      font-size: 26px;
+    }
+}*/
