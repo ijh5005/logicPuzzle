@@ -1127,91 +1127,12 @@ button {
   justify-content: flex-end;
   margin-right: 1.5em;
 }
-/*#win {
-	font-family: 'Sigmar One', cursive;
-	font-size: 138px;
-	position: relative;
-    top: 320px;
-    float: left;
-    z-index: -1;*/
 
-    /*top: -600px;
-    left: 23px;
-    float: left;
-    z-index: -1*/;
-/*}*/
-
-/*#win div {
-	margin: 0 auto;
-	background-color: #CCC;
-    height: 156px;
-    border-radius: 10px;
-    border: 6px solid #AAA;
-}
-
-#youwon {
-	top: -40px;
-    left: 2px;
-    position: relative;
-}
-
-.red {
-	color: #E54D51;
-	position: relative;
-	z-index: 9;
-}
-.orange {
-	left: 6px;
-	color: #F05C25;
-	position: relative;
-	z-index: 8;
-	top: -226px;
-}
-.yellow {
-	left: 12px;
-	color: #FFDE43;
-	position: relative;
-	z-index: 7;
-	top: -452px;
-}
-.blue {
-	left: 18px;
-	color: #3C44EC;
-	position: relative;
-	z-index: 6;
-	top: -678px;
-}
-.green {
-	left: 24px;
-	color: #008837;
-	position: relative;
-	z-index: 5;
-	top: -904px;
-}
-
-.purple {
-	left: 30px;
-	color: #741F74;
-	position: relative;
-	z-index: 4;
-	top: -1130px;
-}*/
-
+.guessBox .highlightLeft,
 .guessBox .highlight {
-  border: 0.4em solid #CCC;
+	border: 0.4em solid #CCC;
   height: 1em;
   width: 1em;
-	position: relative;
-	top: 0.5em;
-	left: 0.5em;
-	border-radius: 50px;
-	background-color: #444;
-}
-
-.guessBox .highlightLeft {
-  	border: 0.4em solid #CCC;
-    height: 1em;
-    width: 1em;
 	position: relative;
 	top: 0.5em;
 	left: 0.5em;

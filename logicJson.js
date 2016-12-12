@@ -1590,7 +1590,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 
 			var light = $("#currentClue").css("background-color");
 			var dark = $("#undo").css("background-color");
-
+			conole.log(highlightCheck+"topbar");
 			if ( highlightCheck ) {
 				highlightCheck = false;
 				highlightCheckLeft = false;
@@ -1711,7 +1711,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 
 			var light = $("#currentClue").css("background-color");
 			var dark = $("#undo").css("background-color");
-
+			conole.log(highlightCheck+"leftbar");
 			if ( highlightCheckLeft ) {
 				highlightCheck = false;
 				highlightCheckLeft = false;
