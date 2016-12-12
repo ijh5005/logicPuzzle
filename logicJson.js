@@ -6,6 +6,7 @@ $(document).ready( function () {
 	var i, length;
 	var themeNum = 0;
 	var bodyPositionGallery = 0;
+	var tutPosition = 0;
 	//quickPopInit() helper variables
 	var before = [];
 	var after = [];
@@ -13,6 +14,8 @@ $(document).ready( function () {
 	var undo =[];
 	var undoIndex = 0;
 	var prevSnapshot = 0;
+	//tutorial var
+	var tutNum = 0;
 //json contains all puzzle information (colors, stories, clues, text, etc.)
 	var puzzle5by5 = [
 
@@ -917,7 +920,7 @@ $(document).ready( function () {
 		$(".topBarHome").html(markup);
 	};
 	populationLeftBarHome();
-//.guessBox unctionality
+//.guessBox functionality
 	//toggle correct answer indicator (light color/dark color)
     $(".guessBox").click(function () {
     	//remove the highlighted boxes
@@ -1125,6 +1128,9 @@ $(document).ready( function () {
 	});  	
 //go back to gallery
   	$("#story #backButton").click( function () {
+  		$("#puzzleGameBoardInside").show();
+  		$("#clue").show();
+		$("#focus").hide();
   		//scroll back to the left position
   		$("#zoomIn, #zoomOut").css("opacity", 0);
   		//remove the highlights
@@ -1149,9 +1155,6 @@ $(document).ready( function () {
 		prevSnapshot = 0;
 		undoIndex = 0;
 	});
-
-
-
 //markup creator function
 	var markup = function (selector, target){
 		$(selector).html(target);
@@ -1512,16 +1515,21 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			
 			//display correct/incorrect response when submit is clicked
 				if ( correctAnswers === 30 ) {
-					//$("#puzzleGameBoardInside").effect( "explode", 1800 );
-					//$("#submit").fadeOut("fast");
 					$("#clue").fadeOut();
 					correctAnswers++;
-					//$("#win").css("z-index", "1");
-
-					$("#submit").html("Winner");
+					$("#puzzleGameBoardInside").fadeOut(1000);
+					setTimeout( function () {
+						$("#gameBoard").css("overflow", "");
+						$("#focus").show();
+						$(".youwin").hide();
+						$("#you").slideDown();
+						setTimeout( function () {
+						$("#win").slideDown();
+						}, 500);
+					}, 2000);
+					$(".guessBox").attr("correct", false);
 				} else {
 					$("#submit").html("Sorry..");
-					//$("#gameBoard").effect("shake");
 					setTimeout(function() {
 					    $("#submit").html("Submit");
 					}, 3000);
@@ -1573,7 +1581,6 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				}
 			});
 		});
-
 //highlight row and col functionality
 	var highlightCheck = false;
 	var highlightCheckLeft = false;
@@ -1819,4 +1826,409 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				$(".guessBox div[class*='highlight']").css("border-color", light).css("background-color", dark);
 			}
 		});
+//tutorial page
+var tutPressNext;
+var tutOne;
+var tutTwo;
+var tutThree;
+	var nextPress = function (target) {
+		var light = "rgb(77, 197, 126)";
+		var dark = "rgb(0, 73, 32)";
+		tutPressNext = setInterval(function(){
+			setTimeout( function () {
+				$(target).css("background-color", dark);
+				$(target).css("color", light);
+			}, 0);
+			setTimeout( function () {
+				$(target).css("background-color", light);
+				$(target).css("color", dark);
+			}, 1000);
+		}, 2000);
+	};
+	var nextPressOne = function (target) {
+		var light = "rgb(77, 197, 126)";
+		var dark = "rgb(0, 73, 32)";
+		tutOne = setInterval(function(){
+			setTimeout( function () {
+				$(target).css("background-color", dark);
+				$(target).css("color", light);
+			}, 0);
+			setTimeout( function () {
+				$(target).css("background-color", light);
+				$(target).css("color", dark);
+			}, 1000);
+		}, 2000);
+	};
+	var nextPressTwo = function (target) {
+		var light = "rgb(77, 197, 126)";
+		var dark = "rgb(0, 73, 32)";
+		tutTwo = setInterval(function(){
+			setTimeout( function () {
+				$(target).css("background-color", dark);
+				$(target).css("color", light);
+			}, 0);
+			setTimeout( function () {
+				$(target).css("background-color", light);
+				$(target).css("color", dark);
+			}, 1000);
+		}, 2000);
+	};
+	var nextPressThree = function (target) {
+		var light = "rgb(77, 197, 126)";
+		var dark = "rgb(0, 73, 32)";
+		tutThree = setInterval(function(){
+			setTimeout( function () {
+				$(target).css("background-color", dark);
+				$(target).css("color", light);
+			}, 0);
+			setTimeout( function () {
+				$(target).css("background-color", light);
+				$(target).css("color", dark);
+			}, 1000);
+		}, 2000);
+	};
+
+	$("#tutorial").click( function () {
+		setTimeout( function () {
+			$("#tutTopFirst, #tutTopSecond").animate({
+				top: "0%"
+				}, { duration: 1000,
+					start: function () {
+						$("#tutLeftFirst, #tutLeftSecond").animate({
+						  left: "0%"
+						}, 1000);
+					}
+			});
+			if ( tutNum === 0 ){
+				nextPress("#tutNext");
+			}
+		}, 3100);
+	});
+
+	$("#tutNext, #tutBack").click( function () {
+	  	if( $(this).css("opacity") == 1 ) {
+			var light = "rgb(77, 197, 126)";
+			var dark = "rgb(0, 73, 32)";
+			var thisId = $(this).attr("id");
+			if ( $(this).attr("id") === "tutNext" ){
+				tutNum++;
+			} else if ( $(this).attr("id") === "tutBack" ) {
+				tutNum--;
+				if ( tutNum < 0 ){
+					tutNum = 0;
+				}
+			}
+			window.clearInterval(tutPressNext);
+			window.clearInterval(tutOne);
+			window.clearInterval(tutTwo);
+			window.clearInterval(tutThree);
+			if ( tutNum === 0 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Hi, I am here to help you with the basics!");
+			}
+			if ( tutNum === 1 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("We will work an example using this 3&#215;3 logic puzzle..");
+			}
+			if ( tutNum === 2 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Lets start with an introduction...");
+			}
+			if ( tutNum === 3 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("May, Jay, and Shay each have a fruit for lunch. Follow the clues to find the fruit they ate.");
+			}
+			if ( tutNum === 4 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Clue #1: The three people who ate fruit are: May, the one who ate the apple, and Shay.");
+				$(".tutFirstBoxs").fadeIn(2000);
+			}
+			if ( tutNum === 5 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Lets break it down..");
+				$("#tutDirections").css("text-align", "center");
+			}
+			if ( tutNum === 6 ){
+				$("#tutNext, #tutBack").css("opacity", 0.25);
+				$("#tutDirections").css("text-align", "left");
+				nextPressOne(".tutTopBar.one");
+				$("#tutDirections span").html("");
+				setTimeout( function () {
+					$("#tutDirections span").html("Person 1: May </br>");
+				}, 1000);
+				setTimeout( function () {
+					nextPressTwo(".tutLeftBar.one");
+				}, 2000);
+				setTimeout( function () {
+					$("#tutDirections span").html("Person 1: May </br>Person 2: the one who ate the apple");
+				}, 3000);
+				setTimeout( function () {
+					nextPressThree(".tutTopBar.three");
+				}, 4000);
+				setTimeout( function () {
+					$("#tutDirections span").html("Person 1: May </br>Person 2: the one who ate the apple </br>Person 3: Shay");
+				}, 5000);
+				setTimeout( function () {
+					$("#tutNext, #tutBack").css("opacity", 1);
+					nextPress("#tutNext");
+				}, 6000);
+			}
+			if ( tutNum === 7 ){
+				$("#tutDirections").css("text-align", "center");
+				nextPress("#tutNext");
+				$(".tutTopBar span, .tutLeftBar span").css("color", "");
+				$("#tutDirections span").html("Since May, Shay, and the person who ate the apple are three different people, May and Shay didn't eat an apple");
+			}
+			if ( tutNum === 8 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("The dark green box means incorrect.. This means May didn't eat the apple because the dark green box is common between May and the apple option.");
+				$("#tutBoxOne .one").css("background-color", "rgb(0, 73, 32)");
+				nextPressOne(".tutTopBar.one");
+				nextPressTwo(".tutLeftBar.one");
+				$("#tutNext, #tutBack").css("opacity", 0.25);
+				setTimeout( function () {
+					$("#tutNext, #tutBack").css("opacity", 1);
+				}, 3000);
+			}
+			if ( tutNum === 9 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("The dark green box means incorrect.. This means Shay didn't eat the apple because the dark green box is common between Shay and the apple option.");
+				$("#tutBoxOne .three").css("background-color", "rgb(0, 73, 32)");
+				nextPressOne(".tutTopBar.three");
+				nextPressTwo(".tutLeftBar.one");
+				$("#tutNext, #tutBack").css("opacity", 0.25);
+				setTimeout( function () {
+					$("#tutNext, #tutBack").css("opacity", 1);
+				}, 3000);
+			}
+			if ( tutNum === 10 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("The light green box means correct.. May and Shay didn't eat the apple, therefore, Jay ate the apple");
+				$("#tutBoxOne .two").css("background-color", "rgb(0, 136, 55)");
+				nextPressOne(".tutTopBar.two");
+				nextPressTwo(".tutLeftBar.one");
+				$("#tutNext, #tutBack").css("opacity", 0.25);
+				setTimeout( function () {
+					$("#tutNext, #tutBack").css("opacity", 1);
+				}, 3000);
+			}
+			if ( tutNum === 11 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("This also means that Jay didn't ate the orange or banana");
+				$("#tutBoxOne .five, #tutBoxOne .eight").css("background-color", "rgb(0, 73, 32)");
+				nextPressOne(".tutTopBar.two");
+				nextPressTwo(".tutLeftBar.two");
+				nextPressThree(".tutLeftBar.three");
+				$("#tutNext, #tutBack").css("opacity", 0.25);
+				setTimeout( function () {
+					$("#tutNext, #tutBack").css("opacity", 1);
+				}, 3000);
+			}
+			if ( tutNum === 12 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("By similar logic.. Anytime you highlight a box light green the other boxs in it's column and row are dark green");
+			}
+			if ( tutNum === 13 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Time for the next clue..");
+			}
+			if ( tutNum === 14 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Clue #2: May does not like eating bananas.");
+			}
+			if ( tutNum === 15 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Since May does not like eating bananas can you guess the fruit May has?");
+			}
+			if ( tutNum === 16 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("If you guessed the orange then you are correct!");
+				$("#tutBoxOne .four").css("background-color", "rgb(0, 136, 55)");
+				$("#tutBoxOne .seven").css("background-color", "rgb(0, 73, 32)");
+			}
+			if ( tutNum === 17 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("This also means Shay didn't eat the orange");
+				$("#tutBoxOne .six").css("background-color", "rgb(0, 73, 32)");
+			}
+			if ( tutNum === 18 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("And be process of elimination, Shay ate the banana");
+				$("#tutBoxOne .nine").css("background-color", "rgb(0, 136, 55)");
+			}
+			if ( tutNum === 19 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("CONGRATS! You completed part one!");
+			}
+			if ( tutNum === 20 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Now let's make this puzzle bigger and more exciting. I know you can do it!");
+				$("#tutTopSecond, #tutBoxTwo").animate({
+					left: "0%"
+					}, { duration: 1000,
+						start: function () {
+							$("#tutLeftSecond, #tutBoxThree").animate({
+							top: "0%"
+						}, 1000);
+					}
+				});
+			}
+			if ( tutNum === 21 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Clue #3: Jay likes to eat his fruit before 5:00pm.");
+			}
+			if ( tutNum === 22 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("The only time before 5:00pm is 3:00pm. Press the starred box two times");
+				$("#tutBoxThree .tutGridBox.two").html("&#9733;");
+			}
+			if ( tutNum === 23 ){
+				nextPress("#tutNext");
+				$("#tutDirections span").html("Notice how the other boxes turned dark green. This is a shorthand you can use to speed up your puzzling!");
+				$(".tutGridBox").html("");
+			}
+			if ( tutNum === 24 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("Clue #4: The one who ate the orange eats fruit at 7:00pm and Shay hates eating at school");
+			}
+			if ( tutNum === 25 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("Breakdown: The one who ate the orange is May. Therefore May eats fruit at 7:00pm. Press the starred box two times");
+				$("#tutBoxThree .tutGridBox.seven").html("&#9733;");
+			}
+			if ( tutNum === 26 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("Breakdown: Shay ate the banana. Therefore, the person who ate the banana hates eating at school Press the starred box one time");
+				$("#tutBoxTwo .tutGridBox.nine").html("&#9733;");
+			}
+			if ( tutNum === 27 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("By process of elimination, Shay ate at 5:00pm. Press the starred box two times.");
+				$("#tutBoxThree .tutGridBox.six").html("&#9733;");
+			}
+			if ( tutNum === 28 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("Clue #5: The person who ate at 3:00pm ate at home");
+			}
+			if ( tutNum === 29 ){
+				$("#tutDirections span").html("Breakdown: The person who ate at 3:00pm is Jay... Jay ate the apple... Therefore, the person who ate the apple ate at home. Press the starred box two times.");
+			}
+			if ( tutNum === 30 ){
+				$("#tutDirections span").html("Press the starred box two times.");
+				$("#tutBoxTwo .tutGridBox.two").html("&#9733;");
+			}
+			if ( tutNum === 31 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("By process of elimination, the person who ate the banana (Shay) ate in the park. Press the starred box two times.");
+				$("#tutBoxTwo .tutGridBox.seven").html("&#9733;");
+			}
+			if ( tutNum === 32 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("By process of elimination, the person who ate the orange (May) ate in school. Press the starred box two times.");
+				$("#tutBoxTwo .tutGridBox.six").html("&#9733;");
+			}
+			if ( tutNum === 33 ){
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("Congratz! This puzzle is complete. I hope this tutorial helps!");
+			}
+	  	}
+	});
+	
+	//autopopulation code
+	$("#tutNext, #tutBack").click( function () {
+		if ( tutNum === 20 ){
+	 			$(".tutGridBox").addClass("tutguessBox");
+			 	$(".tutguessBox").click(function () {
+			    	var thisParent = $(this).parent();
+			    	var thisBox = $(this);
+					var backgroundColor = $(this).css("background-color");
+					var medium = "rgb(0, 136, 55)";
+					var dark = "rgb(0, 73, 32)";
+					if (backgroundColor == "rgb(77, 197, 126)"){
+						$(this).css("background-color", dark).attr("correct", false);
+					}
+					else if (backgroundColor == dark){
+						$(this).css("background-color", medium).attr("correct", true);;
+					}
+					else if ( $(this).parent().attr("id") == "topMiddleThird" || $(this).parent().attr("id") == "bottomMiddleSecond" ){
+						$(this).css("background-color", "rgb(77, 197, 126)").attr("correct", false);
+					}
+					else {
+						$(this).css("background-color", "rgb(77, 197, 126)").attr("correct", false);
+					}
+
+					//auto populate wrong answers
+					var quickPopulate = function () {
+						var i, j, row, col;
+						var correctAnswer = $(thisBox).attr("data");
+						console.log("this is correct"+correctAnswer);
+						var thisBoxColor = thisBox.css("background-color");
+
+						
+
+						//array of the row indexes
+						var autofillRow = [
+							[0, 1, 2],
+							[3, 4, 5],
+							[6, 7, 8]
+						];
+						//array of the col indexes
+						var autofillCol = [
+							[0, 3, 6],
+							[1, 4, 7],
+							[2, 5, 8]
+						];
+
+						//store the row and col to be highlighted in the var combined
+						if( thisBoxColor === medium ){
+							//row data locations
+							for (i = 0; i < 3; i++) {
+								for (j = 0; j < 3; j++){
+									if( autofillRow[i][j] == correctAnswer ){
+										row = autofillRow[i];
+										console.log("this is row"+row)
+									}
+								}
+							}
+							//row data locations
+							for (i = 0; i < 3; i++) {
+								for (j = 0; j < 3; j++){
+									if( autofillCol[i][j] == correctAnswer ){
+										col = autofillCol[i];
+										console.log("this is col"+col);
+									}
+								}
+							}
+
+							var combined = row.concat(col);
+							for (i = 0; i < 9; i++) {
+								$(thisParent).children().each( function () {
+									if ( $(this).attr("data") == combined[i] && $(this).attr("data") != correctAnswer) {
+										$(this).css("background-color", dark);
+									}
+								});
+							}
+
+						}
+					};
+
+					var quickPopInit = function () {
+						var parentId = thisParent.attr("id");
+						var data = thisBox.attr("data");
+						after[0] = parentId;
+						after[1] = data;
+
+						if ( before[0] === after[0] && before[1] === after[1] ) {
+							quickPopulate();
+						} else {
+							before[0] = parentId;
+							before[1] = data;
+						}
+					};
+
+					quickPopInit();
+
+				});
+	 	}
+	});
 });

@@ -151,6 +151,162 @@ body {
   font-size: 3em;
 }
 
+/*********Tutorial Page*********/
+#tut {
+  height: 800px;
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tutBoard {
+  height: 650px;
+  width: 650px;
+  position: relative;
+  top: 12px; 
+}
+
+.tutBigBox {
+  height: 32%;
+  width: 32%;
+  background-color: #4DC57E;
+  float: left;
+  position: relative;
+  left: 0.5px;
+  padding: 1px;
+}
+
+.tutNonBox {
+  background-color: #4DC57E;
+}
+
+.tutGridBox {
+  height: 32%;
+  width: 32%;
+  float: left;
+  background-color: #4DC57E;
+  border: 1px solid #555;
+  font-size: 3em;
+  text-align: center;
+}
+
+#tutBoxOne {
+  z-index: 10;
+}
+
+#tutBoxTwo,
+#tutTopSecond {
+  position: relative;
+  left: -32.1%;
+  z-index: 6;
+}
+
+#tutBoxThree,
+#tutLeftSecond {
+  position: relative;
+  top: -32.1%;
+  z-index: 6;
+}
+
+#tutTopFirst,
+#tutTopSecond {
+  position: relative;
+  top: 32.9%;
+  z-index: 9;
+}
+
+#tutLeftFirst,
+#tutLeftSecond {
+  position: relative;
+  left: 32.9%;
+  z-index: 9;
+}
+
+#tutTopSecond {
+  position: relative;
+  z-index: 6;
+}
+
+#tutLeftSecond {
+  position: relative;
+  z-index: 6;
+}
+
+.tutLeftBar {
+  height: 32%;
+  width: 98%;
+  float: left;
+  background-color: #4DC57E;
+  border: 1px solid #555;
+}
+
+.tutTopBar {
+  width: 98%;
+  height: 32%;
+  float: left;
+  background-color: #4DC57E;
+  border: 1px solid #555;
+  transform: rotate(270deg);
+}
+
+.tutTopBar.one {
+  position: relative;
+  left: -33%;
+  top: 33%;
+}
+.tutTopBar.two {}
+.tutTopBar.three {
+  position: relative;
+  left: 33.1%;
+  top: -32.97%;
+}
+
+.tutFirstBoxs {
+  display: none;
+}
+
+.tutTopBar span,
+.tutTopBar span {
+  font-size: 3em;
+  position: relative;
+  left: 8px;
+}
+
+.tutLeftBar span {
+  font-size: 3em;
+  left: 8px;
+}
+
+#tutNav {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#tutNext, 
+#tutBack {
+  height: 98px;
+  width: 180px;
+  font-size: 4em;
+  text-align: center;
+  border-radius: 20px;
+  opacity: 1;
+  display: inline-block;
+}
+
+#tutDirections {
+    height: 130px;
+    width: 900px;
+    margin: 0 auto;
+    font-size: 3em;
+    text-align: center;
+}
+/******************/
+
 #settingsPage {
 	overflow: scroll;
 }
@@ -377,17 +533,21 @@ body {
 #tutorialPage,
 #settingsPage {
 	display: none;
-    margin: 0 auto;
+  margin: 0 auto;
 
-    height: 520px;
-    width: 96%;
+  height: 520px;
+  width: 96%;
 
-    border-radius: 10px;
-    border: 10px solid #AAA;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    border-top: none;
+  border-radius: 10px;
+  border: 10px solid #AAA;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-top: none;
 	font-family: 'Permanent Marker', cursive;
+}
+
+#tutorialPage {
+    height: 1024px;
 }
 
 #storePage .comingSoon,
@@ -916,21 +1076,71 @@ body {
     margin: 0 auto;
 }
 
-#win {
+/*win*/
+#focus {
+  margin: 0 auto;
+  display: none;
+}
+
+button {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 20px;
+}
+
+#hide {
+  top: 40px;
+}
+
+#winHolder {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+  top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Permanent Marker', cursive; title
+  background-color: #BBB;
+  position: relative;
+  z-index: 10;
+}
+
+.youwin {
+  height: 100px;
+  width: 120px;
+  display: inline-block;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.youwin span {
+  font-size: 7em;
+}
+
+#you {
+  justify-content: flex-end;
+  margin-right: 1.5em;
+}
+/*#win {
 	font-family: 'Sigmar One', cursive;
 	font-size: 138px;
 	position: relative;
     top: 320px;
     float: left;
-    z-index: -1;
+    z-index: -1;*/
 
     /*top: -600px;
     left: 23px;
     float: left;
     z-index: -1*/;
-}
+/*}*/
 
-#win div {
+/*#win div {
 	margin: 0 auto;
 	background-color: #CCC;
     height: 156px;
@@ -984,7 +1194,7 @@ body {
 	position: relative;
 	z-index: 4;
 	top: -1130px;
-}
+}*/
 
 .guessBox .highlight {
   border: 0.4em solid #CCC;
