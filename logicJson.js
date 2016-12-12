@@ -2132,6 +2132,9 @@ var tutThree;
 				$(".tutGridBox").html("");
 				$("#tutDirections span").html("Congratz! This puzzle is complete. I hope this tutorial helps!");
 			}
+			if ( tutNum > 33 ){
+				tutNum = 33;
+			}
 	  	}
 	});
 	
