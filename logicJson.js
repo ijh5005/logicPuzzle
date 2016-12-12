@@ -2014,7 +2014,7 @@ var tutThree;
 			}
 			if ( tutNum === 11 ){
 				nextPress("#tutNext");
-				$("#tutDirections span").html("This also means that Jay didn't ate the orange or banana");
+				$("#tutDirections span").html("This also means that Jay didn't eat the orange or banana");
 				$("#tutBoxOne .five, #tutBoxOne .eight").css("background-color", "rgb(0, 73, 32)");
 				nextPressOne(".tutTopBar.two");
 				nextPressTwo(".tutLeftBar.two");
@@ -2111,7 +2111,8 @@ var tutThree;
 				$("#tutDirections span").html("Clue #5: The person who ate at 3:00pm ate at home");
 			}
 			if ( tutNum === 29 ){
-				$("#tutDirections span").html("Breakdown: The person who ate at 3:00pm is Jay... Jay ate the apple... Therefore, the person who ate the apple ate at home. Press the starred box two times.");
+				$(".tutGridBox").html("");
+				$("#tutDirections span").html("Breakdown: The person who ate at 3:00pm is Jay... Jay ate the apple... Therefore, the person who ate the apple ate at home.");
 			}
 			if ( tutNum === 30 ){
 				$("#tutDirections span").html("Press the starred box two times.");
