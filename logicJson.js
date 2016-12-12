@@ -1981,7 +1981,7 @@ var tutThree;
 			}
 			if ( tutNum === 8 ){
 				nextPress("#tutNext");
-				$("#tutDirections span").html("The dark green box means incorrect.. This means May didn't eat the apple because the dark green box is common between May and the apple option.");
+				$("#tutDirections span").html("The DARK green box means incorrect.. The box connecting May and the apple is dark green indicating May did not eat the apple.");
 				$("#tutBoxOne .one").css("background-color", "rgb(0, 73, 32)");
 				nextPressOne(".tutTopBar.one");
 				nextPressTwo(".tutLeftBar.one");
@@ -1992,7 +1992,7 @@ var tutThree;
 			}
 			if ( tutNum === 9 ){
 				nextPress("#tutNext");
-				$("#tutDirections span").html("The dark green box means incorrect.. This means Shay didn't eat the apple because the dark green box is common between Shay and the apple option.");
+				$("#tutDirections span").html("The box connecting Shay and the apple is dark green indicating Shay did not eat the apple.");
 				$("#tutBoxOne .three").css("background-color", "rgb(0, 73, 32)");
 				nextPressOne(".tutTopBar.three");
 				nextPressTwo(".tutLeftBar.one");
@@ -2003,7 +2003,7 @@ var tutThree;
 			}
 			if ( tutNum === 10 ){
 				nextPress("#tutNext");
-				$("#tutDirections span").html("The light green box means correct.. May and Shay didn't eat the apple, therefore, Jay ate the apple");
+				$("#tutDirections span").html("The LIGHT green box means correct.. May and Shay didn't eat the apple, therefore, Jay ate the apple");
 				$("#tutBoxOne .two").css("background-color", "rgb(0, 136, 55)");
 				nextPressOne(".tutTopBar.two");
 				nextPressTwo(".tutLeftBar.one");
