@@ -1827,10 +1827,10 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			}
 		});
 //tutorial page
-var tutPressNext;
-var tutOne;
-var tutTwo;
-var tutThree;
+	var tutPressNext;
+	var tutOne;
+	var tutTwo;
+	var tutThree;
 	var nextPress = function (target) {
 		var light = "rgb(77, 197, 126)";
 		var dark = "rgb(0, 73, 32)";
@@ -2130,7 +2130,7 @@ var tutThree;
 			}
 			if ( tutNum === 33 ){
 				$(".tutGridBox").html("");
-				$("#tutDirections span").html("Congratz! This puzzle is complete. I hope this tutorial helps!");
+				$("#tutDirections span").html("Congrats! This puzzle is complete. I hope this tutorial helps!");
 			}
 			if ( tutNum > 33 ){
 				tutNum = 33;
