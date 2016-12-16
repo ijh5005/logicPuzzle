@@ -1,7 +1,41 @@
 "use strict";
 
 $(document).ready( function () {
+//splash page
+	setTimeout( function () {
+	  splash();
+	  setTimeout( function () {
+	    $(".splashTextTop, .splashTextButtom").animate({
+	      opacity: 1
+	    }, { duration: 1000 });
+	  }, 980);
+	}, 500);
 
+	setTimeout( function () {
+	  $(".splash").fadeOut("slow");
+	}, 3000);
+
+	var splash = function () {
+	  var i;
+	  var blocks = ["one", "two", "three", "four", "five", "six"];
+	  splashShrink(".splashBox."+blocks[0], 0);
+	  splashShrink(".splashBox."+blocks[1], 110);
+	  splashShrink(".splashBox."+blocks[2], 220);
+	  splashShrink(".splashBox."+blocks[3], 330);
+	  splashShrink(".splashBox."+blocks[4], 440);
+	  splashShrink(".splashBox."+blocks[5], 550);
+	};
+
+	var splashShrink = function ( selector, time ) {
+	  setTimeout( function () {
+	    $(selector).show().animate({
+	      zoom: "100%"
+	    }, {duration: 100} );
+	  }, time);
+	};
+	setTimeout( function () {
+		$("#homepage").fadeIn("slow");
+	}, 4000);
 //global variables
 	var i, length;
 	var themeNum = 0;
@@ -1161,11 +1195,24 @@ $(document).ready( function () {
 	};
 //play app
 	$("#play").click( function () {
+		//set the puzzle themes
 		colorTheme();		
 		populatePaper();
 		$("#homepage").delay(400).fadeOut("slow");
-		$("#puzzleGallery").delay(800).fadeIn(2000);
-		$("body").scrollTop(0).css("background-image", "url(backgroundPlain.png)");
+		//show page loader
+		setTimeout( function () {
+			$(".loader").show();
+		}, 1000);
+		//hide the loader
+		setTimeout( function () {
+			$(".loader").fadeOut(500);
+		}, 1500);
+		//show the gallery
+		setTimeout( function () {
+			$("#puzzleGallery").fadeIn(2000);
+		}, 2000);
+		//scroll to the top of page on gallery load
+		$("body").scrollTop(0);
 	});
 //store functionality
 	var itemDescription = [
