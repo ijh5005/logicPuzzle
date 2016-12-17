@@ -25,10 +25,21 @@ body {
 
 /**/
 
+.splashCenter {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.splashBoxCenter {
+  width: 100vw;
+}
 .splash {
   display: flex;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .splashTextTop {
@@ -43,6 +54,16 @@ body {
   top: 15px;
   font-size: 3.4em;
   opacity: 0;
+}
+
+.developer {
+  position: relative;
+  /*top: -260px;*/
+  font-size: 2.8em;
+  opacity: 0;
+  margin: 0 auto;
+  width: 80vw;
+  text-align: center;
 }
 
 #boxHolder {

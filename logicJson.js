@@ -5,14 +5,14 @@ $(document).ready( function () {
 	setTimeout( function () {
 	  splash();
 	  setTimeout( function () {
-	    $(".splashTextTop, .splashTextButtom").animate({
+	    $(".splashTextTop, .splashTextButtom, .developer").animate({
 	      opacity: 1
 	    }, { duration: 1000 });
 	  }, 980);
 	}, 500);
 
 	setTimeout( function () {
-	  $(".splash").fadeOut("slow");
+	  $(".splashCenter").fadeOut("slow");
 	}, 3000);
 
 	setTimeout( function() {
@@ -908,14 +908,16 @@ $(document).ready( function () {
 		if ( ex === -1 ) { ex = 5; }
 	};
 	//this changes the colors
-	window.setInterval(function(){
-	color();
-	color2();
-	color3();
-	color4();
-	color5();
-	color6();
-	}, 1000);
+	setTimeout( function () {
+		window.setInterval(function(){
+		color();
+		color2();
+		color3();
+		color4();
+		color5();
+		color6();
+		}, 1000);
+	}, 3400);
 //selected from settings option
 	$("#settingsPage .vsize").click( function () {
 		$("#settingsPage .vsize").removeClass("settingsSelected");
@@ -1069,8 +1071,6 @@ $(document).ready( function () {
 	    highlightCheck = false;
 		highlightCheckLeft = false;
 	});
-
-
 
 //****NAVIGATION****//
 //select puzzle from gallery
