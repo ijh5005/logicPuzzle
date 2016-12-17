@@ -1312,6 +1312,11 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 	var index = $(this).index();
 	//get the associated page that will later open down for later use
 	var page = $(this).next();
+	//fadeOut the ach page
+	$("#achievementsContainer").hide();
+	setTimeout( function () {
+		$("#achievementsContainer").fadeIn("slow");
+	}, 2000);
 	//gives the click option an active atr with its position for later use
 	$(this).attr("active", index);		
 	//get the width for validation uses
