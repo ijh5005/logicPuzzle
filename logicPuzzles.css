@@ -1617,7 +1617,7 @@ button {
     }
 
     #resetButton, #submit, #undo, #options #backButton, #zoomIn, #zoomOut {
-	    font-size: 66px;
+	    font-size: 64px;
         padding: 32px;
     	margin: 3px;
 	}
