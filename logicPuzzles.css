@@ -62,6 +62,7 @@ body {
 
 .splashEmpty {
   border: 2px solid #CCC;
+  height: 0;
 }
 
 div {

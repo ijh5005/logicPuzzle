@@ -15,6 +15,10 @@ $(document).ready( function () {
 	  $(".splash").fadeOut("slow");
 	}, 3000);
 
+	setTimeout( function() {
+		$(".splashEmpty").css("height", "4em");
+	}, 1050)
+
 	var splash = function () {
 	  var i;
 	  var blocks = ["one", "two", "three", "four", "five", "six"];
@@ -1109,6 +1113,18 @@ $(document).ready( function () {
 		var light = $("#zoomIn").css("background-color");
 		var dark = $("#undo").css("background-color");
 		//$("#win").fadeOut("fast");
+		//make the zoom in and out blink
+		var blink = function (selector, time, blinkBackgroundColor, blinkTextColor) {
+			var x = blinkTextColor;
+			var y = blinkBackgroundColor;
+			var s = selector;
+			setTimeout( function () {
+				$(selector).css("background-color", y);
+				$(selector).css("color", x);
+				console.log(x+" "+y+" "+s+" "+time);
+			}, time);
+		};
+
 		$("#puzzleContainer").animate({
 			top: "-=100vh"
 		}, {
@@ -1119,22 +1135,12 @@ $(document).ready( function () {
 							opacity: 1
 						}, 1000);
 					}, 1000);
-					setTimeout( function () {
-						$("#zoomIn, #zoomOut").css("background-color", dark);
-						$("#zoomIn, #zoomOut").css("color", light);
-					}, 1500);
-					setTimeout( function () {
-						$("#zoomIn, #zoomOut").css("background-color", light);
-						$("#zoomIn, #zoomOut").css("color", dark);
-					}, 2000);
-					setTimeout( function () {
-						$("#zoomIn, #zoomOut").css("background-color", dark);
-						$("#zoomIn, #zoomOut").css("color", light);
-					}, 2500);
-					setTimeout( function () {
-						$("#zoomIn, #zoomOut").css("background-color", light);
-						$("#zoomIn, #zoomOut").css("color", dark);
-					}, 3000);
+					blink("#zoomIn, #zoomOut", 1500, dark, light);
+					blink("#zoomIn, #zoomOut", 2000, light, dark);
+					blink("#zoomIn, #zoomOut", 2500, dark, light);
+					blink("#zoomIn, #zoomOut", 3000, light, dark);
+					blink("#zoomIn, #zoomOut", 3500, dark, light);
+					blink("#zoomIn, #zoomOut", 4000, light, dark);
 					$("#puzzleContainer").css("display", "none");
 					$("#puzzleStoryHolder").css("display", "block").css("top", "100vh");
 					$("#puzzleStoryHolder").animate({
