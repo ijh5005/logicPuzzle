@@ -2106,7 +2106,7 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 			}
 			if ( tutNum === 18 ){
 				nextPress("#tutNext");
-				$("#tutDirections span").html("And be process of elimination, Shay ate the banana");
+				$("#tutDirections span").html("And by process of elimination, Shay ate the banana");
 				$("#tutBoxOne .nine").css("background-color", "rgb(0, 136, 55)");
 			}
 			if ( tutNum === 19 ){
