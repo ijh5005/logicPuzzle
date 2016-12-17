@@ -23,135 +23,197 @@ body {
 	to { background-position: 676px 0; }
 }*/
 
+/*splash page*/
+
+  .splashCenter {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .splashBoxCenter {
+    width: 100vw;
+  }
+  .splash {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .splashTextTop {
+    position: relative;
+    top: -15px;
+    font-size: 3.4em;
+    opacity: 0;
+  }
+
+  .splashTextButtom {
+    position: relative;
+    top: 15px;
+    font-size: 3.4em;
+    opacity: 0;
+  }
+
+  .developer {
+    position: relative;
+    /*top: -260px;*/
+    font-size: 2.8em;
+    opacity: 0;
+    margin: 0 auto;
+    width: 80vw;
+    text-align: center;
+  }
+
+  #boxHolder {
+    width: 13em;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .splashBox {
+    height: 4em;
+    width: 4em;
+    border: 2px solid #CCC;
+    float: left;
+    margin: 0;
+    border-radius: 5px;
+  }
+
+  .splashEmpty {
+    border: 2px solid #CCC;
+    height: 0;
+  }
+
+  div {
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  #logic {
+    position: relative;
+    top: -5px;
+  }
+
+  #color {
+    position: relative;
+    top: 5px;
+  }
+
+  .splashBox.one {
+    background-color: #FD7C7F;
+  }
+
+  .splashBox.two {
+    background-color: #E6789F;
+  }
+  .splashBox.three {
+    background-color: #FF9D79;
+  }
+  .splashBox.four {
+    background-color: #4DC57E;
+  }
+  .splashBox.five {
+    background-color: #5C64F9;
+  }
+  .splashBox.six {
+    background-color: #A35DA3;
+  }
+
+  .splashBox.shown {
+    zoom: 3;
+  }
+
+  .splashC {
+    color: #FD7C7F;
+  }
+
+  .splashO {
+    color: #E6789F;
+  }
+
+  .splashL {
+    color: #FF9D79;
+  }
+
+  .splashOO {
+    color: #4DC57E;
+  }
+
+  .splashR {
+    color: #5C64F9;
+  }
+
+  .splashEX {
+    color: #A35DA3;
+  }
 /**/
 
-.splashCenter {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-}
-
-.splashBoxCenter {
-  width: 100vw;
-}
-.splash {
-  display: flex;
-  align-items: center;
-  height: 80vh;
-  position: relative;
-  flex-wrap: wrap;
-}
-
-.splashTextTop {
-  position: relative;
-  top: -15px;
-  font-size: 3.4em;
-  opacity: 0;
-}
-
-.splashTextButtom {
-  position: relative;
-  top: 15px;
-  font-size: 3.4em;
-  opacity: 0;
-}
-
-.developer {
-  position: relative;
-  /*top: -260px;*/
-  font-size: 2.8em;
-  opacity: 0;
-  margin: 0 auto;
-  width: 80vw;
-  text-align: center;
-}
-
-#boxHolder {
-  width: 13em;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.splashBox {
-  height: 4em;
-  width: 4em;
-  border: 2px solid #CCC;
-  float: left;
-  margin: 0;
-  border-radius: 5px;
-}
-
-.splashEmpty {
-  border: 2px solid #CCC;
-  height: 0;
-}
-
-div {
-  font-family: 'Permanent Marker', cursive;
-}
-
-#logic {
-  position: relative;
-  top: -5px;
-}
-
-#color {
-  position: relative;
-  top: 5px;
-}
-
-.splashBox.one {
-  background-color: #FD7C7F;
-}
-
-.splashBox.two {
-  background-color: #E6789F;
-}
-.splashBox.three {
-  background-color: #FF9D79;
-}
-.splashBox.four {
-  background-color: #4DC57E;
-}
-.splashBox.five {
-  background-color: #5C64F9;
-}
-.splashBox.six {
-  background-color: #A35DA3;
-}
-
-.splashBox.shown {
-  zoom: 3;
-}
-
-.splashC {
-  color: #FD7C7F;
-}
-
-.splashO {
-  color: #E6789F;
-}
-
-.splashL {
-  color: #FF9D79;
-}
-
-.splashOO {
-  color: #4DC57E;
-}
-
-.splashR {
-  color: #5C64F9;
-}
-
-.splashEX {
-  color: #A35DA3;
-}
-
-/**/
-
-
-
+/*******achievement page***********/
+  #achievementsContainer {
+    height: 80%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    background-color: rgb(60, 68, 236);
+    border-radius: 5px;
+  }
+  .flip3D {
+    height: 22em;
+    width: 14em;
+    float: left;
+    margin: 10px;
+  }
+  .flip3D > .front {
+  /*stacks the divs on top with the front box on tip */
+    position: relative;
+    top: -22.2em;
+  /* rotate the div 0 deg on the y axis. The perspective # control the spin look */
+    transform: perspective( 600px ) rotateY( 0deg );
+  /* make the back side of the div hidden*/
+    backface-visibility: hidden;
+  /* the transform property animates the transform property over 2sec in a linear fashion */
+    transition: transform 0.5s linear 0s;
+    
+    border: 10px solid #BBB;
+    height: 21em;
+    width: 13em;
+    background-color: rgb(60, 68, 236);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flip3D > .back {
+    position: relative;
+    transform: perspective( 600px ) rotateY( 180deg );
+    backface-visibility: hidden;
+    transition: transform 0.5s linear 0s;
+    
+    border: 10px solid #BBB;
+    height: 21em;
+    width: 13em;
+    background-color: #5C64F9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flip3D > .back span,
+  .flip3D > .front span {
+    font-size: 2em;
+    text-align: center;
+  }
+  .front.flipped {
+      transform: perspective( 600px ) rotateY( -180deg );
+  }
+  .back.flipped {
+      transform: perspective( 600px ) rotateY( 0deg );
+  }
+/**********************************/
 
 .loader {
   zoom: 212%;
@@ -186,7 +248,7 @@ div {
 
 #storeBeltHolder {
     height: 34em;
-    width: 80%;
+    width: 88%;
     overflow: hidden;
     display: flex;
     overflow-x: hidden;
@@ -200,7 +262,6 @@ div {
 #storeBelt {
 	height: 24em;
 	width: 90%;
-	border: 10px solid #BBB;
 	margin: 0 auto;
 	overflow: auto;
 	white-space: nowrap;

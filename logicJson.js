@@ -2288,4 +2288,20 @@ $("#store, #directions, #tutorial, #achievements, #settings").click( function (e
 				});
 	 	}
 	});
+//Achievements page
+	$(".flip3D").click( function () {
+	  var flipClass = $(this).attr("class");
+	  $(".flip3D").children().removeClass("flipped");
+	  
+	  if ( flipClass === "flip3D active" ){
+	    $(".flip3D").removeClass("active");
+	    $(".flip3D").children().removeClass("flipped");
+	  } else {
+	    $(".flip3D").removeClass("active");
+	    $(".flip3D").children().removeClass("flipped");
+	    $(this).addClass("active");
+	    $(this).children().addClass("flipped");
+	  }
+	  
+	});
 });
