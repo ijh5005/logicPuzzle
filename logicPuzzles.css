@@ -522,6 +522,7 @@ body {
     margin-bottom: 50px;
     margin-left: 18px;
     padding-bottom: 0.4em;
+    width: 80%;
 }
 
 #settingsPage .listOptions {
@@ -621,11 +622,15 @@ body {
 	height: 70px;
     width: 70px;
     display: inline-block;
-    margin: 0 3.75em;
     position: relative;
-    top: 1em;
+    top: 0.2em;
+    left: 1em;
     background-color: #AAA;
     border-radius: 6px;
+}
+
+.reset > div {
+  float: left;
 }
 
 .settingsPageUI {
