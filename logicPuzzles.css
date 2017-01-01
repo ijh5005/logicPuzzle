@@ -213,6 +213,12 @@ body {
   .back.flipped {
       transform: perspective( 600px ) rotateY( 0deg );
   }
+  .flip3D:hover > .front {
+      transform: perspective( 600px ) rotateY( -180deg );
+  }
+  .flip3D:hover > .back {
+      transform: perspective( 600px ) rotateY( 0deg );
+  }
 /**********************************/
 
 .loader {
@@ -229,6 +235,121 @@ body {
 
 #homepage {
   display: none;
+}
+
+/*******difficulty page******/
+
+#difficultyPageCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88%;
+  display: none;
+}
+
+#difficultyPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  flex-direction: column;
+}
+
+#difficultyPage div {
+  height: 24%;
+  width: 50em;
+  border: 35px solid #BBB;
+  text-align: center;
+  margin: 0.4em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #888;
+}
+
+#difficultyPage div:hover {
+  background-color: #AAA;
+}
+
+.difficulty span {
+  font-size: 7em;
+}
+
+
+/*******win page******/
+
+#winPageCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88%;
+  display: none;
+}
+
+#winInfo {
+  width: 100%;
+  padding: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #888;
+  flex-direction: column;
+  position: relative;
+}
+
+#winPageCenter span {
+  display: block;
+}
+
+#winPageText,
+#winPagePoints,
+#winPageStars {
+  font-size: 5em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+}
+
+#winPageStars {
+  margin-top: 1em;
+}
+
+#winPageStars span {
+  font-size: 5em;
+}
+
+#winPageStars .star img {
+  height: 2em;
+  margin: 25px;
+  border-radius: 100px;
+  border: 12px solid #AAA;
+}
+
+.star {
+  opacity: 0.1;
+}
+
+#winPageMenu {
+  position: absolute;
+  top: 21px;
+  right: 66px;
+  height: 4em;
+  width: 4.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid;
+  border-radius: 100px;
+  background-color: #FE5C5C;
+  display: none;
+}
+
+#winPageMenu span{
+  font-size: 6em;
+  position: relative;
+  top: -53px;
+  left: 16px;
 }
 
 /*//STORE SPAGE//*/
@@ -782,6 +903,7 @@ body {
     border: 10px solid #AAA;
     border-radius: 10px;
     text-align: center;
+    background-color: #BBB;
 }
 
 .menuCS {
