@@ -1,7 +1,6 @@
 "use strict";
 
 $(document).ready( function () {
-
 /***********************	Global Vars 	***********************/
 		var i, length;
 		var themeNum = 0;
@@ -16,6 +15,15 @@ $(document).ready( function () {
 		var prevSnapshot = 0;
 		//tutorial var
 		var tutNum = 0;
+		//win check
+		var winner = "false";
+		//game timer
+		var minutes = 0;
+		var seconds = 0;
+		var bestMinute = 99;
+		var bestSeconds = 99;
+		//helps increment the timer
+		var increment;
 /***********************	Slash Screen	***********************/
 	setTimeout( function () {
 	  splash();
@@ -964,10 +972,6 @@ $(document).ready( function () {
 			$("#settingsPage .colorOption, #themeDefualt").removeClass("settingsSelected");
 			$(this).addClass("settingsSelected");
 		});
-
-		$("#settingsPage .resetOption").click( function () {
-			$(this).toggleClass("settingsSelected");
-		});
 	//play app
 		$("#play").click( function () {
 			//set the puzzle themes
@@ -1402,47 +1406,59 @@ $(document).ready( function () {
 					$(".tutGridBox").html("");
 				}
 				if ( tutNum === 24 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("Clue #4: The one who ate the orange eats fruit at 7:00pm and Shay hates eating at school");
 				}
 				if ( tutNum === 25 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("Breakdown: The one who ate the orange is May. Therefore May eats fruit at 7:00pm. Press the starred box two times");
 					$("#tutBoxThree .tutGridBox.seven").html("&#9733;");
 				}
 				if ( tutNum === 26 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("Breakdown: Shay ate the banana. Therefore, the person who ate the banana hates eating at school Press the starred box one time");
 					$("#tutBoxTwo .tutGridBox.nine").html("&#9733;");
 				}
 				if ( tutNum === 27 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("By process of elimination, Shay ate at 5:00pm. Press the starred box two times.");
 					$("#tutBoxThree .tutGridBox.six").html("&#9733;");
 				}
 				if ( tutNum === 28 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("Clue #5: The person who ate at 3:00pm ate at home");
 				}
 				if ( tutNum === 29 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("Breakdown: The person who ate at 3:00pm is Jay... Jay ate the apple... Therefore, the person who ate the apple ate at home.");
 				}
 				if ( tutNum === 30 ){
+					nextPress("#tutNext");
 					$("#tutDirections span").html("Press the starred box two times.");
 					$("#tutBoxTwo .tutGridBox.two").html("&#9733;");
 				}
 				if ( tutNum === 31 ){
+					nextPress("#tutNext");
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("By process of elimination, the person who ate the banana (Shay) ate in the park. Press the starred box two times.");
 					$("#tutBoxTwo .tutGridBox.seven").html("&#9733;");
 				}
 				if ( tutNum === 32 ){
+					nextPress("#tutNext");
+					$("#tutNext").css("opacity", 1);
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("By process of elimination, the person who ate the orange (May) ate in school. Press the starred box two times.");
 					$("#tutBoxTwo .tutGridBox.six").html("&#9733;");
 				}
 				if ( tutNum === 33 ){
+					nextPress("#tutNext");
+					$("#tutNext").css("opacity", 0.25);
 					$(".tutGridBox").html("");
 					$("#tutDirections span").html("Congrats! This puzzle is complete. I hope this tutorial helps!");
 				}
@@ -1613,6 +1629,7 @@ $(document).ready( function () {
 /***********************	Story 		 	***********************/
 	//start puzzle from story page
 		$("#start").click( function () {
+			localStorage.lastPuzzlePlayed = $("#title").html();
 			var light = $("#zoomIn").css("background-color");
 			var dark = $("#undo").css("background-color");
 			//$("#win").fadeOut("fast");
@@ -1794,6 +1811,26 @@ $(document).ready( function () {
 		});
 	//go to the previous screen
 	  	$("#puzzleStory #backButton").click( function () {
+	  		//set winner = false for stop clock use
+			winner = "false";
+			seconds = 0;
+			minutes = 0;
+			//stop the timer
+			setTimeout( function () {
+				window.clearInterval(increment);
+			}, 3000);
+			//set local storage vars
+			$("#lastPlayTime").html(localStorage.lastPlayTime);
+			$("#bestPlayTime").html(localStorage.bestPlayTime);
+			localStorage.puzzleCount = puzzle5by5.length;
+			$("#puzzleCount").html(localStorage.puzzleCount);
+			$("#lastPuzzlePlayed").html(localStorage.lastPuzzlePlayed);
+			$("#logiceDollars").html(localStorage.logiceDollars);
+			$("#worldRank").html(localStorage.worldRank);
+			$("#achievementPoints").html(localStorage.achievementPoints);
+			$("#achievementEarned").html(localStorage.achievementEarned);
+
+
 			$("#puzzleStoryHolder").animate({
 				top: "+=100vh"
 			}, {	duration: 1000,  
@@ -1852,6 +1889,29 @@ $(document).ready( function () {
 						correctAnswers++;
 						$("#puzzleGameBoardInside").fadeOut(1000);
 						setTimeout( function () {
+							//set winner = true to stop the stop clock
+							winner = "true";
+							//set best score
+							if ( minutes < 10 && seconds < 10 ) {
+								localStorage.lastPlayTime = "0"+minutes+":0"+seconds;
+							} else if ( minutes < 10 && seconds >= 10 ) {
+								localStorage.lastPlayTime = "0"+minutes+":"+seconds;
+							} else if ( minutes >= 10 && seconds < 10 ) {
+								localStorage.lastPlayTime = minutes+":0"+seconds;
+							} else if ( minutes >= 10 && seconds >= 10 ) {
+								localStorage.lastPlayTime = minutes+":"+seconds;
+							}
+							$("#lastPlayTime").html(localStorage.lastPlayTime);
+							
+							//check current time with best time
+							if ( minutes == bestMinute && seconds < bestSecond ) {
+								localStorage.bestPlayTime = localStorage.lastPlayTime;
+								$("#bestPlayTime").html(localStorage.bestPlayTime);
+							} else if ( minutes < bestMinute ) {
+								localStorage.bestPlayTime = localStorage.lastPlayTime;
+								$("#bestPlayTime").html(localStorage.bestPlayTime);
+							}
+
 							$("#gameBoard").css("overflow", "");
 							$("#focus").show();
 							$(".youwin").hide();
@@ -2323,7 +2383,16 @@ $(document).ready( function () {
 		var score = 0;
 
 		//score from game played
-		var limit = 1000;
+		var limit = 0;
+		if (minutes < 1) {
+	    	limit = 1000;
+	    }
+	    if (minutes == 1) {
+	    	limit = 750;
+	    }
+	    if (minutes == 2 ) {
+	    	limit = 500;
+	    }
 
 		var increase = function () {
 		    score ++;
@@ -2331,15 +2400,15 @@ $(document).ready( function () {
 
 		    //highlight the star if score reached
 		    	//first star
-				    if (score === 334) {
+				    if (score > 334) {
 				    	$("#starOne").css("opacity", 1);
 				    }
 				//second star
-				    if (score === 667) {
+				    if (score > 667) {
 				    	$("#starTwo").css("opacity", 1);
 				    }
 				//third star
-				    if (score === 900 ) {
+				    if (score > 900 ) {
 				    	$("#starThree").css("opacity", 1);
 				    }
 		};
@@ -2347,6 +2416,7 @@ $(document).ready( function () {
 		//number adding effect
 		var changeScore = window.setInterval(function(){
 		                    increase();
+		                    //stop score when it reaches the limit (earned score)
 		                    if (score == limit) {
 		                          clearInterval(changeScore);
 		                          //fadeIn the menu button
@@ -2356,10 +2426,26 @@ $(document).ready( function () {
 
 		//transition to the galley
 		$("#winPageMenu").click( function () {
+			//set winner = false for stop clock use
+			winner = "false";
+			seconds = 0;
+			minutes = 0;
+			//set local storage vars
+			$("#lastPlayTime").html(localStorage.lastPlayTime);
+			$("#bestPlayTime").html(localStorage.bestPlayTime);
+			localStorage.puzzleCount = puzzle5by5.length;
+			$("#puzzleCount").html(localStorage.puzzleCount);
+			$("#lastPuzzlePlayed").html(localStorage.lastPuzzlePlayed);
+			$("#logiceDollars").html(localStorage.logiceDollars);
+			$("#worldRank").html(localStorage.worldRank);
+			$("#achievementPoints").html(localStorage.achievementPoints);
+			$("#achievementEarned").html(localStorage.achievementEarned);
+
 			$("#winPageCenter").fadeOut(800);
 			setTimeout( function () {
 				$("#puzzleStoryHolder").fadeIn(800);
 				$(".star").css("opacity", "0.1");
+				$(".count").html("");
 				$("#winPageMenu").css("display", "none");
 				setTimeout( function () {
 					$("#puzzleStoryHolder").animate({
@@ -2371,11 +2457,9 @@ $(document).ready( function () {
 							complete: function () {
 								$("#puzzleStoryHolder").css("display", "none");
 								$("#puzzleContainer").css("display", "flex");
-								setTimeout( function () {
-									$("#puzzleContainer").animate({
-										top: "+=100vh"
-									}, 1000)
-								}, 1000);
+								$("#puzzleContainer").animate({
+									top: "+=100vh"
+								}, 800);
 							}
 						});
 					setTimeout( function () {
@@ -2402,13 +2486,87 @@ $(document).ready( function () {
 								scrollTop: bodyPositionGallery
 							}, "slow");
 							$("#puzzleContainer").css("top", "15px");
-						}, 1600);
+						}, 1900);
 						undo = [];
 						prevSnapshot = 0;
 						undoIndex = 0;
-					}, 2000);
+					}, 1500);
 				}, 840);
 			}, 1200);
 		});
 	};
+/***********************	Tracking 		***********************/
+	//time keeper
+		var timeClock = function () {
+			
+			//activate after start is pressed
+			$("#puzzleContainer #story #start").click( function () {
+				//activate clock 3 secs after start is pressed
+					setTimeout( function () {
+					//increment time by 1 every sec
+						increment = window.setInterval(function(){
+							//convert time
+							seconds++;
+							if ( seconds === 60 ){
+								seconds = 0;
+								minutes++;
+							}
+							console.log(minutes + ":" + seconds);
+							//stop the clock after game is over
+							if ( winner == "true" ){
+								window.clearInterval(increment);
+							}
+						}, 1000);
+					}, 3000);
+			});
+		}
+		timeClock();			
+/***********************	Profile Stats 	***********************/
+	$("#lastPlayTime").html(localStorage.lastPlayTime);
+	$("#bestPlayTime").html(localStorage.bestPlayTime);
+	localStorage.puzzleCount = puzzle5by5.length;
+	$("#puzzleCount").html(localStorage.puzzleCount);
+	$("#lastPuzzlePlayed").html(localStorage.lastPuzzlePlayed);
+	$("#logiceDollars").html(localStorage.logiceDollars);
+	$("#worldRank").html(localStorage.worldRank);
+	$("#achievementPoints").html(localStorage.achievementPoints);
+	$("#achievementEarned").html(localStorage.achievementEarned);
+	//reset stats
+	$(".resetOption").click( function () {
+		$(".resetOption").css("display", "none");
+		$("#yesClear, #noClear").css("display", "block");
+		$("#resetText").html("Are you sure? All information will be lost forever.");
+	});
+	$("#yesClear").click( function () {
+		localStorage.clear();
+		$("#resetText").html("Reset game progress");
+		$(".resetOption").css("display", "block");
+		$("#yesClear, #noClear").css("display", "none");
+		
+		localStorage.lastPlayTime = "00:00";
+		localStorage.bestPlayTime = "00:00";
+		localStorage.puzzleCount = puzzle5by5.length;
+		localStorage.lastPuzzlePlayed = "";
+		localStorage.logiceDollars = "";
+		localStorage.worldRank = "";
+		localStorage.achievementPoints = "";
+		localStorage.achievementEarned = "";
+		//rewrite stats
+		setTimeout( function () {
+			$("#lastPlayTime").html(localStorage.lastPlayTime);
+			$("#bestPlayTime").html(localStorage.bestPlayTime);
+			localStorage.puzzleCount = puzzle5by5.length;
+			$("#puzzleCount").html(localStorage.puzzleCount);
+			$("#lastPuzzlePlayed").html(localStorage.lastPuzzlePlayed);
+			$("#logiceDollars").html(localStorage.logiceDollars);
+			$("#worldRank").html(localStorage.worldRank);
+			$("#achievementPoints").html(localStorage.achievementPoints);
+			$("#achievementEarned").html(localStorage.achievementEarned);
+		}, 1000);
+	});
+	$("#noClear").click( function () {
+		$("#resetText").html("Reset game progress");
+		$(".resetOption").css("display", "block");
+		$("#yesClear, #noClear").css("display", "none");
+	})
 });
