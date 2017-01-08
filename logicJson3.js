@@ -1698,6 +1698,26 @@ $(document).ready( function () {
 					}, 4500);
 			};
 			homePageWordJumper();
+		//.puzzleOption torque
+		var torque = function (selector, torqueDirection, initTime, removedSelector, removedClass) {
+		  setTimeout( function () {
+		    $(removedSelector).removeClass(removedClass);
+		    $(selector).addClass(torqueDirection);
+		  }, initTime);
+		};
+		window.setInterval( function () {
+			console.log("go");
+			torque( "#play.homepageButton", "torqueBigRight", 0, "#play.homepageButton", ".filler");
+			torque( "#play.homepageButton", "torqueBigLeft", 50, "#play.homepageButton", "torqueBigRight");
+			torque( "#play.homepageButton", "torqueRight", 250, "#play.homepageButton", "torqueBigLeft");
+			torque( "#play.homepageButton", "torqueLeft", 450, "#play.homepageButton", "torqueRight");
+			torque( "#play.homepageButton", "filler", 650, "#play.homepageButton", "torqueLeft");
+			torque( "#play.homepageButton span", "torqueBigRight", 0, "#play.homepageButton span", ".filler");
+			torque( "#play.homepageButton span", "torqueBigLeft", 50, "#play.homepageButton span", "torqueBigRight");
+			torque( "#play.homepageButton span", "torqueRight", 250, "#play.homepageButton span", "torqueBigLeft");
+			torque( "#play.homepageButton span", "torqueLeft", 450, "#play.homepageButton span", "torqueRight");
+			torque( "#play.homepageButton span", "filler", 650, "#play.homepageButton span", "torqueLeft");
+		}, 4000);
 /***********************	Gallery 		***********************/
 	//select puzzle from gallery
 		$(".puzzleOption").click( function () {

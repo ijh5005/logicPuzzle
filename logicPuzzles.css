@@ -147,7 +147,32 @@ body {
   .splashEX {
     color: #A35DA3;
   }
-/**/
+/*homepage animation*/
+  .torqueRight {
+    transform: perspective( 600px ) rotateY( 3deg );
+    transition: transform 0.25s linear 0s;
+  }
+
+  .torqueLeft {
+    transform: perspective( 600px ) rotateY( -1deg );
+    transition: transform 0.25s linear 0s;
+  }
+
+  .torqueBigRight {
+    transform: perspective( 600px ) rotateY( 8deg );
+    transition: transform 0.1s linear 0s;
+  }
+
+  .torqueBigLeft {
+    transform: perspective( 600px ) rotateY( -5deg );
+    transition: transform 0.25s linear 0s;
+  }
+
+  .filler {}
+
+  .homepageButton span {
+    display: block;
+  }
 
 /*******achievement page***********/
   #achievementsContainer {
@@ -1927,7 +1952,7 @@ button {
     }
 }
 
-//
+
 /*@media (max-width: 799px) {
 
     #homepageHeading {
