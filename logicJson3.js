@@ -996,15 +996,15 @@ $(document).ready( function () {
 			$("body").scrollTop(0);
 
 			//fadeZoom In
-			setTimeout( function () {
-				$(".puzzleOption").css("opacity", 0.1).toggle({ effect: "scale", direction: "horizontal" });
-			}, 2000);
-			setTimeout( function () {
-				$(".puzzleOption").animate({ opacity: 1 }, 10);
-			}, 2100);
-			setTimeout( function () {
-				$(".puzzleOption").toggle({ effect: "scale", direction: "horizontal" });
-			}, 2400);
+			// setTimeout( function () {
+			// 	$(".puzzleOption").css("opacity", 0.1).toggle({ effect: "scale", direction: "horizontal" });
+			// }, 2000);
+			// setTimeout( function () {
+			// 	$(".puzzleOption").animate({ opacity: 1 }, 10);
+			// }, 2100);
+			// setTimeout( function () {
+			// 	$(".puzzleOption").toggle({ effect: "scale", direction: "horizontal" });
+			// }, 2400);
 			setTimeout( function () {
 				var galleryMove = window.setInterval( function () {
 					var totalPuzzles = $(".puzzleOption").length;
