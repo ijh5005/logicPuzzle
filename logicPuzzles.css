@@ -309,6 +309,28 @@ body {
   font-size: 7em;
 }
 
+/***********zoom pointer************/
+
+#arrow,
+#arrowSpin {
+  color: #555;
+  font-size: 3em;
+  position: relative;
+  transform: perspective( 600px ) rotateY( 0deg );
+  transition: transform 6s linear 0s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -23em;
+  left: 15.65em;
+  height: 1em;
+  width: 1em;
+}
+
+#arrowSpin {
+  transform: perspective( 600px ) rotateY( 1080deg );
+  transition: transform 6s linear 0s;
+}
 
 /*******win page******/
 
@@ -1794,7 +1816,7 @@ button {
 }
 
 @media (min-width: 1280px) {
-	#zoomIn, #zoomOut {
+	#zoomIn, #zoomOut, #arrow, #arrowSpin {
     	display: none;
 	}
 

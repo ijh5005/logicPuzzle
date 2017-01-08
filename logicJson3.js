@@ -1772,6 +1772,7 @@ $(document).ready( function () {
 			localStorage.lastPuzzlePlayed = $("#title").html();
 			var light = $("#zoomIn").css("background-color");
 			var dark = $("#undo").css("background-color");
+			$("#arrowSpin").css("background-color", "").css("color", "");
 			//$("#win").fadeOut("fast");
 			//make the zoom in and out blink
 			var blink = function (selector, time, blinkBackgroundColor, blinkTextColor) {
@@ -1794,12 +1795,12 @@ $(document).ready( function () {
 								opacity: 1
 							}, 1000);
 						}, 1000);
-						blink("#zoomIn, #zoomOut", 1500, dark, light);
-						blink("#zoomIn, #zoomOut", 2000, light, dark);
-						blink("#zoomIn, #zoomOut", 2500, dark, light);
-						blink("#zoomIn, #zoomOut", 3000, light, dark);
-						blink("#zoomIn, #zoomOut", 3500, dark, light);
-						blink("#zoomIn, #zoomOut", 4000, light, dark);
+						blink("#zoomIn, #zoomOut, #arrowSpin", 1500, dark, light);
+						blink("#zoomIn, #zoomOut, #arrowSpin", 2000, light, dark);
+						blink("#zoomIn, #zoomOut, #arrowSpin", 2500, dark, light);
+						blink("#zoomIn, #zoomOut, #arrowSpin", 3000, light, dark);
+						blink("#zoomIn, #zoomOut, #arrowSpin", 3500, dark, light);
+						blink("#zoomIn, #zoomOut, #arrowSpin", 4000, light, dark);
 						$("#puzzleContainer").css("display", "none");
 						$("#puzzleStoryHolder").css("display", "block").css("top", "100vh");
 						$("#puzzleStoryHolder").animate({
@@ -1838,6 +1839,11 @@ $(document).ready( function () {
 			undoIndex = 0;
 		});
 /***********************	Game Board 		***********************/
+	//zoom arrow
+		$("#story #start").click( function () {
+		  $("#arrow").attr("id", "arrowSpin");
+		  $("#arrowSpin").animate({ opacity: 1 }, 500).animate({ top: "-23.36em" }, 500).animate({ top: "-23em" }, 500).animate({ top: "-23.36em" }, 500).animate({ top: "-23em" }, 500).animate({ top: "-23.36em" }, 500).animate({ top: "-23em" }, 500).animate({ top: "-23.36em" }, 500).animate({ top: "-23em" }, 500).animate({ top: "-23.36em" }, 500).animate({ top: "-23em" }, 500).animate({ top: "-23.36em" }, 500).animate({ top: "-23em" }, 500).animate({ opacity: 0 }, 500);
+		});
 	//.guessBox functionality
 		//toggle correct answer indicator (light color/dark color)
 	    $(".guessBox").click(function () {
@@ -2437,7 +2443,7 @@ $(document).ready( function () {
 					borderColorTheme(".guessBox, .leftBar, .leftBarOption, .topBar, .topBarOption, div#currentClue", puzzle5by5[tempHolder].colors.light);
 					borderColorTheme("#story, #puzzleStory, #start, div#clue, div#next, div#previous, #zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
 					textColorTheme("#start, #backButton, #resetButton, #submit, #undo, .leftBarOption span, .topBarOption span, .leftBar span, .topBar span, #previous, #next", puzzle5by5[tempHolder].colors.light);
-					textColorTheme("#zoomIn, #zoomOut", puzzle5by5[tempHolder].colors.dark);
+					textColorTheme("#zoomIn, #zoomOut, #arrow, #arrowSpin", puzzle5by5[tempHolder].colors.dark);
 				//zoom button functionality
 				var zoom = 0;
 				//click the zoom in button to zoom in
