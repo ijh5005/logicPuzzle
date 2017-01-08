@@ -237,6 +237,14 @@ body {
   display: none;
 }
 
+#play span,
+#store span,
+#directions span,
+#tutorial span,
+#achievements span,
+#settings span {
+  position: relative;
+}
 /*******difficulty page******/
 
 #difficultyPageCenter {
@@ -842,7 +850,7 @@ body {
     margin: 0 auto;
     margin-bottom: 20px;
     text-align: center;
-        height: 13.0625rem;
+    height: 13.0625rem;
     width: 43rem;
 }
 
@@ -896,6 +904,35 @@ body {
 
 #tutorialPage {
     height: 1024px;
+}
+
+#storeBelt .item[data="1"]{
+  position: relative;
+  z-index: 10;
+}
+
+#storeBelt .item[data="2"]{
+  position: relative;
+  left: -18em;
+  z-index: 9;
+}
+
+#storeBelt .item[data="3"]{
+  position: relative;
+  left: -36em;
+  z-index: 8;
+}
+
+#storeBelt .item[data="4"]{
+  position: relative;
+  left: -54em;
+  z-index: 7;
+}
+
+#storeBelt .item[data="5"]{
+  position: relative;
+  left: -72em;
+  z-index: 6;
 }
 
 #storePage .comingSoon,
@@ -977,13 +1014,14 @@ body {
 	height: 31.25em;
 	width: 23.75em;
 	float: left;
-    border: 8px solid #555;
-    margin: 5%;
-    border-radius: 10px;
-    /*background-image: url("paper2.png");*/
-    background-size: 23.8em 31.3em;
-    background-repeat: no-repeat;
-    font-family: 'Permanent Marker', cursive;
+  border: 8px solid #555;
+  margin: 5%;
+  border-radius: 10px;
+  /*background-image: url("paper2.png");*/
+  background-size: 23.8em 31.3em;
+  background-repeat: no-repeat;
+  font-family: 'Permanent Marker', cursive;
+  position: relative;
 }
 
 .puzzleOption span {

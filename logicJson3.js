@@ -24,6 +24,8 @@ $(document).ready( function () {
 		var bestSeconds = 99;
 		//helps increment the timer
 		var increment;
+		//helps disable the page word animation
+		var animateHomePageWords = 0;
 /***********************	Slash Screen	***********************/
 	setTimeout( function () {
 	  splash();
@@ -992,8 +994,87 @@ $(document).ready( function () {
 			}, 2000);
 			//scroll to the top of page on gallery load
 			$("body").scrollTop(0);
+
+			//fadeZoom In
+			setTimeout( function () {
+				$(".puzzleOption").css("opacity", 0.1).toggle({ effect: "scale", direction: "horizontal" });
+			}, 2000);
+			setTimeout( function () {
+				$(".puzzleOption").animate({ opacity: 1 }, 10);
+			}, 2100);
+			setTimeout( function () {
+				$(".puzzleOption").toggle({ effect: "scale", direction: "horizontal" });
+			}, 2400);
+			setTimeout( function () {
+				var galleryMove = window.setInterval( function () {
+					var totalPuzzles = $(".puzzleOption").length;
+					var puzzleJumpTime = 0;
+					$(".puzzleOption").each( function () {
+						jumper(this, puzzleJumpTime);
+						puzzleJumpTime += 100;
+					});
+					puzzleJumpTime = 0;
+				}, 4000);
+				$("#menu, .puzzleOption").click( function () {
+					clearInterval(galleryMove);
+				});
+			}, 2600);
+			$("#backButton").click( function () {
+				setTimeout( function () {
+					var galleryMove = window.setInterval( function () {
+						var totalPuzzles = $(".puzzleOption").length;
+						var puzzleJumpTime = 0;
+						$(".puzzleOption").each( function () {
+							jumper(this, puzzleJumpTime);
+							puzzleJumpTime += 100;
+						});
+						puzzleJumpTime = 0;
+					}, 4000);
+					$("#menu, .puzzleOption").click( function () {
+						clearInterval(galleryMove);
+					});
+				}, 2600);
+			});
 		});
 	//store page
+		//store animate
+			//they are intiated in "open homepageButtons on click"
+			var slideStoreOptionsInit = function ( selector, slideTime ) {
+				setTimeout( function () {
+					$(selector).animate({
+						left: "+=18em"
+					}, 600);
+				}, slideTime);
+			};
+			var slideStoreOptions = function () {
+				var storeBeltSelectors = [ 
+									"#storeBelt .item[data=\"2\"]", 
+									"#storeBelt .item[data=\"3\"]", 
+									"#storeBelt .item[data=\"4\"]", 
+									"#storeBelt .item[data=\"5\"]", 
+								];
+				slideStoreOptionsInit( storeBeltSelectors[0], 1000 );
+				slideStoreOptionsInit( storeBeltSelectors[1], 1000 );
+				slideStoreOptionsInit( storeBeltSelectors[2], 1000 );
+				slideStoreOptionsInit( storeBeltSelectors[3], 1000 );
+				slideStoreOptionsInit( storeBeltSelectors[1], 1500 );
+				slideStoreOptionsInit( storeBeltSelectors[2], 1500 );
+				slideStoreOptionsInit( storeBeltSelectors[3], 1500 );
+				slideStoreOptionsInit( storeBeltSelectors[2], 2000 );
+				slideStoreOptionsInit( storeBeltSelectors[3], 2000 );
+				slideStoreOptionsInit( storeBeltSelectors[3], 2500 );
+			};
+
+			var slideStoreOptionsBack = function () {
+				//if closed while sliding store options ->
+					// -> delay to finish sliding the puzzles before reseting
+				setTimeout( function () {
+					$("#storeBelt .item[data=\"2\"]").css("left", "-18em");
+					$("#storeBelt .item[data=\"3\"]").css("left", "-36em");
+					$("#storeBelt .item[data=\"4\"]").css("left", "-54em");
+					$("#storeBelt .item[data=\"5\"]").css("left", "-72em");
+				}, 2000);
+			};
 		//store options
 			var itemDescription = [
 				{
@@ -1067,7 +1148,7 @@ $(document).ready( function () {
 				$(".bigPage").removeClass("bigPage");
 			}, 4000);		
 		});
-
+	//open homepageButtons on click
 		$("#store, #directions, #tutorial, #achievements, #settings").click( function (event) {
 			event.preventDefault();
 			//get the current position of the clicked option for later use
@@ -1092,6 +1173,10 @@ $(document).ready( function () {
 			setTimeout( function () { $("#storeBeltHolder").fadeIn("slow"); }, 2000);
 			//run only if the homepage option's width is equal to it's inital value of 688px
 			if ( !isPageExplanded && !isAnimating ) {
+				setTimeout( function () {
+					//init slide animation
+					slideStoreOptions();
+				}, 1000)
 				$("html, body").animate({
 					scrollTop: $(this).offset().top
 				}, "slow");
@@ -1130,6 +1215,8 @@ $(document).ready( function () {
 
 			//run only if there are no expanded homepage options
 			if (isOptionLonger && isPageExplanded) {
+				//reset slide animation
+				slideStoreOptionsBack();
 				//slide up all secondary pages that may be showing
 				$(".bigPage").slideUp(800).css("border-top-right-radius", "10px").css("border-top-left-radius", "10px").removeClass("bigPage");
 				//reset all hompage button sizes if any are expanded
@@ -1578,6 +1665,39 @@ $(document).ready( function () {
 		  }
 		  
 		});
+	//homepage animation
+		//make the words jump
+			var jumper = function (selector, activationTime) {
+				setTimeout( function () {
+					$(selector).animate( { top: "-8px" }, 300 ).animate({ top: "8px" }, 250);
+				}, activationTime)
+			}
+			var hompageButtonLengthCheck = function () {
+				$(".homepageButton").each( function () {
+					var thisWidth = $(this).css("width");
+					if ( thisWidth === "688px" ) {
+						animateHomePageWords++;
+					}
+				});
+			};
+			var homePageWordJumper = function () {
+				
+					window.setInterval( function () {
+						var hompageButtonLength = $(".homepageButton").length;
+						hompageButtonLengthCheck();
+						//check to see if all homepageButtons are closed
+						if ( animateHomePageWords === hompageButtonLength ){
+							jumper("#play span", 0);
+							jumper("#store span", 100);
+							jumper("#directions span", 200);
+							jumper("#tutorial span", 300);
+							jumper("#achievements span", 400);
+							jumper("#settings span", 500);
+						}
+						animateHomePageWords = 0;
+					}, 4500);
+			};
+			homePageWordJumper();
 /***********************	Gallery 		***********************/
 	//select puzzle from gallery
 		$(".puzzleOption").click( function () {
