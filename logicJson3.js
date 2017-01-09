@@ -1772,7 +1772,7 @@ $(document).ready( function () {
 			localStorage.lastPuzzlePlayed = $("#title").html();
 			var light = $("#zoomIn").css("background-color");
 			var dark = $("#undo").css("background-color");
-			$("#arrowSpin").css("background-color", "").css("color", "");
+			$("#arrowSpin").css("background-color", "");
 			//$("#win").fadeOut("fast");
 			//make the zoom in and out blink
 			var blink = function (selector, time, blinkBackgroundColor, blinkTextColor) {

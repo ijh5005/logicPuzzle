@@ -315,6 +315,7 @@ body {
 #arrowSpin {
   color: #555;
   font-size: 3em;
+  font-weight: bold;
   position: relative;
   transform: perspective( 600px ) rotateY( 0deg );
   transition: transform 6s linear 0s;
